@@ -35,7 +35,15 @@ function main() {
 
     [].forEach.call(document.querySelectorAll('time.time-ago'), (content) => {
       const datetime = new Date(content.getAttribute('datetime'));
+      content.title = dateTimeFormat.format(datetime);
       content.textContent = relativeFormat.format(datetime);
+    });
+
+    [].forEach.call(document.querySelectorAll('.logo-button'), (content) => {
+      content.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.open(e.target.href, 'mastodon-intent', 'width=400,height=400,resizable=no,menubar=no,status=no,scrollbars=yes');
+      });
     });
   });
 

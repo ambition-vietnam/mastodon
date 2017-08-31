@@ -7,6 +7,7 @@ class ActivityPub::InboxesController < Api::BaseController
 
   def create
     if signed_request_account
+      upgrade_account
       process_payload
       head 201
     else
@@ -17,11 +18,16 @@ class ActivityPub::InboxesController < Api::BaseController
   private
 
   def set_account
-    @account = Account.find_local!(params[:account_username])
+    @account = Account.find_local!(params[:account_username]) if params[:account_username]
   end
 
   def body
     @body ||= request.body.read
+  end
+
+  def upgrade_account
+    return unless signed_request_account.subscribed?
+    Pubsubhubbub::UnsubscribeWorker.perform_async(signed_request_account.id)
   end
 
   def process_payload

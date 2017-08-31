@@ -237,6 +237,8 @@
   line-height: 0;
   display: inline-block;
   width: 0;
+  height: 0;
+  position: absolute;
 }
 
 .ellipsis {
@@ -1055,6 +1057,8 @@
   strong,
   span {
     display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   strong {
@@ -1870,7 +1874,7 @@
 
 .character-counter__wrapper {
   line-height: 36px;
-  margin-right: 16px;
+  margin: 0 16px 0 8px;
   padding-top: 10px;
 }
 

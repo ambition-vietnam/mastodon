@@ -25,15 +25,15 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
   private
 
   def find_existing_status
-    status   = Status.find_by(uri: object_uri)
-    status ||= Status.find_by(uri: @object['_:atomUri']) if @object['_:atomUri'].present?
+    status   = status_from_uri(object_uri)
+    status ||= Status.find_by(uri: @object['atomUri']) if @object['atomUri'].present?
     status
   end
 
   def status_params
     {
       uri: @object['id'],
-      url: @object['url'] || @object['id'],
+      url: object_url || @object['id'],
       account: @account,
       text: text_from_content || '',
       language: language_from_content,
@@ -43,7 +43,7 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
       sensitive: @object['sensitive'] || false,
       visibility: visibility_from_audience,
       thread: replied_to_status,
-      conversation: conversation_from_uri(@object['_:conversation']),
+      conversation: conversation_from_uri(@object['conversation']),
     }
   end
 
@@ -125,7 +125,7 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
       @replied_to_status = nil
     else
       @replied_to_status   = status_from_uri(in_reply_to_uri)
-      @replied_to_status ||= status_from_uri(@object['_:inReplyToAtomUri']) if @object['_:inReplyToAtomUri'].present?
+      @replied_to_status ||= status_from_uri(@object['inReplyToAtomUri']) if @object['inReplyToAtomUri'].present?
       @replied_to_status
     end
   end
@@ -145,6 +145,16 @@ class ActivityPub::Activity::Create < ActivityPub::Activity
   def language_from_content
     return nil unless language_map?
     @object['contentMap'].keys.first
+  end
+
+  def object_url
+    return if @object['url'].blank?
+
+    value = first_of_value(@object['url'])
+
+    return value if value.is_a?(String)
+
+    value['href']
   end
 
   def language_map?

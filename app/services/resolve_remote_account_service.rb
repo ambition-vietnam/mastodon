@@ -74,12 +74,13 @@ class ResolveRemoteAccountService < BaseService
   end
 
   def webfinger_update_due?
-    @account.nil? || @account.last_webfingered_at.nil? || @account.last_webfingered_at <= 1.day.ago
+    @account.nil? || @account.possibly_stale?
   end
 
   def activitypub_ready?
     !@webfinger.link('self').nil? &&
       ['application/activity+json', 'application/ld+json; profile="https://www.w3.org/ns/activitystreams"'].include?(@webfinger.link('self').type) &&
+      !actor_json.nil? &&
       actor_json['inbox'].present?
   end
 

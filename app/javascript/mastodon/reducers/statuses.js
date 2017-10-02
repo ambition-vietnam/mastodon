@@ -15,8 +15,6 @@ import {
   CONTEXT_FETCH_SUCCESS,
   STATUS_MUTE_SUCCESS,
   STATUS_UNMUTE_SUCCESS,
-  STATUS_SET_HEIGHT,
-  STATUSES_CLEAR_HEIGHT,
 } from '../actions/statuses';
 import {
   TIMELINE_REFRESH_SUCCESS,
@@ -36,6 +34,9 @@ import {
   FAVOURITED_STATUSES_FETCH_SUCCESS,
   FAVOURITED_STATUSES_EXPAND_SUCCESS,
 } from '../actions/favourites';
+import {
+  PINNED_STATUSES_FETCH_SUCCESS,
+} from '../actions/pin_statuses';
 import { SEARCH_FETCH_SUCCESS } from '../actions/search';
 import emojify from '../emoji';
 import { Map as ImmutableMap, fromJS } from 'immutable';
@@ -57,9 +58,14 @@ const normalizeStatus = (state, status) => {
   }
 
   const searchContent = [status.spoiler_text, status.content].join(' ').replace(/<br \/>/g, '\n').replace(/<\/p><p>/g, '\n\n');
+  const emojiMap = normalStatus.emojis.reduce((obj, emoji) => {
+    obj[`:${emoji.shortcode}:`] = emoji.url;
+    return obj;
+  }, {});
+
   normalStatus.search_index = domParser.parseFromString(searchContent, 'text/html').documentElement.textContent;
-  normalStatus.contentHtml = emojify(normalStatus.content);
-  normalStatus.spoilerHtml = emojify(escapeTextContentForBrowser(normalStatus.spoiler_text || ''));
+  normalStatus.contentHtml = emojify(normalStatus.content, emojiMap);
+  normalStatus.spoilerHtml = emojify(escapeTextContentForBrowser(normalStatus.spoiler_text || ''), emojiMap);
 
   return state.update(status.id, ImmutableMap(), map => map.mergeDeep(fromJS(normalStatus)));
 };
@@ -87,18 +93,6 @@ const filterStatuses = (state, relationship) => {
     }
 
     state = deleteStatus(state, status.get('id'), state.filter(item => item.get('reblog') === status.get('id')));
-  });
-
-  return state;
-};
-
-const setHeight = (state, id, height) => {
-  return state.update(id, ImmutableMap(), map => map.set('height', height));
-};
-
-const clearHeights = (state) => {
-  state.forEach(status => {
-    state = state.deleteIn([status.get('id'), 'height']);
   });
 
   return state;
@@ -138,16 +132,13 @@ export default function statuses(state = initialState, action) {
   case NOTIFICATIONS_EXPAND_SUCCESS:
   case FAVOURITED_STATUSES_FETCH_SUCCESS:
   case FAVOURITED_STATUSES_EXPAND_SUCCESS:
+  case PINNED_STATUSES_FETCH_SUCCESS:
   case SEARCH_FETCH_SUCCESS:
     return normalizeStatuses(state, action.statuses);
   case TIMELINE_DELETE:
     return deleteStatus(state, action.id, action.references);
   case ACCOUNT_BLOCK_SUCCESS:
     return filterStatuses(state, action.relationship);
-  case STATUS_SET_HEIGHT:
-    return setHeight(state, action.id, action.height);
-  case STATUSES_CLEAR_HEIGHT:
-    return clearHeights(state);
   default:
     return state;
   }

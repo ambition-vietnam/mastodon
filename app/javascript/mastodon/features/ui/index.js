@@ -11,7 +11,7 @@ import { debounce } from 'lodash';
 import { uploadCompose } from '../../actions/compose';
 import { refreshHomeTimeline } from '../../actions/timelines';
 import { refreshNotifications } from '../../actions/notifications';
-import { clearStatusesHeight } from '../../actions/statuses';
+import { clearHeight } from '../../actions/height_cache';
 import { WrappedSwitch, WrappedRoute } from './util/react_router_helpers';
 import UploadArea from './components/upload_area';
 import ColumnsAreaContainer from './containers/columns_area_container';
@@ -35,6 +35,7 @@ import {
   FavouritedStatuses,
   Blocks,
   Mutes,
+  PinnedStatuses,
 } from './util/async-components';
 
 // Dummy import, to make sure that <Status /> ends up in the application bundle.
@@ -47,11 +48,11 @@ const mapStateToProps = state => ({
 
 @connect(mapStateToProps)
 @withRouter
-export default class UI extends React.PureComponent {
+export default class UI extends React.Component {
 
   static contextTypes = {
     router: PropTypes.object.isRequired,
-  }
+  };
 
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
@@ -67,7 +68,7 @@ export default class UI extends React.PureComponent {
 
   handleResize = debounce(() => {
     // The cached heights are no longer accurate, invalidate
-    this.props.dispatch(clearStatusesHeight());
+    this.props.dispatch(clearHeight());
 
     this.setState({ width: window.innerWidth });
   }, 500, {
@@ -182,12 +183,16 @@ export default class UI extends React.PureComponent {
     document.removeEventListener('dragend', this.handleDragEnd);
   }
 
-  setRef = (c) => {
+  setRef = c => {
     this.node = c;
   }
 
-  setColumnsAreaRef = (c) => {
+  setColumnsAreaRef = c => {
     this.columnsAreaNode = c.getWrappedInstance().getWrappedInstance();
+  }
+
+  setOverlayRef = c => {
+    this.overlay = c;
   }
 
   render () {
@@ -208,6 +213,7 @@ export default class UI extends React.PureComponent {
 
             <WrappedRoute path='/notifications' component={Notifications} content={children} />
             <WrappedRoute path='/favourites' component={FavouritedStatuses} content={children} />
+            <WrappedRoute path='/pinned' component={PinnedStatuses} content={children} />
 
             <WrappedRoute path='/statuses/new' component={Compose} content={children} />
             <WrappedRoute path='/statuses/:statusId' exact component={Status} content={children} />

@@ -46,7 +46,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     onEmbed: PropTypes.func,
     onMuteConversation: PropTypes.func,
     onPin: PropTypes.func,
-    me: PropTypes.number,
+    me: PropTypes.string,
     withDismiss: PropTypes.bool,
     intl: PropTypes.object.isRequired,
   };
@@ -134,7 +134,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
 
     menu.push(null);
 
-    if (withDismiss) {
+    if (status.getIn(['account', 'id']) === me || withDismiss) {
       menu.push({ text: intl.formatMessage(mutingConversation ? messages.unmuteConversation : messages.muteConversation), action: this.handleConversationMuteClick });
       menu.push(null);
     }

@@ -25,7 +25,7 @@ ja:
       within_reach_title: いつでも身近に
     find_another_instance: 他のインスタンスを探す
     generic_description: "%{domain} は、Mastodon インスタンスの一つです。"
-    hosted_on: Mastodon hosted on %{domain}
+    hosted_on: あらゆる物事の価値を最大限に高めるコミュニティーを築く
     learn_more: もっと詳しく
     other_instances: 他のインスタンス
     source_code: ソースコード

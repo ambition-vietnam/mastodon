@@ -17,13 +17,13 @@ en:
       unconfirmed: You have to confirm your email address before continuing.
     mailer:
       confirmation_instructions:
-        subject: 'Mastodon: Confirmation instructions for %{instance}'
+        subject: 'Offidon: Confirmation instructions'
       password_change:
-        subject: 'Mastodon: Password changed'
+        subject: 'Offidon: Password changed'
       reset_password_instructions:
-        subject: 'Mastodon: Reset password instructions'
+        subject: 'Offidon: Reset password instructions'
       unlock_instructions:
-        subject: 'Mastodon: Unlock instructions'
+        subject: 'Offidon: Unlock instructions'
     omniauth_callbacks:
       failure: Could not authenticate you from %{kind} because "%{reason}".
       success: Successfully authenticated from %{kind} account.

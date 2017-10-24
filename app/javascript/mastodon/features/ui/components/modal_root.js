@@ -9,14 +9,14 @@ import VideoModal from './video_modal';
 import BoostModal from './boost_modal';
 import ConfirmationModal from './confirmation_modal';
 import {
-  OnboardingModal,
+  //OnboardingModal,
   ReportModal,
   EmbedModal,
 } from '../../../features/ui/util/async-components';
 
 const MODAL_COMPONENTS = {
   'MEDIA': () => Promise.resolve({ default: MediaModal }),
-  'ONBOARDING': OnboardingModal,
+  //'ONBOARDING': OnboardingModal,
   'VIDEO': () => Promise.resolve({ default: VideoModal }),
   'BOOST': () => Promise.resolve({ default: BoostModal }),
   'CONFIRM': () => Promise.resolve({ default: ConfirmationModal }),

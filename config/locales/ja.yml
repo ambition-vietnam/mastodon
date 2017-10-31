@@ -484,7 +484,7 @@ ja:
     title: セッション
   settings:
     authorized_apps: 認証済みアプリ
-    back: Mastodon に戻る
+    back: Offidon に戻る
     delete: アカウントの削除
     development: 開発
     edit_profile: プロフィールを編集

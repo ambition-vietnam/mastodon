@@ -9,14 +9,14 @@ import VideoModal from './video_modal';
 import BoostModal from './boost_modal';
 import ConfirmationModal from './confirmation_modal';
 import {
-  //OnboardingModal,
+  OnboardingModal,
   ReportModal,
   EmbedModal,
 } from '../../../features/ui/util/async-components';
 
 const MODAL_COMPONENTS = {
   'MEDIA': () => Promise.resolve({ default: MediaModal }),
-  //'ONBOARDING': OnboardingModal,
+  'ONBOARDING': OnboardingModal,
   'VIDEO': () => Promise.resolve({ default: VideoModal }),
   'BOOST': () => Promise.resolve({ default: BoostModal }),
   'CONFIRM': () => Promise.resolve({ default: ConfirmationModal }),
@@ -45,6 +45,7 @@ export default class ModalRoot extends React.PureComponent {
   }
 
   componentDidMount () {
+    this.props.onClose();
     window.addEventListener('keyup', this.handleKeyUp, false);
   }
 
@@ -98,6 +99,7 @@ export default class ModalRoot extends React.PureComponent {
     const { revealed } = this.state;
     const visible = !!type;
 
+    /*
     if (!visible) {
       return (
         <div className='modal-root' ref={this.setRef} style={{ opacity: 0 }} />
@@ -119,6 +121,10 @@ export default class ModalRoot extends React.PureComponent {
           </div>
         </div>
       </div>
+    );
+    */
+    return (
+      <div className='modal-root' ref={this.setRef} style={{ opacity: 0 }} />
     );
   }
 

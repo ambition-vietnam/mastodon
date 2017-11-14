@@ -45,7 +45,6 @@ export default class ModalRoot extends React.PureComponent {
   }
 
   componentDidMount () {
-    this.props.onClose();
     window.addEventListener('keyup', this.handleKeyUp, false);
   }
 
@@ -99,8 +98,13 @@ export default class ModalRoot extends React.PureComponent {
     const { revealed } = this.state;
     const visible = !!type;
 
-    /*
     if (!visible) {
+      return (
+        <div className='modal-root' ref={this.setRef} style={{ opacity: 0 }} />
+      );
+    }
+
+    if (type === 'ONBOARDING') {
       return (
         <div className='modal-root' ref={this.setRef} style={{ opacity: 0 }} />
       );
@@ -121,10 +125,6 @@ export default class ModalRoot extends React.PureComponent {
           </div>
         </div>
       </div>
-    );
-    */
-    return (
-      <div className='modal-root' ref={this.setRef} style={{ opacity: 0 }} />
     );
   }
 

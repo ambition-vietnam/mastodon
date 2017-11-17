@@ -201,7 +201,7 @@ export default function compose(state = initialState, action) {
     return state.withMutations(map => {
       map.set('in_reply_to', action.status.get('id'));
       map.set('text', statusToTextMentions(state, action.status));
-      map.set('privacy', privacyPreference(action.status.get('visibility'), state.get('default_privacy')));
+      map.set('privacy', privacyPreference('direct', state.get('default_privacy')));
       map.set('focusDate', new Date());
       map.set('preselectDate', new Date());
       map.set('idempotencyKey', uuid());
@@ -246,6 +246,7 @@ export default function compose(state = initialState, action) {
     return state
       .update('text', text => `${text}@${action.account.get('acct')} `)
       .set('focusDate', new Date())
+      .set('privacy', 'direct')
       .set('idempotencyKey', uuid());
   case COMPOSE_SUGGESTIONS_CLEAR:
     return state.update('suggestions', ImmutableList(), list => list.clear()).set('suggestion_token', null);

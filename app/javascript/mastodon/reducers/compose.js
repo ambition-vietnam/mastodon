@@ -120,6 +120,9 @@ const insertSuggestion = (state, position, token, completion) => {
     map.update('suggestions', ImmutableList(), list => list.clear());
     map.set('focusDate', new Date());
     map.set('idempotencyKey', uuid());
+    if (token[0] === '@') {
+      map.set('privacy', 'direct');
+    }
   });
 };
 

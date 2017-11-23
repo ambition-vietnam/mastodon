@@ -8,6 +8,7 @@ en:
     contact: Contact
     contact_missing: Not set
     contact_unavailable: N/A
+    contact_us: Contact Us
     description_headline: What is %{domain}?
     domain_count_after: other instances
     domain_count_before: Connected to

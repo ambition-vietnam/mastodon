@@ -202,6 +202,7 @@ Rails.application.routes.draw do
       resources :custom_emojis, only: [:index]
 
       get '/search', to: 'search#index', as: :search
+      post '/bootstrap_timeline', to: 'bootstrap_timeline#create'
 
       resources :follows,    only: [:create]
       resources :media,      only: [:create, :update]

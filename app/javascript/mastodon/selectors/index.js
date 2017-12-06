@@ -4,6 +4,7 @@ import { List as ImmutableList } from 'immutable';
 const getAccountBase         = (state, id) => state.getIn(['accounts', id], null);
 const getAccountCounters     = (state, id) => state.getIn(['accounts_counters', id], null);
 const getAccountRelationship = (state, id) => state.getIn(['relationships', id], null);
+const getMessengerAccountBase = (state, id) => state.getIn(['accounts', id], null);
 
 export const makeGetAccount = () => {
   return createSelector([getAccountBase, getAccountCounters, getAccountRelationship], (base, counters, relationship) => {
@@ -12,6 +13,16 @@ export const makeGetAccount = () => {
     }
 
     return base.merge(counters).set('relationship', relationship);
+  });
+};
+
+export const makeGetMessengerAccount = () => {
+  return createSelector([getMessengerAccountBase, getAccountRelationship], (base, relationship) => {
+    if (base === null) {
+      return null;
+    }
+
+    return base.set('relationship', relationship);
   });
 };
 

@@ -6,6 +6,8 @@ import {
   FOLLOWING_EXPAND_SUCCESS,
   FOLLOW_REQUESTS_FETCH_SUCCESS,
   FOLLOW_REQUESTS_EXPAND_SUCCESS,
+  MESSENGER_ACCOUNTS_FETCH_SUCCESS,
+  MESSENGER_ACCOUNTS_EXPAND_SUCCESS,
 } from '../actions/accounts';
 import {
   BLOCKS_FETCH_SUCCESS,
@@ -129,6 +131,9 @@ export default function accounts(state = initialState, action) {
   case TIMELINE_UPDATE:
   case STATUS_FETCH_SUCCESS:
     return normalizeAccountFromStatus(state, action.status);
+  case MESSENGER_ACCOUNTS_FETCH_SUCCESS:
+  case MESSENGER_ACCOUNTS_EXPAND_SUCCESS:
+    return normalizeAccounts(state, action.accounts);
   default:
     return state;
   }

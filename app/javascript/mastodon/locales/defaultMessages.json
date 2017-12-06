@@ -845,6 +845,9 @@
         "id": "navigation_bar.info"
       },
       {
+        "defaultMessage": "Messenger",
+        "id": "navication_bar.messenger"
+      {
         "defaultMessage": "Pinned toots",
         "id": "navigation_bar.pins"
       },
@@ -1023,6 +1026,15 @@
       }
     ],
     "path": "app/javascript/mastodon/features/notifications/index.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Messenger",
+        "id": "column.messenger"
+      }
+    ],
+    "path": "app/javascript/mastodon/features/messenger/index.json"
   },
   {
     "descriptors": [

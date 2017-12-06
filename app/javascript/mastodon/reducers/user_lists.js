@@ -7,6 +7,8 @@ import {
   FOLLOW_REQUESTS_EXPAND_SUCCESS,
   FOLLOW_REQUEST_AUTHORIZE_SUCCESS,
   FOLLOW_REQUEST_REJECT_SUCCESS,
+  MESSENGER_ACCOUNTS_FETCH_SUCCESS,
+  MESSENGER_ACCOUNTS_EXPAND_SUCCESS,
 } from '../actions/accounts';
 import {
   REBLOGS_FETCH_SUCCESS,
@@ -45,6 +47,19 @@ const appendToList = (state, type, id, accounts, next) => {
   });
 };
 
+const normalizeMessengerList = (state, type, accounts, next) => {
+  return state.setIn([type], ImmutableMap({
+    next,
+    items: ImmutableList(accounts.map(item => item.id)),
+  }));
+};
+
+const appendToMessengerList = (state, type, accounts, next) => {
+  return state.updateIn([type], map => {
+    return map.set('next', next).update('items', list => list.push(...accounts.map(item => item.id)));
+  });
+};
+
 export default function userLists(state = initialState, action) {
   switch(action.type) {
   case FOLLOWERS_FETCH_SUCCESS:
@@ -74,6 +89,10 @@ export default function userLists(state = initialState, action) {
     return state.setIn(['mutes', 'items'], ImmutableList(action.accounts.map(item => item.id))).setIn(['mutes', 'next'], action.next);
   case MUTES_EXPAND_SUCCESS:
     return state.updateIn(['mutes', 'items'], list => list.concat(action.accounts.map(item => item.id))).setIn(['mutes', 'next'], action.next);
+  case MESSENGER_ACCOUNTS_FETCH_SUCCESS:
+    return normalizeMessengerList(state, 'messenger_accounts', action.accounts, action.next);
+  case MESSENGER_ACCOUNTS_EXPAND_SUCCESS:
+    return appendToMessengerList(state, 'messenger_accounts', action.accounts, action.next);
   default:
     return state;
   }

@@ -64,6 +64,14 @@ export const FOLLOW_REQUEST_REJECT_REQUEST = 'FOLLOW_REQUEST_REJECT_REQUEST';
 export const FOLLOW_REQUEST_REJECT_SUCCESS = 'FOLLOW_REQUEST_REJECT_SUCCESS';
 export const FOLLOW_REQUEST_REJECT_FAIL    = 'FOLLOW_REQUEST_REJECT_FAIL';
 
+export const MESSENGER_ACCOUNTS_FETCH_REQUEST  = 'MESSENGER_ACCOUNTS_FETCH_REQUEST';
+export const MESSENGER_ACCOUNTS_FETCH_SUCCESS  = 'MESSENGER_ACCOUNTS_FETCH_SUCCESS';
+export const MESSENGER_ACCOUNTS_FETCH_FAILE    = 'MESSENGER_ACCOUNTS_FETCH_FAIL';
+
+export const MESSENGER_ACCOUNTS_EXPAND_REQUEST  = 'MESSENGER_ACCOUNTS_EXPAND_REQUEST';
+export const MESSENGER_ACCOUNTS_EXPAND_SUCCESS  = 'MESSENGER_ACCOUNTS_EXPAND_SUCCESS';
+export const MESSENGER_ACCOUNTS_EXPAND_FAILE    = 'MESSENGER_ACCOUNTS_EXPAND_FAIL';
+
 export function fetchAccount(id) {
   return (dispatch, getState) => {
     dispatch(fetchRelationships([id]));
@@ -655,5 +663,80 @@ export function rejectFollowRequestFail(id, error) {
     type: FOLLOW_REQUEST_REJECT_FAIL,
     id,
     error,
+  };
+};
+
+export function fetchMessengerAccounts() {
+  return (dispatch, getState) => {
+    dispatch(fetchMessengerAccountsRequest());
+
+    // TODO make original api
+    api(getState).get(`/api/v1/accounts/search`).then(response => {
+      const next = getLinks(response).refs.find(link => link.rel === 'next');
+
+      dispatch(fetchMessengerAccountsSuccess(response.data, next ? next.uri : null));
+      dispatch(fetchRelationships(response.data.map(item => item.id)));
+    }).catch(error => {
+      dispatch(fetchMessengerAccountsFail(error));
+    });
+  };
+};
+
+export function fetchMessengerAccountsRequest() {
+  return {
+    type: MESSENGER_ACCOUNTS_FETCH_REQUEST,
+  };
+};
+
+export function fetchMessengerAccountsSuccess(accounts, next) {
+  return {
+    type: MESSENGER_ACCOUNTS_FETCH_SUCCESS,
+    accounts,
+    next,
+  };
+};
+
+export function fetchMessengerAccountsFail(error) {
+  return {
+    type: MESSENGER_ACCOUNTS_FETCH_FAIL,
+    error,
+  };
+};
+
+export function expandMessengerAccounts() {
+  return (dispatch, getState) => {
+    const url = getState().getIn(['user_lists', 'messenger', 'next']);
+    if (url === null) {
+      return;
+    }
+
+    dispatch(expandMessengerAccountsRequest());
+    api(getState).get(url).then(response => {
+      const next = getLinks(response).refs.find(link => link.rel === 'next');
+      dispatch(expandMessengerAccountsSuccess(response.data, next ? next.uri : null));
+      dispatch(fetchRelationships(response.data.map(item => item.id)));
+    }).catch(error => {
+      dispatch(expandMessengerAccountsFail(error));
+    });
+  };
+};
+
+export function expandMessengerAccountsRequest() {
+  return {
+    type: EXPAND_MESSENGER_ACCOUNTS_REQUEST,
+  };
+};
+
+export function expandMessengerAccountsSuccess(accounts, next) {
+  return {
+    type: EXPAND_MESSENGER_ACCOUNTS_SUCCESS,
+    accounts,
+    next,
+  };
+};
+
+export function expandMessengerAccountsFail(error) {
+  return {
+    type: EXPAND_MESSENGER_ACCOUNTS_FAIL,
   };
 };

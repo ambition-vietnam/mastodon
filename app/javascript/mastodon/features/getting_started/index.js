@@ -24,7 +24,7 @@ const messages = defineMessages({
   mutes: { id: 'navigation_bar.mutes', defaultMessage: 'Muted users' },
   info: { id: 'navigation_bar.info', defaultMessage: 'Extended information' },
   pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
-  messenger: { id: 'navigation_bar.messenger', defaultMessage: 'Messenger' },
+  messenger: { id: 'navigation_bar.messenger_accounts', defaultMessage: 'Messenger' },
 });
 
 const mapStateToProps = state => ({
@@ -66,7 +66,7 @@ export default class GettingStarted extends ImmutablePureComponent {
       }
 
       if (!columns.find(item => item.get('id') === 'MESSENGER')) {
-        navItems.push(<ColumnLink key = 'messenger' icon='user' text={intl.formatMessage(messages.messenger)} to='/messenger' />);
+        navItems.push(<ColumnLink key = 'messenger' icon='user' text={intl.formatMessage(messages.messenger)} to='/messengers' />);
       }
     }
 

@@ -846,7 +846,7 @@
       },
       {
         "defaultMessage": "Messenger",
-        "id": "navication_bar.messenger"
+        "id": "navication_bar.messenger_accounts"
       {
         "defaultMessage": "Pinned toots",
         "id": "navigation_bar.pins"
@@ -1031,10 +1031,19 @@
     "descriptors": [
       {
         "defaultMessage": "Messenger",
-        "id": "column.messenger"
+        "id": "column.messenger_accounts"
       }
     ],
-    "path": "app/javascript/mastodon/features/messenger/index.json"
+    "path": "app/javascript/mastodon/features/messenger_accounts/index.json"
+  },
+  {
+    "descriptors": [
+      {
+        "defaultMessage": "Messenger timeline",
+        "id": "column.messenger_timeline"
+      }
+    ],
+    "path": "app/javascript/mastodon/features/messenger_timeline/index.json"
   },
   {
     "descriptors": [

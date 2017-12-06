@@ -34,8 +34,12 @@ export function GettingStarted () {
   return import(/* webpackChunkName: "features/getting_started" */'../../getting_started');
 }
 
-export function Messenger () {
-  return import(/* webpackChunkName: "features/messenger" */'../../messenger');
+export function MessengerAccounts () {
+  return import(/* webpackChunkName: "features/messenger_accounts" */'../../messenger_accounts');
+}
+
+export function MessengerTimeline () {
+  return import(/* webpackChunkName: "features/messenger_timeline" */'../../messenger_timeline');
 }
 
 export function PinnedStatuses () {

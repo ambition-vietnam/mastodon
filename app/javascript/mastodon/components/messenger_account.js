@@ -59,7 +59,7 @@ export default class MessengerAccount extends React.PureComponent {
     return (
       <div className='account'>
         <div className='account__wrapper'>
-          <Permalink key={account.get('id')} className='account__display-name' href={account.get('url')} to={`/accounts/${account.get('id')}`}>
+          <Permalink key={account.get('id')} className='account__display-name' href={account.get('url')} to={`/messengers/${account.get('id')}`}>
             <div className='account__avatar-wrapper'>
               <Avatar account={account} size={36} />
             </div>

@@ -196,6 +196,8 @@ Rails.application.routes.draw do
         resource :home, only: :show, controller: :home
         resource :public, only: :show, controller: :public
         resources :tag, only: :show
+
+        get '/messenger/:account_id', to: 'messenger#show'
       end
 
       resources :streaming, only: [:index]

@@ -68,6 +68,9 @@ class Status < ApplicationRecord
   scope :without_replies, -> { where('statuses.reply = FALSE OR statuses.in_reply_to_account_id = statuses.account_id') }
   scope :without_reblogs, -> { where('statuses.reblog_of_id IS NULL') }
   scope :with_public_visibility, -> { where(visibility: :public) }
+  scope :with_direct_visibility, -> { where(visibility: :direct) }
+  # TODO refactoring
+  scope :direct_only, ->(account_id, receiver_id) { joins(:mentions).where('(statuses.account_id = (?) and mentions.account_id = (?)) or (statuses.account_id = (?) and mentions.account_id= (?))', account_id, receiver_id, receiver_id, account_id) }
   scope :tagged_with, ->(tag) { joins(:statuses_tags).where(statuses_tags: { tag_id: tag }) }
   scope :tagged_with_multiple, ->(statuses) { where(id: statuses) }
   #scope :local_only, -> { left_outer_joins(:account).where(accounts: { domain: nil }) }
@@ -162,6 +165,12 @@ class Status < ApplicationRecord
       apply_timeline_filters(query, account, local_only)
     end
 
+    def as_messenger_timeline(account = nil, receiver_id = nil, local_only = false)
+      query = direct_scope(local_only).direct_only(account.id, receiver_id)
+
+      apply_timeline_filters(query, account, local_only)
+    end
+
     def as_tag_timeline(tag, account = nil, local_only = false)
       #query = timeline_scope(local_only).tagged_with(tag)
       tag_id_list = tag.pluck(:id)
@@ -248,6 +257,13 @@ class Status < ApplicationRecord
       starting_scope = local_only ? Status.local : Status
       starting_scope
         .with_public_visibility
+        .without_reblogs
+    end
+
+    def direct_scope(local_only = false)
+      starting_scope = local_only ? Status.local : Status
+      starting_scope
+        .with_direct_visibility
         .without_reblogs
     end
 

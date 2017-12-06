@@ -18,7 +18,7 @@ import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 
 const messages = defineMessages({
-  heading: { id: 'column.messenger', defaultMessage: 'Messenger' },
+  heading: { id: 'column.messenger_accounts', defaultMessage: 'Messenger' },
 });
 
 const mapStateToProps = (state) => ({
@@ -112,7 +112,7 @@ export default class Messenger extends ImmutablePureComponent {
 
         <ScrollContainer scrollKey={`messenger-${columnId}`}>
           <div className='scrollable' onScroll={this.handleScroll}>
-            <div className='messenger'>
+            <div className='messengers'>
               {accountIds.map(id => <MessengerAccountContainer key={id} id={id} withNote={false} />)}
               {loadMore}
             </div>

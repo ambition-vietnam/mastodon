@@ -92,4 +92,4 @@ export const connectCommunityStream = () => connectTimelineStream('community', '
 export const connectMediaStream = () => connectTimelineStream('community', 'public:local');
 export const connectPublicStream = () => connectTimelineStream('public', 'public');
 export const connectHashtagStream = (tag) => connectTimelineStream(`hashtag:${tag}`, `hashtag&tag=${tag}`);
-export const connectMessengerStream = (accountId) => connectTimelineStream('messenger', `messenger/${accountId}`);
+export const connectMessengerStream = (accountId) => connectTimelineStream(`messenger:${accountId}`, `messenger/${accountId}`);

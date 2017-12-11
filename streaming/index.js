@@ -410,6 +410,10 @@ const startWorker = (workerId) => {
     streamFrom(`timeline:hashtag:${req.query.tag.toLowerCase()}:local`, req, streamToHttp(req, res), streamHttpEnd(req), true);
   });
 
+  app.get('/api/v1/streaming/messenger', (req, res) => {
+    streamFrom(`timeline:messenger:${req.query.accountId}:${req.query.mentionedId}`, req, streamToHttp(req, res), streamHttpEnd(req), true);
+  });
+
   const wss    = new WebSocket.Server({ server, verifyClient: wsVerifyClient });
 
   wss.on('connection', ws => {
@@ -442,6 +446,9 @@ const startWorker = (workerId) => {
       break;
     case 'hashtag:local':
       streamFrom(`timeline:hashtag:${location.query.tag.toLowerCase()}:local`, req, streamToWs(req, ws), streamWsEnd(req, ws), true);
+      break;
+    case 'messenger':
+      streamFrom(`timeline:messenger:${location.query.accountId}:${location.query.mentionedId}`, req, streamToWs(req, ws), streamWsEnd(req, ws), true);
       break;
     default:
       ws.close();

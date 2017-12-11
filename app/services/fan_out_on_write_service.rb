@@ -48,7 +48,14 @@ class FanOutOnWriteService < BaseService
 
     status.mentions.includes(:account).each do |mention|
       mentioned_account = mention.account
-      next if !mentioned_account.local? || !mentioned_account.following?(status.account) || FeedManager.instance.filter?(:home, status, mention.account_id)
+      next if !mentioned_account.local? || FeedManager.instance.filter?(:home, status, mention.account_id)
+      render_anonymous_payload(status)
+      Rails.logger.debug("Delivering status timeline messenger:#{status.account_id}:#{mentioned_account.id}")
+      Redis.current.publish("timeline:messenger:#{status.account_id}:#{mentioned_account.id}", @payload)
+
+      Rails.logger.debug("Delivering status timeline messenger:#{mentioned_account.id}:#{status.account_id}")
+      Redis.current.publish("timeline:messenger:#{mentioned_account.id}:#{status.account_id}", @payload)
+      next if !mentioned_account.following?(status.account)
       FeedManager.instance.push(:home, mentioned_account, status)
     end
   end

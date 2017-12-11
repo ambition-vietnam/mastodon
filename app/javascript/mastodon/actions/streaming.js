@@ -3,6 +3,7 @@ import {
   updateTimeline,
   deleteFromTimelines,
   refreshHomeTimeline,
+  refreshMessengerTimeline,
   connectTimeline,
   disconnectTimeline,
 } from './timelines';
@@ -11,7 +12,7 @@ import { getLocale } from '../locales';
 
 const { messages } = getLocale();
 
-export function connectTimelineStream (timelineId, path, pollingRefresh = null) {
+export function connectTimelineStream (timelineId, path, pollingRefresh = null, shouldCheckUpdate = false) {
   return (dispatch, getState) => {
     const streamingAPIBaseURL = getState().getIn(['meta', 'streaming_api_base_url']);
     const accessToken = getState().getIn(['meta', 'access_token']);
@@ -50,7 +51,11 @@ export function connectTimelineStream (timelineId, path, pollingRefresh = null) 
       received (data) {
         switch(data.event) {
         case 'update':
-          dispatch(updateTimeline(timelineId, JSON.parse(data.payload)));
+          if (shouldCheckUpdate) {
+            dispatchMessengerTimeline(dispatch, JSON.parse(data.payload), timelineId);
+          } else {
+            dispatch(updateTimeline(timelineId, JSON.parse(data.payload)));
+          }
           break;
         case 'delete':
           dispatch(deleteFromTimelines(data.payload));
@@ -87,9 +92,23 @@ function refreshHomeTimelineAndNotification (dispatch) {
   dispatch(refreshNotifications());
 }
 
+function dispatchMessengerTimeline (dispatch, status, timelineId) {
+  const splitedTimelineId = timelineId.split(':');
+  if (splitedTimelineId.length !== 3 || splitedTimelineId[0] !== 'messenger') {
+    return false;
+  }
+
+  switch(status.account.id) {
+    case splitedTimelineId[1]:
+    case splitedTimelineId[2]:
+      dispatch(refreshMessengerTimeline(splitedTimelineId[2]));
+      break;
+  }
+}
+
 export const connectUserStream = () => connectTimelineStream('home', 'user', refreshHomeTimelineAndNotification);
 export const connectCommunityStream = () => connectTimelineStream('community', 'public:local');
 export const connectMediaStream = () => connectTimelineStream('community', 'public:local');
 export const connectPublicStream = () => connectTimelineStream('public', 'public');
 export const connectHashtagStream = (tag) => connectTimelineStream(`hashtag:${tag}`, `hashtag&tag=${tag}`);
-export const connectMessengerStream = (accountId) => connectTimelineStream(`messenger:${accountId}`, `messenger/${accountId}`);
+export const connectMessengerStream = (accountId, mentionedId) => connectTimelineStream(`messenger:${accountId}:${mentionedId}`, `messenger&accountId=${accountId}&mentionedId=${mentionedId}`, null, true);

@@ -23,6 +23,7 @@ const messages = defineMessages({
 const mapStateToProps = (state, props) => ({
   hasUnread: state.getIn(['timelines', `messenger:${props.params.accountId}`, 'unread']) > 0,
   streamingAPIBaseURL: state.getIn([`messenger:${props.params.accountId}`, 'streaming_api_base_url']),
+  accountId: Number(state.getIn(['meta', 'me'])),
   accessToken: state.getIn(['meta', 'access_token']),
 });
 
@@ -35,6 +36,7 @@ export default class MessengerTimeline extends ImmutablePureComponent {
     intl: PropTypes.object.isRequired,
     hasUnread: PropTypes.bool,
     params: PropTypes.object.isRequired,
+    accountId: PropTypes.number.isRequired,
   };
 
   handlePin = () => {}
@@ -45,8 +47,8 @@ export default class MessengerTimeline extends ImmutablePureComponent {
     this.column.scrollTop();
   }
 
-  _subscribe (dispatch, id) {
-    this.disconnect = dispatch(connectMessengerStream(id));
+  _subscribe (dispatch, accountId, mentionedId) {
+    this.disconnect = dispatch(connectMessengerStream(accountId, mentionedId));
   }
 
   _unsubscribe () {
@@ -57,18 +59,21 @@ export default class MessengerTimeline extends ImmutablePureComponent {
   }
 
   componentDidMount () {
-    const { params, dispatch } = this.props;
-    const { accountId } = this.props.params;
+    const { params, dispatch, accountId } = this.props;
+    const { mentionedId } = this.props.params;
 
-    dispatch(refreshMessengerTimeline(accountId));
-    this._subscribe(dispatch, accountId);
+    dispatch(refreshMessengerTimeline(mentionedId));
+    this._subscribe(dispatch, accountId, mentionedId);
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.params.accountId !== this.props.params.accountId) {
-      this.props.dispatch(refreshMessengerTimeline(nextProps.params.accountId));
+    const { params, dispatch, accountId } = this.props;
+    const { mentionedId } = this.props.params;
+
+    if (nextProps.params.mentionedId !== mentionedId) {
+      dispatch(refreshMessengerTimeline(mentionedId));
       this._unsubscribe();
-      this._subscribe(this.props.dispatch, nextProps.params.accountId);
+      this._subscribe(dispatch, accountId, mentionedId);
     }
   }
 
@@ -82,14 +87,14 @@ export default class MessengerTimeline extends ImmutablePureComponent {
 
   handleLoadMore = () => {
     const { dispatch, params } = this.props;
-    const { accountId } = this.props.params;
+    const { mentionedId } = this.props.params;
 
-    dispatch(expandMessengerTimeline(accountId));
+    dispatch(expandMessengerTimeline(mentionedId));
   }
 
   render () {
     const { intl, hasUnread } = this.props;
-    const { accountId } = this.props.params;
+    const { mentionedId } = this.props.params;
 
     return (
       <Column ref={this.setRef}>
@@ -105,7 +110,7 @@ export default class MessengerTimeline extends ImmutablePureComponent {
           showBackButton
         />
         <StatusListContainer
-          timelineId={`messenger:${accountId}`}
+          timelineId={`messenger:${mentionedId}`}
           loadMore={this.handleLoadMore}
           scrollKey='messenger_timeline'
           emptyMessage={(<FormattedMessage id='empty_column.public' defaultMessage='There is nothing here.' />)}

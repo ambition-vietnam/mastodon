@@ -357,7 +357,7 @@ export default class UI extends React.Component {
               <WrappedRoute path='/notifications' component={Notifications} content={children} />
               <WrappedRoute path='/favourites' component={FavouritedStatuses} content={children} />
               <WrappedRoute path='/messengers' exact component={MessengerAccounts} content={children} />
-              <WrappedRoute path='/messengers/:accountId' component={MessengerTimeline} content={children} />
+              <WrappedRoute path='/messengers/:mentionedId' component={MessengerTimeline} content={children} />
               <WrappedRoute path='/pinned' component={PinnedStatuses} content={children} />
 
               <WrappedRoute path='/statuses/new' component={Compose} content={children} />

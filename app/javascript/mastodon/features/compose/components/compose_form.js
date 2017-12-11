@@ -20,7 +20,7 @@ import { length } from 'stringz';
 import { countableText } from '../util/counter';
 
 const messages = defineMessages({
-  placeholder: { id: 'compose_form.placeholder', defaultMessage: 'What is on your mind?' },
+  placeholder: { id: 'compose_form.placeholder', defaultMessage: '#nguyenhue #district1 #25usd\n#150sqm #200sqm...' },
   spoiler_placeholder: { id: 'compose_form.spoiler_placeholder', defaultMessage: 'Write your warning here' },
   publish: { id: 'compose_form.publish', defaultMessage: 'Toot' },
   publishLoud: { id: 'compose_form.publish_loud', defaultMessage: '{publish}!' },

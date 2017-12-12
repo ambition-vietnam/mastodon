@@ -101,6 +101,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
 
   handleOpen = () => {
     this.context.router.history.push(`/statuses/${this.props.status.get('id')}`);
+    this.props.onReply(this.props.status, this.context.router.history);
   }
 
   handleEmbed = () => {

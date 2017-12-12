@@ -29,7 +29,6 @@ class Api::V1::Timelines::MessengerController < Api::BaseController
   end
 
   def messenger_timeline_statuses
-    Rails.logger.info(current_account)
     Status.as_messenger_timeline(current_account, params[:account_id], params[:local])
   end
 

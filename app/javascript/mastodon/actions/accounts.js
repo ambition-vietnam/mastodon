@@ -66,7 +66,7 @@ export const FOLLOW_REQUEST_REJECT_FAIL    = 'FOLLOW_REQUEST_REJECT_FAIL';
 
 export const MESSENGER_ACCOUNTS_FETCH_REQUEST  = 'MESSENGER_ACCOUNTS_FETCH_REQUEST';
 export const MESSENGER_ACCOUNTS_FETCH_SUCCESS  = 'MESSENGER_ACCOUNTS_FETCH_SUCCESS';
-export const MESSENGER_ACCOUNTS_FETCH_FAILE    = 'MESSENGER_ACCOUNTS_FETCH_FAIL';
+export const MESSENGER_ACCOUNTS_FETCH_FAIL     = 'MESSENGER_ACCOUNTS_FETCH_FAIL';
 
 export const MESSENGER_ACCOUNTS_EXPAND_REQUEST  = 'MESSENGER_ACCOUNTS_EXPAND_REQUEST';
 export const MESSENGER_ACCOUNTS_EXPAND_SUCCESS  = 'MESSENGER_ACCOUNTS_EXPAND_SUCCESS';
@@ -671,7 +671,7 @@ export function fetchMessengerAccounts() {
     dispatch(fetchMessengerAccountsRequest());
 
     // TODO make original api
-    api(getState).get(`/api/v1/accounts/search`).then(response => {
+    api(getState).get(`/api/v1/accounts/messenger`).then(response => {
       const next = getLinks(response).refs.find(link => link.rel === 'next');
 
       dispatch(fetchMessengerAccountsSuccess(response.data, next ? next.uri : null));

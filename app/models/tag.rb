@@ -27,7 +27,7 @@ class Tag < ApplicationRecord
       #Tag.where('name like ?', pattern).order(:name).limit(limit)
       tags = term.split(' ')
       if tags.length == 1
-        pattern = sanitize_sql_like(term) + '%'
+        pattern = sanitize_sql_like(term.strip) + '%'
         Tag.where('lower(name) like lower(?)', pattern).order(:name).limit(limit)
       else
         sql = <<-SQL

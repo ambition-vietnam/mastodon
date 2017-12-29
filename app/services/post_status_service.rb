@@ -23,13 +23,27 @@ class PostStatusService < BaseService
     status = nil
 
     ApplicationRecord.transaction do
-      status = account.statuses.create!(text: text,
-                                        thread: in_reply_to,
-                                        sensitive: options[:sensitive],
-                                        spoiler_text: options[:spoiler_text] || '',
-                                        visibility: options[:visibility] || account.user&.setting_default_privacy,
-                                        language: LanguageDetector.instance.detect(text, account),
-                                        application: options[:application])
+      if options[:status_id].blank?
+        status = account.statuses.create!(text: text,
+                                          thread: in_reply_to,
+                                          sensitive: options[:sensitive],
+                                          spoiler_text: options[:spoiler_text] || '',
+                                          visibility: options[:visibility] || account.user&.setting_default_privacy,
+                                          language: LanguageDetector.instance.detect(text, account),
+                                          application: options[:application])
+      else
+        old_media = get_old_media(options[:status_id])
+        status = Status.find(options[:status_id])
+        status.update(text: text,
+                      thread: in_reply_to,
+                      sensitive: options[:sensitive],
+                      spoiler_text: options[:spoiler_text] || '',
+                      visibility: options[:visibility] || account.user&.setting_default_privacy,
+                      language: LanguageDetector.instance.detect(text, account),
+                      application: options[:application])
+        delete_old_media(options[:media_ids], old_media)
+        remove_from_hashtags(status)
+      end
 
       attach_media(status, media)
     end
@@ -67,6 +81,25 @@ class PostStatusService < BaseService
   def attach_media(status, media)
     return if media.nil?
     media.update(status_id: status.id)
+  end
+
+  def get_old_media(status_id)
+    MediaAttachment.where(status_id: status_id)
+  end
+
+  def delete_old_media(new_medias, old_medias)
+    new_id_list = {}
+    new_medias.each do |new_media|
+      new_id_list[new_media] = true
+    end
+
+    old_medias.each do |old_media|
+      old_media.destroy if new_id_list[old_media.id].blank?
+    end
+  end
+
+  def remove_from_hashtags(status)
+    Status.delete_tags(status.id)
   end
 
   def process_mentions_service

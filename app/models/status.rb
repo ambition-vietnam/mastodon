@@ -242,6 +242,13 @@ class Status < ApplicationRecord
       end
     end
 
+    def delete_tags(status_id)
+      sql = <<-SQL
+        DELETE FROM statuses_tags WHERE status_id = :id
+      SQL
+      Status.find_by_sql([sql, {id: status_id}])
+    end
+
     private
 
     def timeline_scope(local_only = false)

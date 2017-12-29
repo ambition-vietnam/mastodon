@@ -14,6 +14,8 @@ export const COMPOSE_CHANGE          = 'COMPOSE_CHANGE';
 export const COMPOSE_SUBMIT_REQUEST  = 'COMPOSE_SUBMIT_REQUEST';
 export const COMPOSE_SUBMIT_SUCCESS  = 'COMPOSE_SUBMIT_SUCCESS';
 export const COMPOSE_SUBMIT_FAIL     = 'COMPOSE_SUBMIT_FAIL';
+export const COMPOSE_EDIT            = 'COMPOSE_EDIT';
+export const COMPOSE_EDIT_CANCEL     = 'COMPOSE_EDIT_CANCEL';
 export const COMPOSE_REPLY           = 'COMPOSE_REPLY';
 export const COMPOSE_REPLY_CANCEL    = 'COMPOSE_REPLY_CANCEL';
 export const COMPOSE_MENTION         = 'COMPOSE_MENTION';
@@ -48,6 +50,25 @@ export function changeCompose(text) {
   return {
     type: COMPOSE_CHANGE,
     text: text,
+  };
+};
+
+export function editCompose(status, router) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: COMPOSE_EDIT,
+      status: status,
+    });
+
+    if (!getState().getIn(['compose', 'mounted'])) {
+      router.push(`/statuses/update/${status.get('id')}`);
+    }
+  };
+};
+
+export function cancelEditCompose() {
+  return {
+    type: COMPOSE_EDIT_CANCEL,
   };
 };
 
@@ -109,6 +130,7 @@ export function submitCompose() {
     }, {
       headers: {
         'Idempotency-Key': getState().getIn(['compose', 'idempotencyKey']),
+        'Status-Id': getState().getIn(['compose', 'statusId'], ''),
       },
     }).then(function (response) {
       dispatch(submitComposeSuccess({ ...response.data }));

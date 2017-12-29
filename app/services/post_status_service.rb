@@ -41,7 +41,7 @@ class PostStatusService < BaseService
                       visibility: options[:visibility] || account.user&.setting_default_privacy,
                       language: LanguageDetector.instance.detect(text, account),
                       application: options[:application])
-        delete_old_media(options[:media_ids], old_media)
+        remove_old_media(options[:media_ids], old_media)
         remove_from_hashtags(status)
       end
 
@@ -87,8 +87,9 @@ class PostStatusService < BaseService
     MediaAttachment.where(status_id: status_id)
   end
 
-  def delete_old_media(new_medias, old_medias)
+  def remove_old_media(new_medias, old_medias)
     new_id_list = {}
+
     new_medias.each do |new_media|
       new_id_list[new_media] = true
     end
@@ -99,6 +100,12 @@ class PostStatusService < BaseService
   end
 
   def remove_from_hashtags(status)
+    payload = Oj.dump(event: :delete, payload: status.id.to_s)
+    status.tags.each do |hashtag|
+      Redis.current.publish("timeline:hashtag:#{hashtag}", payload)
+      Redis.current.publish("timeline:hashtag:#{hashtag}:local", payload) if status.local?
+    end
+
     Status.delete_tags(status.id)
   end
 

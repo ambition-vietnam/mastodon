@@ -27,14 +27,18 @@ class SearchPopout extends React.PureComponent {
 
               <ul>
                 <li><em>#district1</em><span> and any district</span></li>
-                <li><em>#100sqm</em><span> (100sqm≧)</span></li>
-                <li><em>#150sqm</em><span> (101≦150)</span></li>
-                <li><em>#200sqm</em><span> (151≦200)</span></li>
-                <li><em>#250sqm</em><span> (201≦250)</span></li>
-                <li><em>#15usd</em><span> (15usd≧)</span></li>
-                <li><em>#20usd</em><span> (16≦20)</span></li>
-                <li><em>#25usd</em><span> (21≦25)</span></li>
-                <li><em>#30usd</em><span> (26≦30)</span></li>
+                <li><em>#500usd</em><span> (≦500usd)</span></li>
+                <li><em>#700usd</em><span> (501≦700)</span></li>
+                <li><em>#900usd</em><span> (701≦900)</span></li>
+                <li><em>#1100usd</em><span> (901≦1100)</span></li>
+                <li><em>#1500usd</em><span> (1101≦1500)</span></li>
+                <li><em>#2000usd</em><span> (1501≦2000)</span></li>
+                <li><em>#30sqm</em><span> (≦30sqm)</span></li>
+                <li><em>#50sqm</em><span> (31≦50)</span></li>
+                <li><em>#70sqm</em><span> (51≦70)</span></li>
+                <li><em>#100sqm</em><span> (71≦100)</span></li>
+                <li><em>#140sqm</em><span> (101≦140)</span></li>
+                <li><em>#180sqm</em><span> (141≦180)</span></li>
               </ul>
 
               <FormattedMessage id='search_popout.tips.text' defaultMessage='Simple text returns matching display names, usernames and hashtags' />

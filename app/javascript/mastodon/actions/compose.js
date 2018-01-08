@@ -61,7 +61,7 @@ export function editCompose(status, router) {
     });
 
     if (!getState().getIn(['compose', 'mounted'])) {
-      router.push(`/statuses/update/${status.get('id')}`);
+      router.push(`/statuses/edit`);
     }
   };
 };

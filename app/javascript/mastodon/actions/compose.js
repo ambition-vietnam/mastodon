@@ -145,11 +145,13 @@ export function submitCompose() {
         }
       };
 
-      insertOrRefresh('home', refreshHomeTimeline);
+      if (response.data.edited !== true) {
+        insertOrRefresh('home', refreshHomeTimeline);
 
-      if (response.data.in_reply_to_id === null && response.data.visibility === 'public') {
-        insertOrRefresh('community', refreshCommunityTimeline);
-        insertOrRefresh('public', refreshPublicTimeline);
+        if (response.data.in_reply_to_id === null && response.data.visibility === 'public') {
+          insertOrRefresh('community', refreshCommunityTimeline);
+          insertOrRefresh('public', refreshPublicTimeline);
+        }
       }
     }).catch(function (error) {
       dispatch(submitComposeFail(error));

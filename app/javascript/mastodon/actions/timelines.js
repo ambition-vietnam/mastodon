@@ -60,7 +60,7 @@ export function updateTimeline(timeline, status) {
   };
 };
 
-export function deleteFromTimelines(id) {
+export function deleteFromTimelines(id, edit = null) {
   return (dispatch, getState) => {
     const accountId  = getState().getIn(['statuses', id, 'account']);
     const references = getState().get('statuses').filter(status => status.get('reblog') === id).map(status => [status.get('id'), status.get('account')]);
@@ -72,6 +72,7 @@ export function deleteFromTimelines(id) {
       accountId,
       references,
       reblogOf,
+      edit,
     });
   };
 };

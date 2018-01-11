@@ -40,6 +40,7 @@ class PostStatusService < BaseService
                       spoiler_text: options[:spoiler_text] || '',
                       visibility: options[:visibility] || account.user&.setting_default_privacy,
                       language: LanguageDetector.instance.detect(text, account),
+                      edited: true,
                       application: options[:application])
         remove_old_media(options[:media_ids], old_media)
         remove_from_hashtags(status)

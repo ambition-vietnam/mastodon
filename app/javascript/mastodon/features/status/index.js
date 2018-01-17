@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import { fetchStatus } from '../../actions/statuses';
 import MissingIndicator from '../../components/missing_indicator';
@@ -22,7 +23,7 @@ import {
 import { deleteStatus } from '../../actions/statuses';
 import { initReport } from '../../actions/reports';
 import { makeGetStatus } from '../../selectors';
-import { ScrollContainer } from 'react-router-scroll';
+import { ScrollContainer } from 'react-router-scroll-4';
 import ColumnBackButton from '../../components/column_back_button';
 import StatusContainer from '../../containers/status_container';
 import { openModal } from '../../actions/modal';
@@ -30,6 +31,7 @@ import { defineMessages, injectIntl } from 'react-intl';
 import ImmutablePureComponent from 'react-immutable-pure-component';
 import { HotKeys } from 'react-hotkeys';
 import { boostModal, deleteModal } from '../../initial_state';
+import { attachFullscreenListener, detachFullscreenListener, isFullscreen } from '../../features/ui/util/fullscreen';
 
 const messages = defineMessages({
   deleteConfirm: { id: 'confirmations.delete.confirm', defaultMessage: 'Delete' },
@@ -43,7 +45,6 @@ const makeMapStateToProps = () => {
     status: getStatus(state, props.params.statusId),
     ancestorsIds: state.getIn(['contexts', 'ancestors', props.params.statusId]),
     descendantsIds: state.getIn(['contexts', 'descendants', props.params.statusId]),
-    me: state.getIn(['meta', 'me']),
   });
 
   return mapStateToProps;
@@ -63,12 +64,19 @@ export default class Status extends ImmutablePureComponent {
     status: ImmutablePropTypes.map,
     ancestorsIds: ImmutablePropTypes.list,
     descendantsIds: ImmutablePropTypes.list,
-    me: PropTypes.string,
     intl: PropTypes.object.isRequired,
+  };
+
+  state = {
+    fullscreen: false,
   };
 
   componentWillMount () {
     this.props.dispatch(fetchStatus(this.props.params.statusId));
+  }
+
+  componentDidMount () {
+    attachFullscreenListener(this.onFullScreenChange);
   }
 
   componentWillReceiveProps (nextProps) {
@@ -250,9 +258,18 @@ export default class Status extends ImmutablePureComponent {
     }
   }
 
+  componentWillUnmount () {
+    detachFullscreenListener(this.onFullScreenChange);
+  }
+
+  onFullScreenChange = () => {
+    this.setState({ fullscreen: isFullscreen() });
+  }
+
   render () {
     let ancestors, descendants;
-    const { status, ancestorsIds, descendantsIds, me } = this.props;
+    const { status, ancestorsIds, descendantsIds } = this.props;
+    const { fullscreen } = this.state;
 
     if (status === null) {
       return (
@@ -286,21 +303,19 @@ export default class Status extends ImmutablePureComponent {
         <ColumnBackButton />
 
         <ScrollContainer scrollKey='thread'>
-          <div className='scrollable detailed-status__wrapper' ref={this.setRef}>
+          <div className={classNames('scrollable', 'detailed-status__wrapper', { fullscreen })} ref={this.setRef}>
             {ancestors}
 
             <HotKeys handlers={handlers}>
               <div className='focusable' tabIndex='0'>
                 <DetailedStatus
                   status={status}
-                  me={me}
                   onOpenVideo={this.handleOpenVideo}
                   onOpenMedia={this.handleOpenMedia}
                 />
 
                 <ActionBar
                   status={status}
-                  me={me}
                   onReply={this.handleReplyClick}
                   onFavourite={this.handleFavouriteClick}
                   onReblog={this.handleReblogClick}

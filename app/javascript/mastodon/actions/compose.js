@@ -195,6 +195,7 @@ export function uploadCompose(files) {
         dispatch(uploadComposeProgress(e.loaded, e.total));
       },
     }).then(function (response) {
+      response.data.text_url = '';
       dispatch(uploadComposeSuccess(response.data));
     }).catch(function (error) {
       dispatch(uploadComposeFail(error));

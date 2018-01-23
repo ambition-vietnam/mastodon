@@ -62,8 +62,12 @@ class FanOutOnWriteService < BaseService
     status.mentions.includes(:account).each do |mention|
       mentioned_account = mention.account
       next if !mentioned_account.local? || !mentioned_account.following?(status.account) || FeedManager.instance.filter?(:home, status, mention.account_id)
-      mentioned_accounts[mentioned_account.id]
-      FeedManager.instance.push_to_home(mentioned_account, status) unless status.edited?
+      mentioned_accounts[mentioned_account.id] = mentioned_account.id
+      if status.edited
+        MergeWorker.perform_async(status.account_id, mentioned_account.id)
+      else
+        FeedManager.instance.push_to_home(mentioned_account, status)
+      end
     end
 
     account = Account.find(status.account_id)
@@ -71,6 +75,8 @@ class FanOutOnWriteService < BaseService
       next unless mentioned_accounts[follower.id].blank?
       FeedManager.instance.unpush_from_home(follower, status)
     end
+
+    UnfavouriteOtherThanMentionedWorker.perform_async(status.id)
   end
 
   def render_anonymous_payload(status)

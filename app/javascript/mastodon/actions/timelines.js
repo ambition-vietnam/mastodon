@@ -30,6 +30,9 @@ export function refreshTimelineSuccess(timeline, statuses, skipLoading, next) {
 };
 
 export function updateTimeline(timeline, status) {
+  if (timeline.indexOf('status') !== -1) {
+    console.log('STATUS', status);
+  }
   return (dispatch, getState) => {
     const references = status.reblog ? getState().get('statuses').filter((item, itemId) => (itemId === status.reblog.id || item.get('reblog') === status.reblog.id)).map((_, itemId) => itemId) : [];
     const parents = [];
@@ -119,6 +122,7 @@ export const refreshAccountTimeline      = accountId => refreshTimeline(`account
 export const refreshAccountMediaTimeline = accountId => refreshTimeline(`account:${accountId}:media`, `/api/v1/accounts/${accountId}/statuses`, { only_media: true });
 export const refreshHashtagTimeline      = hashtag => refreshTimeline(`hashtag:${hashtag}`, `/api/v1/timelines/tag/${hashtag}`);
 export const refreshListTimeline         = id => refreshTimeline(`list:${id}`, `/api/v1/timelines/list/${id}`);
+export const refreshStatusTimeline       = (status_id) => refreshTimeline(`status:${status_id}`, `/api/v1/statuses/${status_id}`);
 
 export function refreshTimelineFail(timeline, error, skipLoading) {
   return {

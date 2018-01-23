@@ -52,3 +52,4 @@ export const connectMediaStream = () => connectTimelineStream('community', 'publ
 export const connectPublicStream = () => connectTimelineStream('public', 'public');
 export const connectHashtagStream = (tag) => connectTimelineStream(`hashtag:${tag}`, `hashtag&tag=${tag}`);
 export const connectListStream = (id) => connectTimelineStream(`list:${id}`, `list&list=${id}`);
+export const connectStatusStream = (status_id) => connectTimelineStream(`status:${status_id}`, `status&status_id=${status_id}`);

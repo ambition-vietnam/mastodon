@@ -535,6 +535,10 @@ const startWorker = (workerId) => {
         streamFrom(channel, req, streamToWs(req, ws), streamWsEnd(req, ws, subscriptionHeartbeat(channel)));
       });
       break;
+    case 'status':
+      let status_channel = `timeline:status:${location.query.status_id}`;
+      streamFrom(status_channel, req, streamToWs(req, ws), streamWsEnd(req, ws), true);
+      break;
     default:
       ws.close();
     }

@@ -32,6 +32,8 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import { HotKeys } from 'react-hotkeys';
 import { boostModal, deleteModal } from '../../initial_state';
 import { attachFullscreenListener, detachFullscreenListener, isFullscreen } from '../../features/ui/util/fullscreen';
+import { refreshStatusTimeline } from '../../actions/timelines';
+import { connectStatusStream } from '../../actions/streaming';
 
 const messages = defineMessages({
   deleteConfirm: { id: 'confirmations.delete.confirm', defaultMessage: 'Delete' },
@@ -77,12 +79,16 @@ export default class Status extends ImmutablePureComponent {
 
   componentDidMount () {
     attachFullscreenListener(this.onFullScreenChange);
+    this.disconnect = this.props.dispatch(connectStatusStream(this.props.params.statusId));
   }
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.params.statusId !== this.props.params.statusId && nextProps.params.statusId) {
       this._scrolledIntoView = false;
       this.props.dispatch(fetchStatus(nextProps.params.statusId));
+
+      this.disconnect();
+      this.disconnect = this.props.dispatch(connectStatusStream(nextProps.params.statusId));
     }
   }
 
@@ -260,6 +266,10 @@ export default class Status extends ImmutablePureComponent {
 
   componentWillUnmount () {
     detachFullscreenListener(this.onFullScreenChange);
+    if (this.disconnect) {
+      this.disconnect();
+      this.disconnect = null;
+    }
   }
 
   onFullScreenChange = () => {

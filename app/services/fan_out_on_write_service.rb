@@ -17,14 +17,14 @@ class FanOutOnWriteService < BaseService
       deliver_to_lists(status)
     end
 
-    return if status.account.silenced? || !status.public_visibility? || status.reblog?
-
     render_anonymous_payload(status)
-    deliver_to_hashtags(status)
-
     if status.reply?
       deliver_to_status(status)
     end
+
+    return if status.account.silenced? || !status.public_visibility? || status.reblog?
+
+    deliver_to_hashtags(status)
 
     return if status.reply? && status.in_reply_to_account_id != status.account_id
 

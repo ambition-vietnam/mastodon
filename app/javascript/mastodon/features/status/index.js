@@ -32,7 +32,6 @@ import ImmutablePureComponent from 'react-immutable-pure-component';
 import { HotKeys } from 'react-hotkeys';
 import { boostModal, deleteModal } from '../../initial_state';
 import { attachFullscreenListener, detachFullscreenListener, isFullscreen } from '../../features/ui/util/fullscreen';
-import { refreshStatusTimeline } from '../../actions/timelines';
 import { connectStatusStream } from '../../actions/streaming';
 
 const messages = defineMessages({
@@ -83,9 +82,11 @@ export default class Status extends ImmutablePureComponent {
   }
 
   componentWillReceiveProps (nextProps) {
+    setTimeout(() => {
+      this.props.dispatch(fetchStatus(nextProps.params.statusId));
+    }, 20000);
     if (nextProps.params.statusId !== this.props.params.statusId && nextProps.params.statusId) {
       this._scrolledIntoView = false;
-      this.props.dispatch(fetchStatus(nextProps.params.statusId));
 
       this.disconnect();
       this.disconnect = this.props.dispatch(connectStatusStream(nextProps.params.statusId));

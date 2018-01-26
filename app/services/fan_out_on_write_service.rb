@@ -92,6 +92,7 @@ class FanOutOnWriteService < BaseService
   def deliver_to_status(status)
     Rails.logger.debug "Delivering status #{status.id} to status #{status.in_reply_to_id} timeline"
 
-    Redis.current.publish("timeline:status:#{status.in_reply_to_id}", @payload)
+    # Redis.current.publish("timeline:status:#{status.in_reply_to_id}", @payload)
+    FeedManager.instance.push_to_status(status)
   end
 end

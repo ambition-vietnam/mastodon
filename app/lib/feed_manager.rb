@@ -46,6 +46,11 @@ class FeedManager
     true
   end
 
+  def push_to_status(status)
+    PushUpdateWorker.perform_async(999, status.id, "timeline:status:#{status.id}") #first parameter "2", is account id
+    true
+  end
+
   def unpush_from_list(list, status)
     return false unless remove_from_feed(:list, list.id, status)
     Redis.current.publish("timeline:list:#{list.id}", Oj.dump(event: :delete, payload: status.id.to_s))

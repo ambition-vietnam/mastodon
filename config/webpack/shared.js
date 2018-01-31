@@ -52,7 +52,7 @@ module.exports = {
         resource.request = resource.request.replace(/^history/, 'history/es');
       }
     ),
-    new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-[contenthash].css' : '[name].css'),
+    new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-1.0.0.css' : '[name].css'),
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true,

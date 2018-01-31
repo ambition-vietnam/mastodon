@@ -21,8 +21,8 @@ try {
 
 module.exports = merge(sharedConfig, {
   output: {
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].js',
+    filename: '[name]-1.0.0.js',
+    chunkFilename: '[name]-1.0.0.js',
   },
 
   devtool: 'source-map', // separate sourcemap file, suitable for production

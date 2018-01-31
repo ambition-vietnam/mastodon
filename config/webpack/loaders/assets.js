@@ -6,7 +6,7 @@ module.exports = {
     loader: 'file-loader',
     options: {
       publicPath,
-      name: env.NODE_ENV === 'production' ? '[name]-[hash].[ext]' : '[name].[ext]',
+      name: env.NODE_ENV === 'production' ? '[name]-1.0.0.[ext]' : '[name].[ext]',
     },
   }],
 };

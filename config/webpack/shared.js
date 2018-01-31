@@ -6,7 +6,7 @@ const { sync } = require('glob');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const extname = require('path-complete-extname');
-const { env, settings, themes, output, loadersDir } = require('./configuration.js');
+const { env, settings, themes, output, loadersDir, version } = require('./configuration.js');
 const localePackPaths = require('./generateLocalePacks');
 
 const extensionGlob = `**/*{${settings.extensions.join(',')}}*`;
@@ -52,7 +52,7 @@ module.exports = {
         resource.request = resource.request.replace(/^history/, 'history/es');
       }
     ),
-    new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-1.0.0.css' : '[name].css'),
+    new ExtractTextPlugin(env.NODE_ENV === 'production' ? `[name]-${version}.css` : '[name].css'),
     new ManifestPlugin({
       publicPath: output.publicPath,
       writeToFileEmit: true,

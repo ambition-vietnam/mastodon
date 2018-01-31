@@ -6,7 +6,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const sharedConfig = require('./shared.js');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const OfflinePlugin = require('offline-plugin');
-const { publicPath } = require('./configuration.js');
+const { publicPath, version } = require('./configuration.js');
 const path = require('path');
 
 let compressionAlgorithm;
@@ -21,8 +21,8 @@ try {
 
 module.exports = merge(sharedConfig, {
   output: {
-    filename: '[name]-1.0.0.js',
-    chunkFilename: '[name]-1.0.0.js',
+    filename: `[name]-${version}.js`,
+    chunkFilename: `[name]-${version}.js`,
   },
 
   devtool: 'source-map', // separate sourcemap file, suitable for production

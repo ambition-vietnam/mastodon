@@ -15,6 +15,7 @@ import status_lists from './status_lists';
 import cards from './cards';
 import mutes from './mutes';
 import reports from './reports';
+import trend_tags from './trend_tags';
 import contexts from './contexts';
 import compose from './compose';
 import search from './search';
@@ -51,6 +52,7 @@ const reducers = {
   custom_emojis,
   lists,
   listEditor,
+  trend_tags,
 };
 
 export default combineReducers(reducers);

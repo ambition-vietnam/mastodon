@@ -235,6 +235,7 @@ Rails.application.routes.draw do
       resources :mutes,      only: [:index]
       resources :favourites, only: [:index]
       resources :reports,    only: [:index, :create]
+      resources :trend_tags, only: [:index]
 
       namespace :apps do
         get :verify_credentials, to: 'credentials#show'

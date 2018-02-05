@@ -15,13 +15,19 @@ class CreateSuggestionTags < ActiveRecord::Migration[5.1]
   private
 
   def init
-    init_tags = [ 'Grade_A', 'Grade_B', 'Grade_C', 'Bizcenter', 'Other' ]
+    init_tags = [
+      ['Grade_A', 'Grade A'],
+      ['Grade_B', 'Grade B'],
+      ['Grade_C', 'Grade C'],
+      ['Bizcenter', 'Bizcenter'],
+      ['Other', 'Other']
+    ]
 
     init_tags.each do |t|
-      if !tag = Tag.find_by(name: t)
-        tag = Tag.create(name: t)
+      if !tag = Tag.find_by(name: t[0])
+        tag = Tag.create(name: t[0])
       end
-      SuggestionTag.create(tag_id: tag.id, description: t)
+      SuggestionTag.create(tag_id: tag.id, description: t[1])
     end
   end
 end

@@ -6,7 +6,7 @@ en:
         account:
           attributes:
             username:
-              invalid: only letters, numbers and underscores
+              invalid: only letters, numbers and underscores TEST
         status:
           attributes:
             reblog:

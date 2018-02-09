@@ -3,16 +3,16 @@ vi:
   simple_form:
     hints:
       defaults:
-        avatar: PNG, GIF or JPG. At most 2MB. Will be downscaled to 120x120px
+        avatar: PNG, GIF hoặc JPG. Tối đa 2MB. Độ phân giải sẽ được chuyển thành 120x120px
         digest: Sent after a long period of inactivity with a summary of mentions you've received in your absence
         display_name:
-          one: <span class="name-counter">1</span> character left
-          other: <span class="name-counter">%{count}</span> characters left
-        header: PNG, GIF or JPG. At most 2MB. Will be downscaled to 700x335px
-        locked: Requires you to manually approve followers
+          one: Còn <span class="name-counter">1</span> ký tự
+          other: Còn <span class="name-counter">%{count}</span> ký tự
+        header: PNG, GIF hoặc JPG. Tối đa 2MB. Độ phân giải sẽ được chuyển thành 700x335px
+        locked: Yêu cầu bạn cho phép người theo dõi bằng tay
         note:
-          one: <span class="note-counter">1</span> character left
-          other: <span class="note-counter">%{count}</span> characters left
+          one: Còn <span class="note-counter">1</span> ký tự
+          other: Còn <span class="note-counter">%{count}</span> ký tự
         setting_noindex: Affects your public profile and status pages
         setting_theme: Affects how Mastodon looks when you're logged in from any device.
       imports:
@@ -23,49 +23,49 @@ vi:
         filtered_languages: Checked languages will be filtered from public timelines for you
     labels:
       defaults:
-        avatar: Avatar
-        confirm_new_password: Confirm new password
-        confirm_password: Confirm password
-        current_password: Current password
-        data: Data
-        display_name: Display name
-        email: E-mail address
-        expires_in: Expire after
-        filtered_languages: Filtered languages
+        avatar: Ảnh đại diện
+        confirm_new_password: Xác nhận mật khẩu mới
+        confirm_password: Xác nhận mật khẩu
+        current_password: Mật khẩu hiện tại
+        data: Dữ liệu
+        display_name: Tên hiển thị
+        email: Địa chỉ e-mail
+        expires_in: Có thời hạn đến
+        filtered_languages: Lọc ngôn ngữ
         header: Header
-        locale: Language
-        locked: Lock account
-        max_uses: Max number of uses
-        new_password: New password
-        note: Bio
-        otp_attempt: Two-factor code
-        password: Password
-        setting_auto_play_gif: Auto-play animated GIFs
-        setting_boost_modal: Show confirmation dialog before boosting
-        setting_default_privacy: Post privacy
+        locale: Ngôn ngữ
+        locked: Khóa tài khoản
+        max_uses: Số lượng người dùng tối đa
+        new_password: Mật khẩu mới
+        note: Mô tả
+        otp_attempt: Mã xác thực
+        password: Mật khẩu
+        setting_auto_play_gif: Tự động chạy ảnh động GIFs
+        setting_boost_modal: Hiện thông báo xác nhận trước khi đăng tin
+        setting_default_privacy: Đăng quyền riêng tư
         setting_default_sensitive: Always mark media as sensitive
-        setting_delete_modal: Show confirmation dialog before deleting a toot
+        setting_delete_modal: Hiện thông báo xác nhận trước khi xóa tin
         setting_noindex: Opt-out of search engine indexing
         setting_reduce_motion: Reduce motion in animations
-        setting_system_font_ui: Use system's default font
+        setting_system_font_ui: Sử dụng phông chữ mặc định của hệ thống
         setting_theme: Site theme
-        setting_unfollow_modal: Show confirmation dialog before unfollowing someone
+        setting_unfollow_modal: Hiện thông báo xác nhận trước khi bỏ theo dõi
         severity: Severity
         type: Import type
-        username: Username
+        username: Tên người dùng
       interactions:
-        must_be_follower: Block notifications from non-followers
-        must_be_following: Block notifications from people you don't follow
-        must_be_following_dm: Block direct messages from people you don't follow
+        must_be_follower: Chặn thông báo từ những người không theo dõi bạn
+        must_be_following: Chặn thông báo từ những người bạn không theo dõi
+        must_be_following_dm: Chặn tin nhắn từ những người bạn không theo dõi
       notification_emails:
         digest: Send digest e-mails
-        favourite: Send e-mail when someone favourites your status
-        follow: Send e-mail when someone follows you
-        follow_request: Send e-mail when someone requests to follow you
-        mention: Send e-mail when someone mentions you
-        reblog: Send e-mail when someone boosts your status
-    'no': 'No'
+        favourite: Gửi email khi có người thích bài đăng của bạn
+        follow: Gửi email khi có người theo dõi bạn
+        follow_request: Gửi email khi có người yêu cầu theo dõi bạn
+        mention: Gửi email khi có người nhắc đến bạn
+        reblog: Gửi email khi có người nhắc lại bài đăng của bạn
+    'no': 'Không'
     required:
       mark: "*"
-      text: required
-    'yes': 'Yes'
+      text: bắt buộc
+    'yes': 'Đồng ý'

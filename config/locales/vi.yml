@@ -5,13 +5,13 @@ vi:
     about_mastodon_html: Mastodon is a social network based on open web protocols and free, open-source software. It is decentralized like e-mail.
     about_this: Về chúng tôi
     closed_registrations: Registrations are currently closed on this instance. However! You can find a different instance to make an account on and get access to the very same network from there.
-    contact: Contact
-    contact_missing: Not set
-    contact_unavailable: N/A
-    contact_us: Contact Us
+    contact: Liên hệ
+    contact_missing: Chưa thiết lập
+    contact_unavailable: Không khả dụng
+    contact_us: Liện hệ với chúng tôi
     description_headline: What is %{domain}?
     domain_count_after: other instances
-    domain_count_before: Connected to
+    domain_count_before: Được liên kết với
     extended_description_html: |
       <h3>A good place for rules</h3>
       <p>The extended description has not been set up yet.</p>
@@ -27,72 +27,72 @@ vi:
     find_another_instance: Find another instance
     generic_description: "%{domain} is one server in the network"
     hosted_on: Build a community that maximizes all values
-    learn_more: Learn more
+    learn_more: Tìm hiểu thêm
     other_instances: Instance list
     source_code: Source code
     status_count_after: statuses
     status_count_before: Who authored
-    user_count_after: users
+    user_count_after: Người dùng
     user_count_before: Home to
     what_is_mastodon: What is Mastodon?
   accounts:
-    follow: Follow
-    followers: Followers
-    following: Following
-    media: Media
+    follow: Theo dõi
+    followers: Người theo dõi
+    following: Đang theo dõi
+    media: Đa phương tiện
     moved_html: "%{name} has moved to %{new_profile_link}:"
-    nothing_here: There is nothing here!
+    nothing_here: Không tìm thấy nội dung!
     people_followed_by: People whom %{name} follows
     people_who_follow: People who follow %{name}
     posts: Toots
     posts_with_replies: Toots and replies
-    remote_follow: Remote follow
+    remote_follow: Xóa theo dõi
     reserved_username: The username is reserved
     roles:
       admin: Admin
       moderator: Mod
-    unfollow: Unfollow
+    unfollow: Bỏ theo dõi
   admin:
     account_moderation_notes:
       account: Moderator
-      create: Create
-      created_at: Date
-      created_msg: Moderation note successfully created!
-      delete: Delete
-      destroyed_msg: Moderation note successfully destroyed!
+      create: Tạo
+      created_at: Ngày
+      created_msg: Moderation note được tạo thành công!
+      delete: Xóa
+      destroyed_msg: Moderation note được xóa thành công!
     accounts:
-      are_you_sure: Are you sure?
-      by_domain: Domain
-      confirm: Confirm
-      confirmed: Confirmed
-      demote: Demote
-      disable: Disable
-      disable_two_factor_authentication: Disable 2FA
-      disabled: Disabled
-      display_name: Display name
-      domain: Domain
-      edit: Edit
+      are_you_sure: Bạn chắc chắn chứ?
+      by_domain: Tên miền
+      confirm: Xác nhận
+      confirmed: Đã xác nhận
+      demote: Giảm cấp
+      disable: Vô hiệu
+      disable_two_factor_authentication: Vô hiệu xác thực 2 lớp
+      disabled: Đã vô hiệu
+      display_name: Tên hiển thị
+      domain: Tên miền
+      edit: Sửa
       email: E-mail
-      enable: Enable
-      enabled: Enabled
+      enable: Cho phép
+      enabled: Đã cho phép
       feed_url: Feed URL
-      followers: Followers
-      followers_url: Followers URL
-      follows: Follows
-      inbox_url: Inbox URL
+      followers: Người theo dõi
+      followers_url: URL người theo dõi
+      follows: Theo dõi
+      inbox_url: URL tin nhắn
       ip: IP
       location:
-        all: All
+        all: Tất cả
         local: Local
         remote: Remote
         title: Location
-      login_status: Login status
-      media_attachments: Media attachments
+      login_status: Trạng thái đăng nhập
+      media_attachments: Đa phương tiện đính kèm
       memorialize: Turn into memoriam
       moderation:
-        all: All
+        all: Tất cả
         silenced: Silenced
-        suspended: Suspended
+        suspended: Đã hết hạn
         title: Moderation
       moderation_notes: Moderation notes
       most_recent_activity: Most recent activity
@@ -108,32 +108,32 @@ vi:
       promote: Promote
       protocol: Protocol
       public: Public
-      push_subscription_expires: PuSH subscription expires
+      push_subscription_expires: Push subscription expires
       redownload: Refresh avatar
       reset: Reset
       reset_password: Reset password
       resubscribe: Resubscribe
       role: Permissions
       roles:
-        admin: Administrator
-        moderator: Moderator
-        staff: Staff
-        user: User
+        admin: Quản trị viên
+        moderator: Điều hành viên
+        staff: Nhân viên
+        user: Người dùng
       salmon_url: Salmon URL
-      search: Search
+      search: Tìm kiếm
       shared_inbox_url: Shared Inbox URL
       show:
         created_reports: Reports created by this account
         report: report
         targeted_reports: Reports made about this account
-      silence: Silence
-      statuses: Statuses
-      subscribe: Subscribe
-      title: Accounts
-      undo_silenced: Undo silence
-      undo_suspension: Undo suspension
-      unsubscribe: Unsubscribe
-      username: Username
+      silence: Im lặng
+      statuses: Bài đăng
+      subscribe: Đăng ký
+      title: Tài khoản
+      undo_silenced: Bỏ im lặng
+      undo_suspension: Bỏ đình chỉ
+      unsubscribe: Bỏ đăng ký
+      username: Tên người dùng
       web: Web
     action_logs:
       actions:
@@ -162,51 +162,51 @@ vi:
         update_status: "%{name} updated status by %{target}"
       title: Audit log
     custom_emojis:
-      by_domain: Domain
-      copied_msg: Successfully created local copy of the emoji
-      copy: Copy
-      copy_failed_msg: Could not make a local copy of that emoji
-      created_msg: Emoji successfully created!
-      delete: Delete
-      destroyed_msg: Emojo successfully destroyed!
-      disable: Disable
-      disabled_msg: Successfully disabled that emoji
+      by_domain: Tên miền
+      copied_msg: Sao chép emoji thành công
+      copy: Sao chép
+      copy_failed_msg: Không thể sao chép emoji
+      created_msg: Tạo emoji thành công!
+      delete: Xóa
+      destroyed_msg: Xóa emojo thành công!
+      disable: Vô hiệu hóa
+      disabled_msg: Vô hiệu hóa emoji thành công
       emoji: Emoji
-      enable: Enable
-      enabled_msg: Successfully enabled that emoji
-      image_hint: PNG up to 50KB
-      listed: Listed
+      enable: Cho phép
+      enabled_msg: Cho phép emoji thành công
+      image_hint: PNG lên đến 50KB
+      listed: Được liệt kê
       new:
-        title: Add new custom emoji
+        title: Thêm emoji mới
       overwrite: Overwrite
       shortcode: Shortcode
       shortcode_hint: At least 2 characters, only alphanumeric characters and underscores
-      title: Custom emojis
-      unlisted: Unlisted
-      update_failed_msg: Could not update that emoji
-      updated_msg: Emoji successfully updated!
-      upload: Upload
+      title: Emoji tùy chỉnh
+      unlisted: Không được liệt kê
+      update_failed_msg: Không thể cập nhật emoji này
+      updated_msg: Emoji được cập nhật thành công!
+      upload: Tải lên
     domain_blocks:
-      add_new: Add new
-      created_msg: Domain block is now being processed
-      destroyed_msg: Domain block has been undone
-      domain: Domain
+      add_new: Thêm mới
+      created_msg: Đang thực hiện chặn tên miền
+      destroyed_msg:  Chặn tên miền đã được hoàn tác
+      domain: Tên miền
       new:
         create: Create block
         hint: The domain block will not prevent creation of account entries in the database, but will retroactively and automatically apply specific moderation methods on those accounts.
         severity:
           desc_html: "<strong>Silence</strong> will make the account's posts invisible to anyone who isn't following them. <strong>Suspend</strong> will remove all of the account's content, media, and profile data. Use <strong>None</strong> if you just want to reject media files."
-          noop: None
-          silence: Silence
-          suspend: Suspend
-        title: New domain block
-      reject_media: Reject media files
+          noop: Không
+          silence: Im lặng
+          suspend: Đình chỉ
+        title: Chặn tên miền mới
+      reject_media: Từ chối các tập tin đa phương tiện
       reject_media_hint: Removes locally stored media files and refuses to download any in the future. Irrelevant for suspensions
       severities:
         noop: None
-        silence: Silence
-        suspend: Suspend
-      severity: Severity
+        silence: Im lặng
+        suspend: Đình chỉ
+      severity: Mức độ
       show:
         affected_accounts:
           one: One account in the database affected
@@ -306,20 +306,20 @@ vi:
         title: Timeline preview
       title: Site settings
     statuses:
-      back_to_account: Back to account page
+      back_to_account: Trở lại trang tài khoản
       batch:
-        delete: Delete
-        nsfw_off: NSFW OFF
-        nsfw_on: NSFW ON
+        delete: Xóa
+        nsfw_off: TẮT NSFW
+        nsfw_on: BẬT NSFW
       execute: Execute
       failed_to_execute: Failed to execute
       media:
-        hide: Hide media
-        show: Show media
+        hide: Ẩn media
+        show: Hiện media
         title: Media
-      no_media: No media
-      title: Account statuses
-      with_media: With media
+      no_media: Không media
+      title: Bài đăng của tài khoản
+      with_media: Với media
     subscriptions:
       callback_url: Callback URL
       confirmed: Confirmed
@@ -353,11 +353,11 @@ vi:
     didnt_get_confirmation: Didn't receive confirmation instructions?
     forgot_password: Forgot your password?
     invalid_reset_password_token: Password reset token is invalid or expired. Please request a new one.
-    login: Log in
-    logout: Logout
+    login: Đăng nhập
+    logout: Đăng xuất
     migrate_account: Move to a different account
     migrate_account_html: If you wish to redirect this account to a different one, you can <a href="%{path}">configure it here</a>.
-    register: Sign up
+    register: Đăng ký
     resend_confirmation: Resend confirmation instructions
     reset_password: Reset password
     set_new_password: Set new password

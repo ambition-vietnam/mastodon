@@ -2,39 +2,39 @@
 vi:
   about:
     about_hashtag_html: These are public toots tagged with <strong>#%{hashtag}</strong>. You can interact with them if you have an account anywhere in the fediverse.
-    about_mastodon_html: Mastodon is a social network based on open web protocols and free, open-source software. It is decentralized like e-mail.
+    about_mastodon_html: Mastodon là một mạng xã hội dựa trên giao thức web mở và phần mềm nguồn mở miễn phí. Nó được phân quyền như e-mail.
     about_this: Về chúng tôi
     closed_registrations: Registrations are currently closed on this instance. However! You can find a different instance to make an account on and get access to the very same network from there.
     contact: Liên hệ
     contact_missing: Chưa thiết lập
     contact_unavailable: Không khả dụng
     contact_us: Liện hệ với chúng tôi
-    description_headline: What is %{domain}?
+    description_headline: "%{domain} là gì?"
     domain_count_after: other instances
     domain_count_before: Được liên kết với
     extended_description_html: |
-      <h3>A good place for rules</h3>
-      <p>The extended description has not been set up yet.</p>
+      <h3>Một nơi tốt cho các quy tắc</h3>
+      <p>Mô tả mở rộng chưa được thiết lập.</p>
     features:
-      humane_approach_body: Learning from failures of other networks, Mastodon aims to make ethical design choices to combat the misuse of social media.
-      humane_approach_title: A more humane approach
-      not_a_product_body: Mastodon is not a commercial network. No advertising, no data mining, no walled gardens. There is no central authority.
-      not_a_product_title: You’re a person, not a product
-      real_conversation_body: With 500 characters at your disposal and support for granular content and media warnings, you can express yourself the way you want to.
-      real_conversation_title: Built for real conversation
-      within_reach_body: Multiple apps for iOS, Android, and other platforms thanks to a developer-friendly API ecosystem allow you to keep up with your friends anywhere.
-      within_reach_title: Always within reach
-    find_another_instance: Find another instance
-    generic_description: "%{domain} is one server in the network"
-    hosted_on: Build a community that maximizes all values
+      humane_approach_body: Học từ thất bại của các mạng khác, Mastodon nhằm mục đích đưa ra những lựa chọn thiết kế đạo đức để chống lại việc lạm dụng các phương tiện truyền thông xã hội.
+      humane_approach_title: Một cách tiếp cận tốt hơn
+      not_a_product_body: Mastodon không phải là một mạng lưới thương mại. Không có quảng cáo, không khai thác dữ liệu, không có các khu vườn có tường. Không có cơ quan trung ương.
+      not_a_product_title: Bạn là một con người chứ không phải là một sản phẩm
+      real_conversation_body: Với 500 ký tự tùy ý sử dụng và hỗ trợ cho các nội dung chi tiết và các cảnh báo phương tiện truyền thông, bạn có thể thể hiện mình theo cách bạn muốn.
+      real_conversation_title: Được xây dựng cho cuộc trò chuyện thực
+      within_reach_body: Nhiều ứng dụng dành cho iOS, Android và các nền tảng khác nhờ hệ sinh thái API thân thiện với nhà phát triển cho phép bạn theo kịp bạn bè của mình ở bất cứ đâu.
+      within_reach_title: Luôn trong tầm tay
+    find_another_instance: Tìm một trường hợp khác
+    generic_description: "%{domain} là một máy chủ trong mạng lưới"
+    hosted_on: Xây dựng một cộng đồng tối đa hóa tất cả các giá trị
     learn_more: Tìm hiểu thêm
-    other_instances: Instance list
-    source_code: Source code
-    status_count_after: statuses
-    status_count_before: Who authored
+    other_instances: Danh sách ứng dụng
+    source_code: Mã nguồn
+    status_count_after: Trạng thái
+    status_count_before: Tác giả
     user_count_after: Người dùng
     user_count_before: Home to
-    what_is_mastodon: What is Mastodon?
+    what_is_mastodon: Mastodon là gì?
   accounts:
     follow: Theo dõi
     followers: Người theo dõi
@@ -311,8 +311,8 @@ vi:
         delete: Xóa
         nsfw_off: TẮT NSFW
         nsfw_on: BẬT NSFW
-      execute: Execute
-      failed_to_execute: Failed to execute
+      execute: Thi hành
+      failed_to_execute: Thi hành thất bại
       media:
         hide: Ẩn media
         show: Hiện media
@@ -322,163 +322,163 @@ vi:
       with_media: Với media
     subscriptions:
       callback_url: Callback URL
-      confirmed: Confirmed
-      expires_in: Expires in
+      confirmed: Được xác nhận
+      expires_in: Hết hạn khi
       last_delivery: Last delivery
       title: WebSub
-      topic: Topic
-    title: Administration
+      topic: Đề tài
+    title: Quản trị
   admin_mailer:
     new_report:
-      body: "%{reporter} has reported %{target}"
-      subject: New report for %{instance} (#%{id})
+      body: "%{reporter} đã báo cáo %{target}"
+      subject: Báo cáo mới cho %{instance} (#%{id})
   application_mailer:
     salutation: "%{name},"
-    settings: 'Change e-mail preferences: %{link}'
-    signature: Mastodon notifications from %{instance}
+    settings: 'Thay đổi sở thích e-mail: %{link}'
+    signature: Mastodon thông báo từ %{instance}
     view: 'View:'
   applications:
-    created: Application successfully created
-    destroyed: Application successfully deleted
-    invalid_url: The provided URL is invalid
+    created: Ứng dụng được tạo thành công
+    destroyed: Ứng dụng được xóa thành công
+    invalid_url: Đường dẫn được cung cấp không hợp lệ
     regenerate_token: Regenerate access token
     token_regenerated: Access token successfully regenerated
     warning: Be very careful with this data. Never share it with anyone!
     your_token: Your access token
   auth:
-    agreement_html: By signing up you agree to follow <a href="%{rules_path}">the rules of the instance</a> and <a href="%{terms_path}">our terms of service</a>.
-    change_password: Security
-    delete_account: Delete account
-    delete_account_html: If you wish to delete your account, you can <a href="%{path}">proceed here</a>. You will be asked for confirmation.
-    didnt_get_confirmation: Didn't receive confirmation instructions?
-    forgot_password: Forgot your password?
-    invalid_reset_password_token: Password reset token is invalid or expired. Please request a new one.
+    agreement_html: Bằng cách đăng ký, bạn đã đồng ý tuân theo <a href="%{rules_path}">quy định</a> và <a href="%{terms_path}">điều khoản dịch vụ của chúng tôi</a>.
+    change_password: Bảo mật
+    delete_account: Xóa tài khoản
+    delete_account_html: Nếu bạn muốn xóa tài khoản của mình, bạn có thể <a href="%{path}">tiếp tục ở đây</a>. Bạn sẽ được yêu cầu xác nhận.
+    didnt_get_confirmation: Không nhận được hướng dẫn xác nhận?
+    forgot_password: Quên mật khẩu?
+    invalid_reset_password_token: Mã thông báo đặt lại mật khẩu không hợp lệ hoặc đã hết hạn. Vui lòng yêu cầu một mã mới.
     login: Đăng nhập
     logout: Đăng xuất
-    migrate_account: Move to a different account
-    migrate_account_html: If you wish to redirect this account to a different one, you can <a href="%{path}">configure it here</a>.
+    migrate_account: Chuyển hướng đến một tài khoản khác
+    migrate_account_html: Nếu bạn muốn chuyển hướng tài khoản này sang tài khoản khác, bạn có thể <a href="%{path}">thay đổi ở đây</a>.
     register: Đăng ký
-    resend_confirmation: Resend confirmation instructions
-    reset_password: Reset password
-    set_new_password: Set new password
+    resend_confirmation: Gửi lại hướng dẫn xác nhận
+    reset_password: Đặt lại mật khẩu
+    set_new_password: Đặt mật khẩu mới
   authorize_follow:
-    error: Unfortunately, there was an error looking up the remote account
-    follow: Follow
-    follow_request: 'You have sent a follow request to:'
+    error: Thật không may, đã xảy ra lỗi khi tìm kiếm tài khoản
+    follow: Theo dõi
+    follow_request: 'Bạn đã gửi một yêu cầu theo dõi đến:'
     following: 'Success! You are now following:'
     post_follow:
-      close: Or, you can just close this window.
-      return: Return to the user's profile
-      web: Go to web
-    title: Follow %{acct}
+      close: Hoặc, bạn có thể đóng cửa sổ này.
+      return: Quay về hồ sơ người dùng
+      web: Đi đến web
+    title: Theo dõi %{acct}
   datetime:
     distance_in_words:
-      about_x_hours: "%{count}h"
-      about_x_months: "%{count}mo"
-      about_x_years: "%{count}y"
-      almost_x_years: "%{count}y"
-      half_a_minute: Just now
-      less_than_x_minutes: "%{count}m"
-      less_than_x_seconds: Just now
-      over_x_years: "%{count}y"
-      x_days: "%{count}d"
-      x_minutes: "%{count}m"
-      x_months: "%{count}mo"
-      x_seconds: "%{count}s"
+      about_x_hours: "%{count}giờ"
+      about_x_months: "%{count}tháng"
+      about_x_years: "%{count}năm"
+      almost_x_years: "%{count}năm"
+      half_a_minute: Mới đây
+      less_than_x_minutes: "%{count}phút"
+      less_than_x_seconds: Mới đây
+      over_x_years: "%{count}năm"
+      x_days: "%{count}ngày"
+      x_minutes: "%{count}phút"
+      x_months: "%{count}tháng"
+      x_seconds: "%{count}giây"
   deletes:
-    bad_password_msg: Nice try, hackers! Incorrect password
-    confirm_password: Enter your current password to verify your identity
-    description_html: This will <strong>permanently, irreversibly</strong> remove content from your account and deactivate it. Your username will remain reserved to prevent future impersonations.
-    proceed: Delete account
-    success_msg: Your account was successfully deleted
+    bad_password_msg: Có cố gắng, tin tặc! mật khẩu không đúng
+    confirm_password: Nhập mật khẩu hiện tại để xác minh danh tính của bạn
+    description_html: Điều này sẽ <strong>vĩnh viễn, không thể thay đổi</strong> xóa nội dung khỏi tài khoản của bạn và vô hiệu hóa nó. Tên người dùng của bạn sẽ vẫn được bảo lưu để ngăn chặn mạo danh trong tương lai.
+    proceed: Xóa tài khoản
+    success_msg: Tài khoản của bạn đã được xóa thành công
     warning_html: Only deletion of content from this particular instance is guaranteed. Content that has been widely shared is likely to leave traces. Offline servers and servers that have unsubscribed from your updates will not update their databases.
     warning_title: Disseminated content availability
   errors:
-    '403': You don't have permission to view this page.
-    '404': The page you were looking for doesn't exist.
-    '410': The page you were looking for doesn't exist anymore.
+    '403': Bạn không có quyền xem trang này.
+    '404': Trang bạn đang tìm kiếm không tồn tại.
+    '410': Trang bạn đang tìm kiếm không tồn tại nữa.
     '422':
-      content: Security verification failed. Are you blocking cookies?
-      title: Security verification failed
-    '429': Throttled
+      content: Xác minh an toàn không thành công. Bạn đang chặn cookie?
+      title: Xác minh an toàn không thành công.
+    '429': Bị hạn chế
     '500':
-      content: We're sorry, but something went wrong on our end.
-      title: This page is not correct
-    noscript_html: To use the Mastodon web application, please enable JavaScript. Alternatively, try one of the <a href="https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md">native apps</a> for Mastodon for your platform.
+      content: Rất tiếc, đã xảy ra vấn đề ở máy chủ.
+      title: Trang này không chính xác
+    noscript_html: Để sử dụng ứng dụng web Mastodon, vui lòng bật JavaScript. Ngoài ra, hãy thử một trong các <a href="https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md">ứng dụng</a> Mastodon cho nền tảng của bạn.
   exports:
-    blocks: You block
+    blocks: Bạn chặn
     csv: CSV
-    follows: You follow
-    mutes: You mute
-    storage: Media storage
+    follows: Bạn theo dõi
+    mutes: Bạn tắt tiếng
+    storage: Lưu trữ đa phương tiện
   followers:
-    domain: Domain
-    explanation_html: If you want to ensure the privacy of your statuses, you must be aware of who is following you. <strong>Your private statuses are delivered to all instances where you have followers</strong>. You may wish to review them, and remove followers if you do not trust your privacy to be respected by the staff or software of those instances.
-    followers_count: Number of followers
-    lock_link: Lock your account
-    purge: Remove from followers
+    domain: Tên miền
+    explanation_html: Nếu bạn muốn đảm bảo sự riêng tư của các trạng thái của mình, bạn phải biết ai đang theo dõi bạn. <strong>Trạng thái riêng tư của bạn được phân phối đến tất cả các trường hợp bạn có người theo dõi</strong>. Bạn có thể muốn xem lại và loại bỏ người theo dõi nếu bạn không tin tưởng vào sự riêng tư của mình được tôn trọng bởi nhân viên hoặc phần mềm của những ứng dụng khác.
+    followers_count: Số người theo dõi
+    lock_link: Khóa tài khoản
+    purge: Xóa từ người theo dõi
     success:
-      one: In the process of soft-blocking followers from one domain...
-      other: In the process of soft-blocking followers from %{count} domains...
-    true_privacy_html: Please mind that <strong>true privacy can only be achieved with end-to-end encryption</strong>.
-    unlocked_warning_html: Anyone can follow you to immediately view your private statuses. %{lock_link} to be able to review and reject followers.
-    unlocked_warning_title: Your account is not locked
+      one: Đang xử lý chặn người theo dõi từ một tên miền ...
+      other: Đang xử lý chặn người theo dõi từ %{count} tên miền...
+    true_privacy_html: Xin lưu ý rằng <strong>sự riêng tư thực sự chỉ có thể đạt được với việc mã hóa đầu cuối</strong>.
+    unlocked_warning_html: Bất cứ ai cũng có thể theo dõi bạn để xem ngay trạng thái riêng tư của bạn. %{lock_link} để có thể kiểm tra và từ chối những người theo dõi.
+    unlocked_warning_title: Tài khoản của bạn không bị xóa
   generic:
     changes_saved_msg: Ngôn ngữ đã được đổi thành công
-    powered_by: powered by %{link}
-    save_changes: Save changes
+    powered_by: được hỗ trợ bởi %{link}
+    save_changes: Lưu thay đổi
     validation_errors:
-      one: Something isn't quite right yet! Please review the error below
-      other: Something isn't quite right yet! Please review %{count} errors below
+      one: Có lỗi xảy ra! Vui lòng xem lại lỗi dưới đây
+      other: Có lỗi xảy ra! Vui lòng xem lại %{count} lỗi dưới đây
   imports:
-    preface: You can import data that you have exported from another instance, such as a list of the people you are following or blocking.
-    success: Your data was successfully uploaded and will now be processed in due time
+    preface: Bạn có thể nhập dữ liệu đã xuất từ một ứng dụng khác, chẳng hạn như danh sách những người bạn đang theo dõi hoặc chặn.
+    success: Dữ liệu của bạn đã được tải lên thành công và sẽ được xử lý đúng thời hạn
     types:
-      blocking: Blocking list
-      following: Following list
-      muting: Muting list
-    upload: Upload
+      blocking: Danh sách chặn
+      following: Danh sách theo dõi
+      muting: Danh sách im lặng
+    upload: Tải lên
   in_memoriam_html: In Memoriam.
   invites:
-    delete: Deactivate
-    expired: Expired
+    delete: Vô hiệu
+    expired: Hết hạn
     expires_in:
-      '1800': 30 minutes
-      '21600': 6 hours
-      '3600': 1 hour
-      '43200': 12 hours
-      '86400': 1 day
-    expires_in_prompt: Never
-    generate: Generate
+      '1800': 30 phút
+      '21600': 6 giờ
+      '3600': 1 giờ
+      '43200': 12 giờ
+      '86400': 1 ngày
+    expires_in_prompt: Không bao giờ
+    generate: Khởi tạo
     max_uses:
-      one: 1 use
-      other: "%{count} uses"
-    max_uses_prompt: No limit
-    prompt: Generate and share links with others to grant access to this instance
+      one: 1 sử dụng
+      other: "%{count} sử dụng"
+    max_uses_prompt: Không giới hạn
+    prompt: Tạo và chia sẻ liên kết với người khác để cấp quyền truy cập vào ứng dụng này
     table:
-      expires_at: Expires
-      uses: Uses
-    title: Invite people
+      expires_at: Hết hạn
+      uses: Sử dụng
+    title: Mời bạn bè
   landing_strip_html: "<strong>%{name}</strong> is a user on %{link_to_root_path}. You can follow them or interact with them if you have an account anywhere in the fediverse."
-  landing_strip_signup_html: If you don't, you can <a href="%{sign_up_path}">sign up here</a>.
+  landing_strip_signup_html: Nếu không, bạn có thể <a href="%{sign_up_path}">đăng ký tại đây</a>.
   lists:
     errors:
-      limit: You have reached the maximum amount of lists
+      limit: Bạn đã đạt đến số lượng danh sách tối đa
   media_attachments:
     validations:
-      images_and_video: Cannot attach a video to a status that already contains images
-      too_many: Cannot attach more than 4 files
+      images_and_video: Không thể đính kèm video vào trạng thái đã chứa hình ảnh
+      too_many: Không thể đính kèm hơn 4 tệp
   migrations:
-    acct: username@domain of the new account
-    currently_redirecting: 'Your profile is set to redirect to:'
-    proceed: Save
-    updated_msg: Your account migration setting successfully updated!
+    acct: username@domain của tài khoản mới
+    currently_redirecting: 'Thông tin của bạn được đặt để chuyển hướng đến:'
+    proceed: Lưu
+    updated_msg: Đã cập nhật thành công cài đặt di chuyển tài khoản của bạn!
   moderation:
-    title: Moderation
+    title: Sự kiểm duyệt
   notification_mailer:
     digest:
-      body: 'Here is a brief summary of what you missed on %{instance} since your last visit on %{since}:'
-      mention: "%{name} mentioned you in:"
+      body: 'Dưới đây là tóm tắt ngắn gọn về những gì bạn bỏ lỡ trên %{instance} kể từ lần truy cập cuối cùng của bạn vào %{since}:'
+      mention: "%{name} đã nhắc đến bạn trong:"
       new_followers_summary:
         one: You have acquired one new follower! Yay!
         other: You have gotten %{count} new followers! Amazing!
@@ -512,43 +512,43 @@ vi:
           trillion: T
           unit: ''
   pagination:
-    next: Next
-    prev: Prev
+    next: Tiếp
+    prev: Trước
     truncate: "&hellip;"
   preferences:
-    languages: Languages
-    other: Other
-    publishing: Publishing
+    languages: Ngôn ngữ
+    other: Khác
+    publishing: Xuất bản
     web: Web
   push_notifications:
     favourite:
-      title: "%{name} favourited your status"
+      title: "%{name} đã thích ttrạng thái của bạn"
     follow:
-      title: "%{name} is now following you"
+      title: "%{name} đang theo dõi bạn"
     group:
-      title: "%{count} notifications"
+      title: "%{count} thông báo"
     mention:
       action_boost: Boost
-      action_expand: Show more
-      action_favourite: Favourite
-      title: "%{name} mentioned you"
+      action_expand: Xem thêm
+      action_favourite: Thích
+      title: "%{name} đã nhắc đến bạn"
     reblog:
-      title: "%{name} boosted your status"
+      title: "%{name} boosted trạng thái của bạn"
   remote_follow:
-    acct: Enter your username@domain you want to follow from
-    missing_resource: Could not find the required redirect URL for your account
-    proceed: Proceed to follow
-    prompt: 'You are going to follow:'
+    acct: Nhập username@domain mà bạn muốn theo dõi
+    missing_resource: Không thể tìm thấy URL chuyển hướng cho tài khoản của bạn
+    proceed: Đang tiến hành theo dõi
+    prompt: 'Bạn sẽ theo dõi:'
   sessions:
-    activity: Last activity
-    browser: Browser
+    activity: Hoạt động cuối
+    browser: Trình duyệt
     browsers:
       alipay: Alipay
       blackberry: Blackberry
       chrome: Chrome
       edge: Microsoft Edge
       firefox: Firefox
-      generic: Unknown browser
+      generic: Trình duyệt không xác định
       ie: Internet Explorer
       micro_messenger: MicroMessenger
       nokia: Nokia S40 Ovi Browser
@@ -558,9 +558,9 @@ vi:
       safari: Safari
       uc_browser: UCBrowser
       weibo: Weibo
-    current_session: Current session
-    description: "%{browser} on %{platform}"
-    explanation: These are the web browsers currently logged in to your Mastodon account.
+    current_session: Phiên hiện tại
+    description: "%{browser} trên %{platform}"
+    explanation: Đây là những trình duyệt web hiện đang đăng nhập vào tài khoản của bạn.
     ip: IP
     platforms:
       adobe_air: Adobe Air
@@ -571,50 +571,50 @@ vi:
       ios: iOS
       linux: Linux
       mac: Mac
-      other: unknown platform
+      other: Hệ điều hành không xác định
       windows: Windows
       windows_mobile: Windows Mobile
       windows_phone: Windows Phone
-    revoke: Revoke
-    revoke_success: Session successfully revoked
-    title: Sessions
+    revoke: Thu hồi
+    revoke_success: Phiên làm việc đã được thu hồi thành công
+    title: Phiên làm việc
   settings:
-    authorized_apps: Authorized apps
-    back: Back to Offidon
-    delete: Account deletion
-    development: Development
-    edit_profile: Edit profile
-    export: Data export
-    followers: Authorized followers
-    import: Import
+    authorized_apps: Ứng dụng được ủy quyền
+    back: Trở về Offidon
+    delete: Xóa tài khoản
+    development: Quản trị
+    edit_profile: Chỉnh sửa thông tin
+    export: Xuất dữ liệu
+    followers: Người theo dõi được ủy quyền
+    import: Nhập dữ liệu
     migrate: Account migration
-    notifications: Notifications
-    preferences: Preferences
-    settings: Settings
-    two_factor_authentication: Two-factor Auth
-    your_apps: Your applications
+    notifications: Thông báo
+    preferences: Cài đặt chung
+    settings: Cài đặt
+    two_factor_authentication: Xác thực 2 lớp
+    your_apps: Ứng dụng của bạn
   statuses:
-    open_in_web: Open in web
-    over_character_limit: character limit of %{max} exceeded
+    open_in_web: Mở trên web
+    over_character_limit: đã vượt quá %{max} ký tự
     pin_errors:
-      limit: You have already pinned the maximum number of toots
-      ownership: Someone else's toot cannot be pinned
-      private: Non-public toot cannot be pinned
-      reblog: A boost cannot be pinned
-    show_more: Show more
+      limit: Bạn đã ghim số lượng toots tối đa
+      ownership: Không thể ghim toot của người khác
+      private: Không thể ghim được too phi công cộng
+      reblog: Không thể ghim được một boost
+    show_more: Xem thêm
     title: '%{name}: "%{quote}"'
     visibilities:
-      private: Followers-only
-      private_long: Only show to followers
-      public: Public
-      public_long: Everyone can see
-      unlisted: Unlisted
-      unlisted_long: Everyone can see, but not listed on public timelines
+      private: Chỉ những người theo dõi
+      private_long: Chỉ hiển thị cho người theo dõi
+      public: Công khai
+      public_long: Mọi người có thể nhìn thấy
+      unlisted: Không công khai
+      unlisted_long: Mọi người có thể nhìn thấy, nhưng không được liệt kê trong dòng thời gian công khai
   stream_entries:
-    click_to_show: Click to show
-    pinned: Pinned toot
-    reblogged: boosted
-    sensitive_content: Sensitive content
+    click_to_show: Nhấp chuột để hiện
+    pinned: Toot đã được ghim
+    reblogged: Boosted
+    sensitive_content: Nội dung nhạy cảm
   terms:
     body_html: |
       <h2>Privacy Policy</h2>
@@ -684,29 +684,29 @@ vi:
       <p>This document is CC-BY-SA. It was last updated May 31, 2013.</p>
 
       <p>Originally adapted from the <a href="https://github.com/discourse/discourse">Discourse privacy policy</a>.</p>
-    title: "%{instance} Terms of Service and Privacy Policy"
+    title: "%{instance} Điều khoản dịch vụ và chính sách bảo mật"
   themes:
     default: Mastodon
   time:
     formats:
       default: "%b %d, %Y, %H:%M"
   two_factor_authentication:
-    code_hint: Enter the code generated by your authenticator app to confirm
-    description_html: If you enable <strong>two-factor authentication</strong>, logging in will require you to be in possession of your phone, which will generate tokens for you to enter.
-    disable: Disable
-    enable: Enable
-    enabled: Two-factor authentication is enabled
-    enabled_success: Two-factor authentication successfully enabled
-    generate_recovery_codes: Generate recovery codes
-    instructions_html: "<strong>Scan this QR code into Google Authenticator or a similiar TOTP app on your phone</strong>. From now on, that app will generate tokens that you will have to enter when logging in."
-    lost_recovery_codes: Recovery codes allow you to regain access to your account if you lose your phone. If you've lost your recovery codes, you can regenerate them here. Your old recovery codes will be invalidated.
-    manual_instructions: 'If you can''t scan the QR code and need to enter it manually, here is the plain-text secret:'
-    recovery_codes: Backup recovery codes
-    recovery_codes_regenerated: Recovery codes successfully regenerated
-    recovery_instructions_html: If you ever lose access to your phone, you can use one of the recovery codes below to regain access to your account. <strong>Keep the recovery codes safe</strong>. For example, you may print them and store them with other important documents.
-    setup: Set up
-    wrong_code: The entered code was invalid! Are server time and device time correct?
+    code_hint: Nhập mã do ứng dụng xác thực của bạn tạo ra để xác nhận
+    description_html: Nếu bạn cho phép <strong>xác thực hai lớp</strong>, việc đăng nhập sẽ yêu cầu bạn sở hữu điện thoại, sẽ tạo ra mã xác thực để bạn nhập.
+    disable: Vô hiệu
+    enable: Bật
+    enabled: Xác thực hai lớp đã được bật
+    enabled_success: Xác thực hai lớp đã được bật thành công
+    generate_recovery_codes: Tạo mã khôi phục
+    instructions_html: "<strong> Quét mã QR này vào Google Authenticator hoặc một ứng dụng TOTP tương tự trên điện thoại của bạn </strong>. Từ bây giờ, ứng dụng đó sẽ tạo ra các mã số mà bạn sẽ phải nhập khi đăng nhập."
+    lost_recovery_codes: Mã khôi phục cho phép bạn lấy lại quyền truy cập vào tài khoản của mình nếu bạn mất điện thoại. Nếu bạn bị mất mã khôi phục, bạn có thể tạo lại chúng ở đây. Mã khôi phục cũ của bạn sẽ bị vô hiệu.
+    manual_instructions: 'Nếu bạn không thể quét mã QR và cần nhập nó bằng tay, đây là bí mật văn bản thuần túy:'
+    recovery_codes: Mã khôi phục dự phòng
+    recovery_codes_regenerated: Mã khôi phục đã được phục hồi thành công
+    recovery_instructions_html: Nếu bạn mất quyền truy cập vào điện thoại của mình, bạn có thể sử dụng một trong các mã khôi phục dưới đây để lấy lại quyền truy cập vào tài khoản của bạn. <strong> Giữ mã khôi phục an toàn</strong>. Ví dụ, bạn có thể in chúng và lưu trữ chúng với các tài liệu quan trọng khác.
+    setup: Thiết lập
+    wrong_code: Mã đã nhập không hợp lệ! Thời gian máy chủ và thời gian thiết bị có chính xác?
   users:
-    invalid_email: The e-mail address is invalid
-    invalid_otp_token: Invalid two-factor code
-    signed_in_as: 'Signed in as:'
+    invalid_email: Địa chỉ email không hợp lệ
+    invalid_otp_token: Mã xác thực hai lớp không hợp lệ
+    signed_in_as: 'Đã đăng nhập với tư cách là:'

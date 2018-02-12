@@ -4,7 +4,7 @@ vi:
     hints:
       defaults:
         avatar: PNG, GIF hoặc JPG. Tối đa 2MB. Độ phân giải sẽ được chuyển thành 120x120px
-        digest: Sent after a long period of inactivity with a summary of mentions you've received in your absence
+        digest: Đã gửi sau một khoảng thời gian dài không hoạt động với một bản tóm tắt những đề cập bạn đã nhận khi bạn vắng mặt
         display_name:
           one: Còn <span class="name-counter">1</span> ký tự
           other: Còn <span class="name-counter">%{count}</span> ký tự
@@ -13,14 +13,14 @@ vi:
         note:
           one: Còn <span class="note-counter">1</span> ký tự
           other: Còn <span class="note-counter">%{count}</span> ký tự
-        setting_noindex: Affects your public profile and status pages
-        setting_theme: Affects how Mastodon looks when you're logged in from any device.
+        setting_noindex: Ảnh hưởng đến trang tiểu sử công khai và trạng thái của bạn
+        setting_theme: Ảnh hưởng giao diện Mastodon khi bạn đăng nhập từ các thiết bị khác.
       imports:
-        data: CSV file exported from another Mastodon instance
+        data: Tệp CSV được xuất ra từ một instannce khác của Mastodon
       sessions:
-        otp: Enter the Two-factor code from your phone or use one of your recovery codes.
+        otp: Nhập mã xác thực từ điện thoại của bạn hoặc sử dụng một trong các mã khôi phục của bạn.
       user:
-        filtered_languages: Checked languages will be filtered from public timelines for you
+        filtered_languages: Ngôn ngữ được chọn sẽ được lọc từ dòng thời gian công khai cho bạn
     labels:
       defaults:
         avatar: Ảnh đại diện
@@ -32,7 +32,7 @@ vi:
         email: Địa chỉ e-mail
         expires_in: Có thời hạn đến
         filtered_languages: Lọc ngôn ngữ
-        header: Header
+        header: Tiêu đề
         locale: Ngôn ngữ
         locked: Khóa tài khoản
         max_uses: Số lượng người dùng tối đa
@@ -43,22 +43,22 @@ vi:
         setting_auto_play_gif: Tự động chạy ảnh động GIFs
         setting_boost_modal: Hiện thông báo xác nhận trước khi đăng tin
         setting_default_privacy: Đăng quyền riêng tư
-        setting_default_sensitive: Always mark media as sensitive
+        setting_default_sensitive: Luôn đánh dấu đa phương tiện nhạy cảm
         setting_delete_modal: Hiện thông báo xác nhận trước khi xóa tin
-        setting_noindex: Opt-out of search engine indexing
-        setting_reduce_motion: Reduce motion in animations
+        setting_noindex: Chọn không tham gia chỉ mục công cụ tìm kiếm
+        setting_reduce_motion: Giảm chuyển động trong hoạt hình
         setting_system_font_ui: Sử dụng phông chữ mặc định của hệ thống
-        setting_theme: Site theme
+        setting_theme: Chủ đề trang
         setting_unfollow_modal: Hiện thông báo xác nhận trước khi bỏ theo dõi
-        severity: Severity
-        type: Import type
+        severity: Mức độ nghiêm trọng
+        type: Loại nhập
         username: Tên người dùng
       interactions:
         must_be_follower: Chặn thông báo từ những người không theo dõi bạn
         must_be_following: Chặn thông báo từ những người bạn không theo dõi
         must_be_following_dm: Chặn tin nhắn từ những người bạn không theo dõi
       notification_emails:
-        digest: Send digest e-mails
+        digest: Gửi e-mail thông báo
         favourite: Gửi email khi có người thích bài đăng của bạn
         follow: Gửi email khi có người theo dõi bạn
         follow_request: Gửi email khi có người yêu cầu theo dõi bạn

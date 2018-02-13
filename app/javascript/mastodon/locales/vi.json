@@ -158,7 +158,7 @@
   "notification.reblog": "{name} đã boost trạng thái của bạn",
   "notifications.clear": "Xóa thông báo",
   "notifications.clear_confirmation": "Bạn có chắc chắn muốn xóa vĩnh viễn tất cả thông báo của mình không?",
-  "notifications.column_settings.alert": "Thông báo trên mấy tính",
+  "notifications.column_settings.alert": "Thông báo trên máy tính",
   "notifications.column_settings.favourite": "Thích:",
   "notifications.column_settings.follow": "Người theo dõi mới:",
   "notifications.column_settings.mention": "Nhắc đến:",

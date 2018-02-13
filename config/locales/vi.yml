@@ -1,10 +1,10 @@
 ---
 vi:
   about:
-    about_hashtag_html: These are public toots tagged with <strong>#%{hashtag}</strong>. You can interact with them if you have an account anywhere in the fediverse.
+    about_hashtag_html: Đây là những toot công khai được gắn với hashtag <strong>#%{hashtag}</strong>. Bạn có thể tương tác với họ nếu bạn một tài khoản.
     about_mastodon_html: Mastodon là một mạng xã hội dựa trên giao thức web mở và phần mềm nguồn mở miễn phí. Nó được phân quyền như e-mail.
     about_this: Về chúng tôi
-    closed_registrations: Registrations are currently closed on this instance. However! You can find a different instance to make an account on and get access to the very same network from there.
+    closed_registrations: Đăng ký hiện không khả dụng trên ứng này. Tuy nhiên! Bạn có thể tìm thấy một ứng dụng khác để tạo một tài khoản và truy cập vào cùng một mạng từ đó.
     contact: Liên hệ
     contact_missing: Chưa thiết lập
     contact_unavailable: Không khả dụng

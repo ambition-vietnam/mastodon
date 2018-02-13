@@ -33,33 +33,33 @@ vi:
     status_count_after: Trạng thái
     status_count_before: Tác giả
     user_count_after: Người dùng
-    user_count_before: Home to
+    user_count_before: Trang chủ đến
     what_is_mastodon: Mastodon là gì?
   accounts:
     follow: Theo dõi
     followers: Người theo dõi
     following: Đang theo dõi
     media: Đa phương tiện
-    moved_html: "%{name} has moved to %{new_profile_link}:"
+    moved_html: "%{name} đã được chuyển tới %{new_profile_link}:"
     nothing_here: Không tìm thấy nội dung!
-    people_followed_by: People whom %{name} follows
-    people_who_follow: People who follow %{name}
+    people_followed_by: Người mà %{name} theo dõi
+    people_who_follow: Người theo dõi %{name}
     posts: Toots
-    posts_with_replies: Toots and replies
+    posts_with_replies: Các toot và phản hồi
     remote_follow: Xóa theo dõi
-    reserved_username: The username is reserved
+    reserved_username: Tên đăng nhập được bảo lưu
     roles:
-      admin: Admin
-      moderator: Mod
+      admin: Quản trị
+      moderator: Điều hành
     unfollow: Bỏ theo dõi
   admin:
     account_moderation_notes:
-      account: Moderator
+      account: Người điều hành
       create: Tạo
       created_at: Ngày
-      created_msg: Moderation note được tạo thành công!
+      created_msg: Ghi chú điều hành được tạo thành công!
       delete: Xóa
-      destroyed_msg: Moderation note được xóa thành công!
+      destroyed_msg: Ghi chú điều hành được xóa thành công!
     accounts:
       are_you_sure: Bạn chắc chắn chứ?
       by_domain: Tên miền
@@ -83,37 +83,37 @@ vi:
       ip: IP
       location:
         all: Tất cả
-        local: Local
-        remote: Remote
-        title: Location
+        local: Nội bộ
+        remote: Từ xa
+        title: Địa điểm
       login_status: Trạng thái đăng nhập
       media_attachments: Đa phương tiện đính kèm
-      memorialize: Turn into memoriam
+      memorialize: Chuyển thành memoriam
       moderation:
         all: Tất cả
-        silenced: Silenced
+        silenced: Đã im lặng
         suspended: Đã hết hạn
-        title: Moderation
-      moderation_notes: Moderation notes
-      most_recent_activity: Most recent activity
-      most_recent_ip: Most recent IP
-      not_subscribed: Not subscribed
+        title: Điều hành
+      moderation_notes: Ghi chú điều hành
+      most_recent_activity: Hoạt động gần đây nhất
+      most_recent_ip: IP gần đây nhất
+      not_subscribed: Không đăng ký theo dõi
       order:
-        alphabetic: Alphabetic
-        most_recent: Most recent
-        title: Order
-      outbox_url: Outbox URL
-      perform_full_suspension: Perform full suspension
-      profile_url: Profile URL
-      promote: Promote
-      protocol: Protocol
-      public: Public
-      push_subscription_expires: Push subscription expires
-      redownload: Refresh avatar
-      reset: Reset
-      reset_password: Reset password
-      resubscribe: Resubscribe
-      role: Permissions
+        alphabetic: Alphabe
+        most_recent: Gần đây nhất
+        title: Thứ tự
+      outbox_url: URL hộp thư đi
+      perform_full_suspension: Thực hiện tạm ngừng toàn bộ
+      profile_url: URL hồ sơ
+      promote: Quảng cáo
+      protocol: Giao thức
+      public: Công khai
+      push_subscription_expires: Đẩy đăng ký hết hạn
+      redownload: Làm mới hình đại diện
+      reset: Tạo lại
+      reset_password: Tạo lại mật khẩu
+      resubscribe: Đăng ký theo dõi lại
+      role: Quyền truy cập
       roles:
         admin: Quản trị viên
         moderator: Điều hành viên
@@ -121,11 +121,11 @@ vi:
         user: Người dùng
       salmon_url: Salmon URL
       search: Tìm kiếm
-      shared_inbox_url: Shared Inbox URL
+      shared_inbox_url: URL Hộp thư dùng chung
       show:
-        created_reports: Reports created by this account
-        report: report
-        targeted_reports: Reports made about this account
+        created_reports: Báo cáo được tạo bởi tài khoản này
+        report: báo cáo
+        targeted_reports: Báo cáo được thực hiện về tài khoản này
       silence: Im lặng
       statuses: Bài đăng
       subscribe: Đăng ký
@@ -137,30 +137,30 @@ vi:
       web: Web
     action_logs:
       actions:
-        confirm_user: "%{name} confirmed e-mail address of user %{target}"
-        create_custom_emoji: "%{name} uploaded new emoji %{target}"
-        create_domain_block: "%{name} blocked domain %{target}"
-        create_email_domain_block: "%{name} blacklisted e-mail domain %{target}"
-        demote_user: "%{name} demoted user %{target}"
-        destroy_domain_block: "%{name} unblocked domain %{target}"
-        destroy_email_domain_block: "%{name} whitelisted e-mail domain %{target}"
-        destroy_status: "%{name} removed status by %{target}"
-        disable_2fa_user: "%{name} disabled two factor requirement for user %{target}"
-        disable_custom_emoji: "%{name} disabled emoji %{target}"
-        disable_user: "%{name} disabled login for user %{target}"
-        enable_custom_emoji: "%{name} enabled emoji %{target}"
-        enable_user: "%{name} enabled login for user %{target}"
-        memorialize_account: "%{name} turned %{target}'s account into a memoriam page"
-        promote_user: "%{name} promoted user %{target}"
-        reset_password_user: "%{name} reset password of user %{target}"
-        resolve_report: "%{name} dismissed report %{target}"
-        silence_account: "%{name} silenced %{target}'s account"
-        suspend_account: "%{name} suspended %{target}'s account"
-        unsilence_account: "%{name} unsilenced %{target}'s account"
-        unsuspend_account: "%{name} unsuspended %{target}'s account"
-        update_custom_emoji: "%{name} updated emoji %{target}"
-        update_status: "%{name} updated status by %{target}"
-      title: Audit log
+        confirm_user: "%{name} đã xác nhận địa chỉ e-mail của người dùng %{target}"
+        create_custom_emoji: "%{name} đã tải lên emoji mới %{target}"
+        create_domain_block: "%{name} đã chặn tên miền %{target}"
+        create_email_domain_block: "%{name} đã đưa tên miền e-mail %{target} vào danh sách đen"
+        demote_user: "%{name} đã giáng cấp người dùng %{target}"
+        destroy_domain_block: "%{name} đã bỏ chặn tên miền %{target}"
+        destroy_email_domain_block: "%{name} đã đưa tên miền e-mail %{target} vào danh sách trắng"
+        destroy_status: "%{name} đã xóa trạng thái %{target}"
+        disable_2fa_user: "%{name} đã vô hiệu yêu cầu xác thực 2 lớp cho người dùng %{target}"
+        disable_custom_emoji: "%{name} đã vô hiệu emoji %{target}"
+        disable_user: "%{name} đã vô hiệu đăng nhập cho người dùng %{target}"
+        enable_custom_emoji: "%{name} đã bật emoji %{target}"
+        enable_user: "%{name} đã bật đăng nhập cho người dùng %{target}"
+        memorialize_account: "%{name} đã chuyển thông tin tài khoản của %{target} vào trang memoriam"
+        promote_user: "%{name} đã quảng bá người dùng %{target}"
+        reset_password_user: "%{name} đặt lại mật khẩu của người dùng %{target}"
+        resolve_report: "%{name} bỏ qua báo cáo %{target}"
+        silence_account: "%{name} đã làm im lặng tài khoản %{target}"
+        suspend_account: "%{name} đã đình chỉ tài khoản %{target}"
+        unsilence_account: "%{name} bỏ im lặng tài khoản %{target}"
+        unsuspend_account: "%{name} đã bỏ đình chỉ tài khoản %{target}"
+        update_custom_emoji: "%{name} đã cập nhật emoji %{target}"
+        update_status: "%{name} đã cập nhật trạng thái %{target}"
+      title: Ghi chép đánh giá
     custom_emojis:
       by_domain: Tên miền
       copied_msg: Sao chép emoji thành công
@@ -178,9 +178,9 @@ vi:
       listed: Được liệt kê
       new:
         title: Thêm emoji mới
-      overwrite: Overwrite
-      shortcode: Shortcode
-      shortcode_hint: At least 2 characters, only alphanumeric characters and underscores
+      overwrite: Ghi đè
+      shortcode: NMã ngắn
+      shortcode_hint: Ít nhất 2 ký tự, chỉ bao gồm ký tự, chữ sớ và dấu gạch dưới
       title: Emoji tùy chỉnh
       unlisted: Không được liệt kê
       update_failed_msg: Không thể cập nhật emoji này
@@ -192,119 +192,120 @@ vi:
       destroyed_msg:  Chặn tên miền đã được hoàn tác
       domain: Tên miền
       new:
-        create: Create block
-        hint: The domain block will not prevent creation of account entries in the database, but will retroactively and automatically apply specific moderation methods on those accounts.
+        create: Tạo chặn
+        hint: Chặn tên miền sẽ không ngăn việc tạo tài khoản trong cơ sở dữ liệu, nhưng sẽ sử dụng lại và tự động áp dụng phương thức kiểm duyệt cụ thể đối với những tài khoản đó.
         severity:
-          desc_html: "<strong>Silence</strong> will make the account's posts invisible to anyone who isn't following them. <strong>Suspend</strong> will remove all of the account's content, media, and profile data. Use <strong>None</strong> if you just want to reject media files."
+          desc_html: "<strong>Làm im lặng</strong> sẽ làm cho bài đăng của tài khoản không hiển thị đối với bất kỳ ai không theo dõi. <strong>Đình chỉ</strong> sẽ xóa tất cả nội dung, media và dữ liệu tiểu sử của tài khoản. Dùng <strong>Không</strong> nếu bạn chỉ muốn từ chối các tập tin media."
           noop: Không
           silence: Im lặng
           suspend: Đình chỉ
         title: Chặn tên miền mới
       reject_media: Từ chối các tập tin đa phương tiện
-      reject_media_hint: Removes locally stored media files and refuses to download any in the future. Irrelevant for suspensions
+      reject_media_hint: Gỡ bỏ các tập tin media được lưu trữ nội bộ và từ chối tải về trong tương lai. Không liên quan đến việc đình chỉ
       severities:
-        noop: None
+        noop: Không
         silence: Im lặng
         suspend: Đình chỉ
       severity: Mức độ
       show:
         affected_accounts:
-          one: One account in the database affected
-          other: "%{count} accounts in the database affected"
+          one: Một tài khoản trong cơ sở dữ liệu bị ảnh hưởng
+          other: "%{count} tài khoản trong cơ sở dữ liệu bị ảnh hưởng"
         retroactive:
-          silence: Unsilence all existing accounts from this domain
-          suspend: Unsuspend all existing accounts from this domain
-        title: Undo domain block for %{domain}
-        undo: Undo
-      title: Domain blocks
-      undo: Undo
+          silence: Bỏ im lặng tất cả các tài khoản hiện có từ tên miền này
+          suspend: Bỏ đình chỉ tất cả các tài khoản hiện có từ tên miền này
+        title: Hoàn tác chặn tên miền cho %{domain}
+        undo: Hoàn tác
+      title: Chặn tên miền
+      undo: Hoàn tác
     email_domain_blocks:
-      add_new: Add new
-      created_msg: Successfully added e-mail domain to blacklist
-      delete: Delete
-      destroyed_msg: Successfully deleted e-mail domain from blacklist
-      domain: Domain
+      add_new: Thêm mới
+      created_msg: Đã thêm thành công miền e-mail vào danh sách đen
+      delete: Xóa
+      destroyed_msg: Đã xóa thành công miền e-mail vào danh sách đen
+      domain: Tên miền
       new:
-        create: Add domain
-        title: New e-mail blacklist entry
-      title: E-mail blacklist
+        create: Thêm tên miền
+        title: E-mail mới vào danh sách đen
+      title: Danh sách đen e-mail
     instances:
-      account_count: Known accounts
-      domain_name: Domain
-      reset: Reset
-      search: Search
-      title: Known instances
+      account_count: Tài khoản đã biết
+      domain_name: Tên miền
+      reset: Cài lại
+      search: Tìm kiếm
+      title: Ứng dụng đã biết
     invites:
       filter:
-        all: All
-        available: Available
-        expired: Expired
-        title: Filter
-      title: Invites
+        all: Tất cả
+        available: Có sẵn
+        expired: Hết hạn
+        title: Bộ lọc
+      title: Mời
     reports:
-      action_taken_by: Action taken by
-      are_you_sure: Are you sure?
+      action_taken_by: Hành động được thực hiện bởi
+      are_you_sure: Bạn chắc chắn chứ?
       comment:
-        label: Comment
-        none: None
-      delete: Delete
+        label: Bình luận
+        none: Không
+      delete: Xóa
       id: ID
-      mark_as_resolved: Mark as resolved
+      mark_as_resolved: Đánh dấu đã được giải quyết
       nsfw:
-        'false': Unhide media attachments
-        'true': Hide media attachments
-      report: 'Report #%{id}'
-      report_contents: Contents
-      reported_account: Reported account
-      reported_by: Reported by
-      resolved: Resolved
-      silence_account: Silence account
-      status: Status
-      suspend_account: Suspend account
-      target: Target
+        'false': Bỏ ẩn các media đính kèm
+        'true': Ẩn các media đính kèm
+      report: 'Báo cáo #%{id}'
+      report_contents: Nội dung
+      reported_account: Tài khoản đã bị báo cáo
+      reported_by: Bị báo cáo bởi
+      resolved: Đã giảo quyết
+      silence_account: Làm im lặng tài khoản
+      status: Trạng thái
+      suspend_account: Đình chỉ tài khoản
+      target: Mục tiêu
       title: Reports
-      unresolved: Unresolved
-      view: View
+      title: Báo cáo
+      unresolved: Chưa được giải quyết
+      view: Xem
     settings:
       bootstrap_timeline_accounts:
-        desc_html: Separate multiple usernames by comma. Only local and unlocked accounts will work. Default when empty is all local admins.
-        title: Default follows for new users
+        desc_html: Tên người dùng được cách ra bởi dấu phẩy. Chỉ các tài khoản cục bộ và đã mở khóa mới hoạt động. Mặc định khi trống là tất cả các quản trị viên cục bộ.
+        title: Theo dõi mặc định cho người dùng mới
       contact_information:
-        email: Business e-mail
-        username: Contact username
+        email: E-mail thương mại
+        username: Liên hệ người dùng
       registrations:
         closed_message:
-          desc_html: Displayed on frontpage when registrations are closed. You can use HTML tags
-          title: Closed registration message
+          desc_html: Được hiển thị trên trang đầu khi đăng ký bị đóng. Bạn có thể sử dụng các thẻ HTML
+          title: Thông báo đăng ký đã đóng
         deletion:
-          desc_html: Allow anyone to delete their account
-          title: Open account deletion
+          desc_html: Cho phép mọi người xóa tài khoản của họ
+          title: Mở chức năng xóa tài khoản
         min_invite_role:
-          disabled: No one
-          title: Allow invitations by
+          disabled: Không ai cả
+          title: Cho phép lời mời bằng
         open:
-          desc_html: Allow anyone to create an account
-          title: Open registration
+          desc_html: Cho phép mọi người tạo tài khoản
+          title: Mở chức năng đăng ký
       show_staff_badge:
-        desc_html: Show a staff badge on a user page
-        title: Show staff badge
+        desc_html: Hiển thị huy hiệu nhân viên trên trang người dùng
+        title: Hiển thị huy hiệu nhân viên
       site_description:
-        desc_html: Introductory paragraph on the frontpage and in meta tags. You can use HTML tags, in particular <code>&lt;a&gt;</code> and <code>&lt;em&gt;</code>.
-        title: Instance description
+        desc_html: Đoạn giới thiệu ở trang đầu và trong các thẻ meta. Bạn có thể sử dụng các thẻ HTML, đặc biệt <code>&lt;a&gt;</code> and <code>&lt;em&gt;</code>.
+        title: Mô tả ứng dụng
       site_description_extended:
-        desc_html: A good place for your code of conduct, rules, guidelines and other things that set your instance apart. You can use HTML tags
-        title: Custom extended information
+        desc_html: Một nơi tốt cho quy tắc ứng xử của bạn, quy tắc, nguyên tắc và những điều khác mà đặt cá thể của bạn ngoài. Bạn có thể sử dụng các thẻ HTML
+        title: Tuỳ chỉnh thông tin mở rộng
       site_terms:
-        desc_html: You can write your own privacy policy, terms of service or other legalese. You can use HTML tags
-        title: Custom terms of service
-      site_title: Instance name
+        desc_html: Bạn có thể viết chính sách bảo mật của riêng bạn, điều khoản dịch vụ hoặc pháp luật khác. Bạn có thể sử dụng các thẻ HTML
+        title: Điều khoản dịch vụ tùy chỉnh
+      site_title: Tên ứng dụng
       thumbnail:
-        desc_html: Used for previews via OpenGraph and API. 1200x630px recommended
-        title: Instance thumbnail
+        desc_html: Được sử dụng để xem trước thông qua OpenGraph và API. Đề nghị 1200x630px
+        title: Hình nhỏ ứng dụng
       timeline_preview:
-        desc_html: Display public timeline on landing page
-        title: Timeline preview
-      title: Site settings
+        desc_html: Hiển thị thời gian công khai trên trang landing
+        title: Xem trước dòng thời gian
+      title: Cài đặt trang
     statuses:
       back_to_account: Trở lại trang tài khoản
       batch:
@@ -324,7 +325,7 @@ vi:
       callback_url: Callback URL
       confirmed: Được xác nhận
       expires_in: Hết hạn khi
-      last_delivery: Last delivery
+      last_delivery: Gởi lần cuối
       title: WebSub
       topic: Đề tài
     title: Quản trị
@@ -341,10 +342,10 @@ vi:
     created: Ứng dụng được tạo thành công
     destroyed: Ứng dụng được xóa thành công
     invalid_url: Đường dẫn được cung cấp không hợp lệ
-    regenerate_token: Regenerate access token
-    token_regenerated: Access token successfully regenerated
-    warning: Be very careful with this data. Never share it with anyone!
-    your_token: Your access token
+    regenerate_token: Tạo lại mã truy cập
+    token_regenerated: Mã truy cập đã được tạo lại thành công
+    warning: Hãy cẩn thận với dữ liệu này. Không bao giờ chia sẻ nó với bất cứ ai!
+    your_token: Mã truy cập của bạn
   auth:
     agreement_html: Bằng cách đăng ký, bạn đã đồng ý tuân theo <a href="%{rules_path}">quy định</a> và <a href="%{terms_path}">điều khoản dịch vụ của chúng tôi</a>.
     change_password: Bảo mật
@@ -365,7 +366,7 @@ vi:
     error: Thật không may, đã xảy ra lỗi khi tìm kiếm tài khoản
     follow: Theo dõi
     follow_request: 'Bạn đã gửi một yêu cầu theo dõi đến:'
-    following: 'Success! You are now following:'
+    following: 'Thành công! Bạn đang theo dõi:'
     post_follow:
       close: Hoặc, bạn có thể đóng cửa sổ này.
       return: Quay về hồ sơ người dùng
@@ -391,8 +392,8 @@ vi:
     description_html: Điều này sẽ <strong>vĩnh viễn, không thể thay đổi</strong> xóa nội dung khỏi tài khoản của bạn và vô hiệu hóa nó. Tên người dùng của bạn sẽ vẫn được bảo lưu để ngăn chặn mạo danh trong tương lai.
     proceed: Xóa tài khoản
     success_msg: Tài khoản của bạn đã được xóa thành công
-    warning_html: Only deletion of content from this particular instance is guaranteed. Content that has been widely shared is likely to leave traces. Offline servers and servers that have unsubscribed from your updates will not update their databases.
-    warning_title: Disseminated content availability
+    warning_html: Chỉ đảm bảo xóa nội dung khỏi ứng dụng cụ thể này. Nội dung đã được chia sẻ rộng rãi vẫn có thể để lại dấu vết. Máy chủ và máy chủ ngoại tuyến mà bạn đã hủy đăng ký theo dõi, sẽ không cập nhật cơ sở dữ liệu của họ.
+    warning_title: Nội dung phổ biến khả dụng
   errors:
     '403': Bạn không có quyền xem trang này.
     '404': Trang bạn đang tìm kiếm không tồn tại.
@@ -459,7 +460,7 @@ vi:
       expires_at: Hết hạn
       uses: Sử dụng
     title: Mời bạn bè
-  landing_strip_html: "<strong>%{name}</strong> is a user on %{link_to_root_path}. You can follow them or interact with them if you have an account anywhere in the fediverse."
+  landing_strip_html: "<strong>%{name}</strong> là người dùng trên %{link_to_root_path}. Bạn có thể theo dõi họ hoặc tương tác với họ nếu bạn có tài khoản."
   landing_strip_signup_html: Nếu không, bạn có thể <a href="%{sign_up_path}">đăng ký tại đây</a>.
   lists:
     errors:
@@ -480,26 +481,26 @@ vi:
       body: 'Dưới đây là tóm tắt ngắn gọn về những gì bạn bỏ lỡ trên %{instance} kể từ lần truy cập cuối cùng của bạn vào %{since}:'
       mention: "%{name} đã nhắc đến bạn trong:"
       new_followers_summary:
-        one: You have acquired one new follower! Yay!
-        other: You have gotten %{count} new followers! Amazing!
+        one: Bạn đã có một người theo dõi mới! Chúc mừng!
+        other: Bạn đã có  %{count} người theo dõi mới! Thật kinh ngạc!
       subject:
-        one: "1 new notification since your last visit \U0001F418"
-        other: "%{count} new notifications since your last visit \U0001F418"
+        one: "1 thông báo mới kể từ lần truy cập cuối cùng của bạn \U0001F418"
+        other: "%{count} thông báo mới kể từ lần truy cập cuối cùng của bạn \U0001F418"
     favourite:
-      body: 'Your status was favourited by %{name}:'
-      subject: "%{name} favourited your status"
+      body: 'Trạng thái của bạn đã được thích bởi %{name}:'
+      subject: "%{name} thích trạng thái của bạn"
     follow:
-      body: "%{name} is now following you!"
-      subject: "%{name} is now following you"
+      body: "%{name} đang theo dõi bạn!"
+      subject: "%{name} đang theo dõi bạn"
     follow_request:
-      body: "%{name} has requested to follow you"
-      subject: 'Pending follower: %{name}'
+      body: "%{name} đã yêu cầu theo dõi bạn"
+      subject: 'Người theo dõi đang chờ: %{name}'
     mention:
-      body: 'You were mentioned by %{name} in:'
-      subject: You were mentioned by %{name}
+      body: 'Bạn đã được nhắc đến bởi %{name} trong:'
+      subject: Bạn đã được nhắc đến bởi %{name}
     reblog:
-      body: 'Your status was boosted by %{name}:'
-      subject: "%{name} boosted your status"
+      body: 'Trạng thái của bạn đã được boost bởi %{name}:'
+      subject: "%{name} đã boost trạng thái của bạn"
   number:
     human:
       decimal_units:
@@ -533,7 +534,7 @@ vi:
       action_favourite: Thích
       title: "%{name} đã nhắc đến bạn"
     reblog:
-      title: "%{name} boosted trạng thái của bạn"
+      title: "%{name} đã boost trạng thái của bạn"
   remote_follow:
     acct: Nhập username@domain mà bạn muốn theo dõi
     missing_resource: Không thể tìm thấy URL chuyển hướng cho tài khoản của bạn
@@ -617,73 +618,73 @@ vi:
     sensitive_content: Nội dung nhạy cảm
   terms:
     body_html: |
-      <h2>Privacy Policy</h2>
+      <h2>Chính sách bảo mật</h2>
 
-      <h3 id="collect">What information do we collect?</h3>
+      <h3 id="collect">Chúng tôi thu thập những thông tin nào?</h3>
 
-      <p>We collect information from you when you register on our site and gather data when you participate in the forum by reading, writing, and evaluating the content shared here.</p>
+      <p>Chúng tôi thu thập thông tin từ bạn khi bạn đăng ký trên trang của chúng tôi và thu thập dữ liệu khi bạn tham gia vào diễn đàn bằng cách đọc, viết và đánh giá nội dung được chia sẻ ở đây.</p>
 
-      <p>When registering on our site, you may be asked to enter your name and e-mail address. You may, however, visit our site without registering. Your e-mail address will be verified by an email containing a unique link. If that link is visited, we know that you control the e-mail address.</p>
+      <p>Khi đăng ký trên trang của chúng tôi, bạn có thể được yêu cầu nhập tên và địa chỉ e-mail của bạn. Bạn có thể, tuy nhiên, hãy truy cập vào trang web của chúng tôi mà không cần đăng ký. Địa chỉ e-mail của bạn sẽ được xác minh bằng một email có chứa một liên kết duy nhất. Nếu liên kết đó được truy cập, chúng tôi biết rằng bạn kiểm soát địa chỉ e-mail.</p>
 
-      <p>When registered and posting, we record the IP address that the post originated from. We also may retain server logs which include the IP address of every request to our server.</p>
+      <p>Khi đăng ký và đăng bài, chúng tôi ghi lại địa chỉ IP mà bài viết có nguồn gốc. Chúng tôi cũng có thể lưu trữ nhật ký máy chủ bao gồm địa chỉ IP của mọi yêu cầu đến máy chủ của chúng tôi.</p>
 
-      <h3 id="use">What do we use your information for?</h3>
+      <h3 id="use">Chúng tôi sử dụng thông tin của bạn để làm gì?</h3>
 
-      <p>Any of the information we collect from you may be used in one of the following ways:</p>
-
-      <ul>
-        <li>To personalize your experience &mdash; your information helps us to better respond to your individual needs.</li>
-        <li>To improve our site &mdash; we continually strive to improve our site offerings based on the information and feedback we receive from you.</li>
-        <li>To improve customer service &mdash; your information helps us to more effectively respond to your customer service requests and support needs.</li>
-        <li>To send periodic emails &mdash; The email address you provide may be used to send you information, notifications that you request about changes to topics or in response to your user name, respond to inquiries, and/or other requests or questions.</li>
-      </ul>
-
-      <h3 id="protect">How do we protect your information?</h3>
-
-      <p>We implement a variety of security measures to maintain the safety of your personal information when you enter, submit, or access your personal information.</p>
-
-      <h3 id="data-retention">What is your data retention policy?</h3>
-
-      <p>We will make a good faith effort to:</p>
+      <p>Bất kỳ thông tin nào chúng tôi thu thập từ bạn có thể được sử dụng theo một trong các cách sau:</p>
 
       <ul>
-        <li>Retain server logs containing the IP address of all requests to this server no more than 90 days.</li>
-        <li>Retain the IP addresses associated with registered users and their posts no more than 5 years.</li>
+        <li>Cá nhân hóa trải nghiệm của bạn &mdash; thông tin của bạn giúp chúng tôi đáp ứng tốt hơn nhu cầu cá nhân của bạn.</li>
+        <li>Cải thiện trang web của chúng tôi &mdash; chúng tôi liên tục cố gắng cải tiến các trang web của chúng tôi dựa trên thông tin và phản hồi mà chúng tôi nhận được từ bạn.</li>
+        <li>Cải thiện dịch vụ khách hàng &mdash; thông tin của bạn giúp chúng tôi đáp ứng hiệu quả hơn các yêu cầu dịch vụ khách hàng và nhu cầu hỗ trợ của bạn.</li>
+        <li>Gửi email định kỳ &mdash; Địa chỉ email mà bạn cung cấp có thể được sử dụng để gửi thông tin, thông báo bạn yêu cầu về thay đổi chủ đề hoặc phản hồi lại tên người dùng của bạn, phản hồi các yêu cầu, và/hoặc các yêu cầu hoặc câu hỏi khác.</li>
       </ul>
 
-      <h3 id="cookies">Do we use cookies?</h3>
+      <h3 id="protect">Làm thế nào để chúng tôi bảo vệ thông tin của bạn?</h3>
 
-      <p>Yes. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your Web browser (if you allow). These cookies enable the site to recognize your browser and, if you have a registered account, associate it with your registered account.</p>
+      <p>Chúng tôi thực hiện nhiều biện pháp bảo mật để duy trì sự an toàn của thông tin cá nhân của bạn khi bạn nhập, gửi, hoặc truy cập thông tin cá nhân của bạn.</p>
 
-      <p>We use cookies to understand and save your preferences for future visits and compile aggregate data about site traffic and site interaction so that we can offer better site experiences and tools in the future. We may contract with third-party service providers to assist us in better understanding our site visitors. These service providers are not permitted to use the information collected on our behalf except to help us conduct and improve our business.</p>
+      <h3 id="data-retention">Chính sách lưu giữ dữ liệu của bạn là gì?</h3>
 
-      <h3 id="disclose">Do we disclose any information to outside parties?</h3>
+      <p>Chúng tôi sẽ cố gắng hết sức để:</p>
 
-      <p>We do not sell, trade, or otherwise transfer to outside parties your personally identifiable information. This does not include trusted third parties who assist us in operating our site, conducting our business, or servicing you, so long as those parties agree to keep this information confidential. We may also release your information when we believe release is appropriate to comply with the law, enforce our site policies, or protect ours or others rights, property, or safety. However, non-personally identifiable visitor information may be provided to other parties for marketing, advertising, or other uses.</p>
+      <ul>
+        <li>Giữ nhật ký máy chủ chứa địa chỉ IP của tất cả các yêu cầu đến máy chủ này không quá 90 ngày.</li>
+        <li>Giữ các địa chỉ IP liên kết với người dùng đã đăng ký và các bài đăng của họ không quá 5 năm.</li>
+      </ul>
 
-      <h3 id="third-party">Third party links</h3>
+      <h3 id="cookies">Chúng tôi có sử dụng cookies không?</h3>
 
-      <p>Occasionally, at our discretion, we may include or offer third party products or services on our site. These third party sites have separate and independent privacy policies. We therefore have no responsibility or liability for the content and activities of these linked sites. Nonetheless, we seek to protect the integrity of our site and welcome any feedback about these sites.</p>
+      <p>Có. Cookie là những tệp tin nhỏ mà một trang web hoặc nhà cung cấp dịch vụ chuyển vào ổ cứng máy tính thông qua trình duyệt Web của bạn (nếu bạn cho phép). Các cookie này cho phép trang web nhận ra trình duyệt của bạn, và nếu bạn có một tài khoản đã đăng ký, hãy liên kết nó với tài khoản đã đăng ký của bạn.</p>
 
-      <h3 id="coppa">Children's Online Privacy Protection Act Compliance</h3>
+      <p>Chúng tôi sử dụng cookie để hiểu và lưu các sở thích của bạn cho các lần truy cập trong tương lai và tổng hợp dữ liệu về lưu lượng truy cập trang web và tương tác trang web để chúng tôi có thể cung cấp trải nghiệm và công cụ trang web tốt hơn trong tương lai. Chúng tôi có thể hợp đồng với các nhà cung cấp dịch vụ bên thứ ba để giúp chúng tôi hiểu rõ hơn về khách truy cập trang web của chúng tôi. Các nhà cung cấp dịch vụ này không được phép sử dụng các thông tin thu thập được thay mặt cho chúng tôi ngoại trừ để giúp chúng tôi tiến hành và cải thiện hoạt động kinh doanh của chúng tôi.</p>
 
-      <p>Our site, products and services are all directed to people who are at least 13 years old. If this server is in the USA, and you are under the age of 13, per the requirements of COPPA (<a href="https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act">Children's Online Privacy Protection Act</a>) do not use this site.</p>
+      <h3 id="disclose">Chúng tôi có được công bố bất cứ thông tin nào ra bên ngoài không?</h3>
 
-      <h3 id="online">Online Privacy Policy Only</h3>
+      <p>Chúng tôi không bán, trao đổi hoặc chuyển giao cho bên thứ ba thông tin nhận dạng cá nhân của bạn. Điều này không bao gồm các bên thứ ba đáng tin cậy, những người giúp chúng tôi điều hành trang web của chúng tôi, tiến hành kinh doanh hoặc phục vụ bạn, miễn là các bên đó đồng ý giữ bí mật thông tin này. Chúng tôi cũng có thể tiết lộ thông tin của bạn khi chúng tôi tin rằng việc phát hành là thích hợp để tuân thủ luật pháp, thực thi chính sách trang web của chúng tôi, hoặc bảo vệ quyền lợi, tài sản hoặc sự an toàn của chúng tôi hoặc của người khác. Tuy nhiên, thông tin khách hàng không thể nhận dạng cá nhân có thể được cung cấp cho các bên khác để tiếp thị, quảng cáo hoặc sử dụng khác.</p>
 
-      <p>This online privacy policy applies only to information collected through our site and not to information collected offline.</p>
+      <h3 id="third-party">Các liên kết bên thứ ba</h3>
 
-      <h3 id="consent">Your Consent</h3>
+      <p>Đôi khi, theo ý của chúng tôi, chúng tôi có thể bao gồm hoặc cung cấp các sản phẩm hoặc dịch vụ của bên thứ ba trên trang của chúng tôi. Các trang web bên thứ ba này có chính sách riêng tư riêng biệt và độc lập. Do đó, chúng tôi không có trách nhiệm hoặc trách nhiệm về nội dung và hoạt động của các trang web được liên kết này. Tuy nhiên, chúng tôi tìm cách bảo vệ tính toàn vẹn của trang web của chúng tôi và hoan nghênh mọi phản hồi về các trang web này.</p>
 
-      <p>By using our site, you consent to our web site privacy policy.</p>
+      <h3 id="coppa">Tuân thủ đạo luật bảo vệ trẻ em trực tuyến</h3>
 
-      <h3 id="changes">Changes to our Privacy Policy</h3>
+      <p>Trang web, sản phẩm và dịch vụ của chúng tôi đều hướng đến những người ít nhất 13 tuổi. Nếu máy chủ này ở Mỹ, và bạn dưới 13 tuổi, theo yêu cầu của COPPA (<a href="https://en.wikipedia.org/wiki/Children%27s_Online_Privacy_Protection_Act">Đạo luật bảo vệ trẻ em trực tuyến</a>) không sử dụng trang này.</p>
 
-      <p>If we decide to change our privacy policy, we will post those changes on this page.</p>
+      <h3 id="online">Chính sách bảo mật trực tuyến</h3>
 
-      <p>This document is CC-BY-SA. It was last updated May 31, 2013.</p>
+      <p>Chính sách bảo mật trực tuyến này chỉ áp dụng cho thông tin được thu thập thông qua trang web của chúng tôi chứ không phải với thông tin thu thập được ngoại tuyến.</p>
 
-      <p>Originally adapted from the <a href="https://github.com/discourse/discourse">Discourse privacy policy</a>.</p>
+      <h3 id="consent">Sự đồng ý của bạn</h3>
+
+      <p>Bằng cách sử dụng trang web, bạn đồng ý với chính sách bảo mật của chúng tôi.</p>
+
+      <h3 id="changes">Thay đổi chính sách bảo mật</h3>
+
+      <p>Nếu chúng tôi quyết định thay đổi chính sách bảo mật, chúng tôi sẽ đăng những thay đổi trên trang này.</p>
+
+      <p>Tài liệu này là CC-BY-SA. Nó được cập nhật lần cuối vào ngày 31 tháng 5 năm 2013.</p>
+
+      <p>Được chuyển thể từ <a href="https://github.com/discourse/discourse">Discourse privacy policy</a>.</p>
     title: "%{instance} Điều khoản dịch vụ và chính sách bảo mật"
   themes:
     default: Mastodon

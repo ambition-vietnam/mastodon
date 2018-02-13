@@ -12,14 +12,14 @@ vi:
         doorkeeper/application:
           attributes:
             redirect_uri:
-              fragment_present: cannot contain a fragment.
-              invalid_uri: must be a valid URI.
-              relative_uri: must be an absolute URI.
-              secured_uri: must be an HTTPS/SSL URI.
+              fragment_present: không thể chứa một đoạn.
+              invalid_uri: phải là một URI hợp lệ.
+              relative_uri: phải là một URI tuyệt đối.
+              secured_uri: phải là một HTTPS/SSL URI.
   doorkeeper:
     applications:
       buttons:
-        authorize: Authorize
+        authorize: Ủy quyền
         cancel: Hủy bỏ
         destroy: Xóa
         edit: Chỉnh sửa
@@ -31,12 +31,12 @@ vi:
       form:
         error: Rất tiếc! Kiểm tra mẫu của bạn để biết các lỗi có thể xảy ra
       help:
-        native_redirect_uri: Use %{native_redirect_uri} for local tests
-        redirect_uri: Use one line per URI
-        scopes: Separate scopes with spaces. Leave blank to use the default scopes.
+        native_redirect_uri: Sử dụng %{native_redirect_uri} để kiểm tra cục bộ
+        redirect_uri: Sử dụng một dòng cho mỗi URI
+        scopes: Các phạm vi được phân tách bởi khoảng trống. Để trống để sử dụng phạm vi mặc định.
       index:
         application: Ứng dụng
-        callback_url: Callback URL
+        callback_url: URL gọi lại
         delete: Xóa
         name: Tên
         new: Ứng dụng mới
@@ -48,10 +48,10 @@ vi:
       show:
         actions: Hoạt động
         application_id: Mã khách hàng
-        callback_urls: Callback URLs
+        callback_urls: URLs gọi lại
         scopes: Tầm vực
-        secret: Client secret
-        title: 'Application: %{name}'
+        secret: Mã bí mật của khách hàng
+        title: 'Úng dụng: %{name}'
     authorizations:
       buttons:
         authorize: Xác thực
@@ -59,11 +59,11 @@ vi:
       error:
         title: Có lỗi xảy ra
       new:
-        able_to: It will be able to
-        prompt: Application %{client_name} requests access to your account
-        title: Authorization required
+        able_to: Nó sẽ có thể
+        prompt: Ứng dụng %{client_name} yêu cầu quyền truy cập vào tài khoản của bạn
+        title: Yêu cầu ủy quyền
       show:
-        title: Copy this authorization code and paste it to the application.
+        title: Sao chép mã ủy quyền này và dán nó vào ứng dụng.
     authorized_applications:
       buttons:
         revoke: Thu hồi
@@ -77,24 +77,24 @@ vi:
         title: Các ứng dụng được ủy quyền của bạn
     errors:
       messages:
-        access_denied: The resource owner or authorization server denied the request.
-        credential_flow_not_configured: Resource Owner Password Credentials flow failed due to Doorkeeper.configure.resource_owner_from_credentials being unconfigured.
-        invalid_client: Client authentication failed due to unknown client, no client authentication included, or unsupported authentication method.
-        invalid_grant: The provided authorization grant is invalid, expired, revoked, does not match the redirection URI used in the authorization request, or was issued to another client.
-        invalid_redirect_uri: The redirect uri included is not valid.
-        invalid_request: The request is missing a required parameter, includes an unsupported parameter value, or is otherwise malformed.
-        invalid_resource_owner: The provided resource owner credentials are not valid, or resource owner cannot be found
-        invalid_scope: The requested scope is invalid, unknown, or malformed.
+        access_denied: Chủ sở hữu tài nguyên hoặc máy chủ ủy quyền đã từ chối yêu cầu.
+        credential_flow_not_configured: Thuộc tính Nguồn cấp dữ liệu Chủ sở hữu Mật khẩu không thành công do Doorkeeper.configure.resource_owner_from_credentials đang được định cấu hình.
+        invalid_client: Xác thực máy khách không thành công do máy khách không biết, không có chứng thực khách hàng được bao gồm, hoặc phương pháp xác thực không được hỗ trợ.
+        invalid_grant: Cấp phép được cấp phép không hợp lệ, hết hạn, thu hồi, không khớp với URI chuyển hướng được sử dụng trong yêu cầu ủy quyền hoặc đã được cấp cho khách hàng khác.
+        invalid_redirect_uri: URI chuyển hướng bao gồm không hợp lệ.
+        invalid_request: Yêu cầu thiếu thông số bắt buộc, bao gồm giá trị tham số không được hỗ trợ hoặc bị sai.
+        invalid_resource_owner: Chứng chỉ chủ sở hữu tài nguyên đã cung cấp không hợp lệ hoặc không thể tìm thấy chủ sở hữu tài nguyên
+        invalid_scope: Phạm vi yêu cầu là không hợp lệ, không xác định hoặc không đúng định dạng.
         invalid_token:
-          expired: The access token expired
-          revoked: The access token was revoked
-          unknown: The access token is invalid
-        resource_owner_authenticator_not_configured: Resource Owner find failed due to Doorkeeper.configure.resource_owner_authenticator being unconfiged.
-        server_error: The authorization server encountered an unexpected condition which prevented it from fulfilling the request.
-        temporarily_unavailable: The authorization server is currently unable to handle the request due to a temporary overloading or maintenance of the server.
-        unauthorized_client: The client is not authorized to perform this request using this method.
-        unsupported_grant_type: The authorization grant type is not supported by the authorization server.
-        unsupported_response_type: The authorization server does not support this response type.
+          expired: Mã truy cập đã hết hạn
+          revoked: Mã truy cập đã  bị thu hồi
+          unknown: Mã truy cập không hợp lệ
+        resource_owner_authenticator_not_configured: Chủ sở hữu tài nguyên tìm thấy không thành công do Doorkeeper.configure.resource_owner_authenticator đang được định cấu hình.
+        server_error: Máy chủ ủy quyền gặp phải một điều kiện không mong muốn khiến nó không thể hoàn thành yêu cầu.
+        temporarily_unavailable: Máy chủ ủy quyền hiện không thể xử lý yêu cầu do quá tải tạm thời hoặc bảo dưỡng máy chủ.
+        unauthorized_client: Khách hàng không được phép thực hiện yêu cầu này bằng cách sử dụng phương pháp này.
+        unsupported_grant_type: Loại cấp phép ủy quyền không được hỗ trợ bởi máy chủ ủy quyền.
+        unsupported_response_type: Máy chủ ủy quyền không hỗ trợ loại phản hồi này.
     flash:
       applications:
         create:

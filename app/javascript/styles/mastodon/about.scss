@@ -129,12 +129,11 @@
 
   .header-wrapper {
     padding-top: 15px;
-    background: $ui-base-color;
-    background: linear-gradient(150deg, lighten($ui-base-color, 8%), $ui-base-color);
+    background: linear-gradient(150deg, lighten($custom-background-color, 8%), $custom-background-color);
     position: relative;
 
     &.compact {
-      background: $ui-base-color;
+      background: $custom-background-color;
       padding-bottom: 15px;
 
       .hero .heading {
@@ -298,7 +297,7 @@
 
       .simple_form,
       .closed-registrations-message {
-        background: darken($ui-base-color, 4%);
+        background: darken($custom-background-color, 4%);
         width: 280px;
         padding: 15px 20px;
         border-radius: 4px 4px 0 0;
@@ -327,7 +326,7 @@
   }
 
   .about-short {
-    background: darken($ui-base-color, 4%);
+    background: $custom-background-color;
     padding: 50px 0 30px;
     font-family: 'mastodon-font-sans-serif', sans-serif;
     font-size: 16px;
@@ -343,7 +342,7 @@
   }
 
   .information-board {
-    background: darken($ui-base-color, 4%);
+    background: darken($custom-background-color, 4%);
     padding: 20px 0;
 
     .container {
@@ -388,7 +387,7 @@
       position: absolute;
       width: 280px;
       box-sizing: border-box;
-      background: darken($ui-base-color, 8%);
+      background: darken($custom-background-color, 8%);
       padding: 20px;
       padding-top: 10px;
       border-radius: 4px 4px 0 0;
@@ -462,6 +461,7 @@
 
   .features {
     padding: 50px 0;
+    background: $custom-background-color;
 
     .container {
       display: flex;
@@ -479,7 +479,7 @@
       width: 330px;
       margin-right: 30px;
       flex: 0 0 auto;
-      background: $ui-base-color;
+      background: $custom-background-color;
       overflow: hidden;
       border-radius: 4px;
       box-shadow: 0 0 6px rgba($black, 0.1);
@@ -589,6 +589,7 @@
     padding-bottom: 50px;
     text-align: right;
     color: $ui-base-lighter-color;
+    background: $custom-background-color;
 
     p {
       font-size: 14px;
@@ -660,7 +661,7 @@
 
       .links {
         padding-top: 15px;
-        background: darken($ui-base-color, 4%);
+        background: darken($custom-background-color, 4%);
 
         a {
           padding: 12px 8px;
@@ -693,7 +694,7 @@
 
         .simple_form,
         .closed-registrations-message {
-          background: darken($ui-base-color, 8%);
+          background: darken($custom-background-color, 8%);
           width: 100%;
           border-radius: 0;
           box-sizing: border-box;
@@ -730,7 +731,7 @@
 
         .about-mastodon {
           .about-hashtag {
-            background: darken($ui-base-color, 4%);
+            background: darken($custom-background-color, 4%);
             padding: 0 20px 20px 30px;
             border-radius: 0 5px 5px 0;
 
@@ -771,6 +772,7 @@
     @media screen and (max-width: 675px) {
       .features {
         padding: 10px 0;
+        background: $custom-background-color;
 
         .container {
           display: flex;

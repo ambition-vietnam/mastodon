@@ -92,7 +92,7 @@ code {
     .label_input > label {
       font-family: inherit;
       font-size: 16px;
-      color: $primary-text-color;
+      color: $custom-base-text-color;
       display: block;
       padding-top: 5px;
       margin-bottom: 5px;
@@ -120,7 +120,7 @@ code {
       .label_input > label {
         font-family: inherit;
         font-size: 14px;
-        color: $primary-text-color;
+        color: $custom-base-text-color;
         display: block;
         width: auto;
       }
@@ -137,7 +137,7 @@ code {
     & > label {
       font-family: inherit;
       font-size: 16px;
-      color: $primary-text-color;
+      color: $custom-base-text-color;
       display: block;
       padding-top: 5px;
     }
@@ -160,7 +160,7 @@ code {
     margin-bottom: 5px;
     font-family: inherit;
     font-size: 14px;
-    color: $primary-text-color;
+    color: $custom-base-text-color;
     display: block;
     width: auto;
   }
@@ -171,7 +171,7 @@ code {
     label {
       font-family: inherit;
       font-size: 14px;
-      color: $primary-text-color;
+      color: $custom-base-text-color;
       display: block;
       width: auto;
     }
@@ -200,7 +200,7 @@ code {
       label {
         font-family: inherit;
         font-size: 14px;
-        color: $primary-text-color;
+        color: $custom-base-text-color;
         display: block;
         width: auto;
         position: relative;
@@ -230,7 +230,7 @@ code {
     border-radius: 2px 2px 0 0;
     padding: 7px 4px;
     font-size: 16px;
-    color: $primary-text-color;
+    color: $custom-base-text-color;
     display: block;
     width: 100%;
     outline: 0;
@@ -288,7 +288,7 @@ code {
     border: 0;
     border-radius: 4px;
     background: $ui-highlight-color;
-    color: $primary-text-color;
+    color: $custom-base-text-color;
     font-size: 18px;
     line-height: inherit;
     height: auto;
@@ -507,7 +507,7 @@ code {
   .warning {
     box-sizing: border-box;
     background: rgba($error-value-color, 0.5);
-    color: $primary-text-color;
+    color: $custom-base-text-color;
     text-shadow: 1px 1px 0 rgba($base-shadow-color, 0.3);
     box-shadow: 0 2px 6px rgba($base-shadow-color, 0.4);
     border-radius: 4px;
@@ -515,7 +515,7 @@ code {
     margin-bottom: 15px;
 
     a {
-      color: $primary-text-color;
+      color: $custom-base-text-color;
       text-decoration: underline;
 
       &:hover,

@@ -10,7 +10,7 @@ vi:
     contact_unavailable: Không khả dụng
     contact_us: Liện hệ với chúng tôi
     description_headline: "%{domain} là gì?"
-    domain_count_after: other instances
+    domain_count_after: những ứng dụng khác
     domain_count_before: Được liên kết với
     extended_description_html: |
       <h3>Một nơi tốt cho các quy tắc</h3>

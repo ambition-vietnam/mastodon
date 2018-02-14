@@ -26,6 +26,7 @@ const messages = defineMessages({
   pin: { id: 'status.pin', defaultMessage: 'Pin on profile' },
   unpin: { id: 'status.unpin', defaultMessage: 'Unpin from profile' },
   embed: { id: 'status.embed', defaultMessage: 'Embed' },
+  translate: { id: 'status.translate', defaultMessage: 'Translate' },
 });
 
 @injectIntl
@@ -115,6 +116,10 @@ export default class StatusActionBar extends ImmutablePureComponent {
     this.props.onMuteConversation(this.props.status);
   }
 
+  handleTranslateClick = () => {
+    console.log('handleTranslateClick');
+  }
+
   render () {
     const { status, intl, withDismiss } = this.props;
 
@@ -127,6 +132,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     let replyIcon;
     let replyTitle;
 
+    menu.push({ text: intl.formatMessage(messages.translate), action: this.handleTranslateClick });
     menu.push({ text: intl.formatMessage(messages.open), action: this.handleOpen });
 
     if (publicStatus) {

@@ -1,0 +1,119 @@
+---
+vi:
+  activerecord:
+    attributes:
+      doorkeeper/application:
+        name: Tên ứng dụng
+        redirect_uri: URI chuyển hướng
+        scopes: Tầm vực
+        website: Trang web ứng dụng
+    errors:
+      models:
+        doorkeeper/application:
+          attributes:
+            redirect_uri:
+              fragment_present: không thể chứa một đoạn.
+              invalid_uri: phải là một URI hợp lệ.
+              relative_uri: phải là một URI tuyệt đối.
+              secured_uri: phải là một HTTPS/SSL URI.
+  doorkeeper:
+    applications:
+      buttons:
+        authorize: Ủy quyền
+        cancel: Hủy bỏ
+        destroy: Xóa
+        edit: Chỉnh sửa
+        submit: Gửi
+      confirmations:
+        destroy: Bạn chắc chứ?
+      edit:
+        title: Chỉnh sửa ứng dụng
+      form:
+        error: Rất tiếc! Kiểm tra mẫu của bạn để biết các lỗi có thể xảy ra
+      help:
+        native_redirect_uri: Sử dụng %{native_redirect_uri} để kiểm tra cục bộ
+        redirect_uri: Sử dụng một dòng cho mỗi URI
+        scopes: Các phạm vi được phân tách bởi khoảng trống. Để trống để sử dụng phạm vi mặc định.
+      index:
+        application: Ứng dụng
+        callback_url: URL gọi lại
+        delete: Xóa
+        name: Tên
+        new: Ứng dụng mới
+        scopes: Tầm vực
+        show: hHiển thị
+        title: Các ứng dụng của bạn
+      new:
+        title: Ứng dụng mới
+      show:
+        actions: Hoạt động
+        application_id: Mã khách hàng
+        callback_urls: URLs gọi lại
+        scopes: Tầm vực
+        secret: Mã bí mật của khách hàng
+        title: 'Úng dụng: %{name}'
+    authorizations:
+      buttons:
+        authorize: Xác thực
+        deny: Từ chối
+      error:
+        title: Có lỗi xảy ra
+      new:
+        able_to: Nó sẽ có thể
+        prompt: Ứng dụng %{client_name} yêu cầu quyền truy cập vào tài khoản của bạn
+        title: Yêu cầu ủy quyền
+      show:
+        title: Sao chép mã ủy quyền này và dán nó vào ứng dụng.
+    authorized_applications:
+      buttons:
+        revoke: Thu hồi
+      confirmations:
+        revoke: Bạn có chắc?
+      index:
+        application: Ứng dụng
+        created_at: Ủy quyền
+        date_format: "%Y-%m-%d %H:%M:%S"
+        scopes: Tầm vực
+        title: Các ứng dụng được ủy quyền của bạn
+    errors:
+      messages:
+        access_denied: Chủ sở hữu tài nguyên hoặc máy chủ ủy quyền đã từ chối yêu cầu.
+        credential_flow_not_configured: Thuộc tính Nguồn cấp dữ liệu Chủ sở hữu Mật khẩu không thành công do Doorkeeper.configure.resource_owner_from_credentials đang được định cấu hình.
+        invalid_client: Xác thực máy khách không thành công do máy khách không biết, không có chứng thực khách hàng được bao gồm, hoặc phương pháp xác thực không được hỗ trợ.
+        invalid_grant: Cấp phép được cấp phép không hợp lệ, hết hạn, thu hồi, không khớp với URI chuyển hướng được sử dụng trong yêu cầu ủy quyền hoặc đã được cấp cho khách hàng khác.
+        invalid_redirect_uri: URI chuyển hướng bao gồm không hợp lệ.
+        invalid_request: Yêu cầu thiếu thông số bắt buộc, bao gồm giá trị tham số không được hỗ trợ hoặc bị sai.
+        invalid_resource_owner: Chứng chỉ chủ sở hữu tài nguyên đã cung cấp không hợp lệ hoặc không thể tìm thấy chủ sở hữu tài nguyên
+        invalid_scope: Phạm vi yêu cầu là không hợp lệ, không xác định hoặc không đúng định dạng.
+        invalid_token:
+          expired: Mã truy cập đã hết hạn
+          revoked: Mã truy cập đã  bị thu hồi
+          unknown: Mã truy cập không hợp lệ
+        resource_owner_authenticator_not_configured: Chủ sở hữu tài nguyên tìm thấy không thành công do Doorkeeper.configure.resource_owner_authenticator đang được định cấu hình.
+        server_error: Máy chủ ủy quyền gặp phải một điều kiện không mong muốn khiến nó không thể hoàn thành yêu cầu.
+        temporarily_unavailable: Máy chủ ủy quyền hiện không thể xử lý yêu cầu do quá tải tạm thời hoặc bảo dưỡng máy chủ.
+        unauthorized_client: Khách hàng không được phép thực hiện yêu cầu này bằng cách sử dụng phương pháp này.
+        unsupported_grant_type: Loại cấp phép ủy quyền không được hỗ trợ bởi máy chủ ủy quyền.
+        unsupported_response_type: Máy chủ ủy quyền không hỗ trợ loại phản hồi này.
+    flash:
+      applications:
+        create:
+          notice: Ứng dụng đã được tạo.
+        destroy:
+          notice: Ứng dụng đã được xóa.
+        update:
+          notice: Ứng dụng đã được cập nhật.
+      authorized_applications:
+        destroy:
+          notice: Ứng dụng đã được thu hồi.
+    layouts:
+      admin:
+        nav:
+          applications: Ứng dụng
+          oauth2_provider: Nhà cung cấp OAuth2
+      application:
+        title: Yêu cầu xác thực OAuth
+    scopes:
+      follow: theo dõi, chặn, bỏ chặn và hủy theo dõi các tài khoản
+      read: đọc dữ liệu tài khoản của bạn
+      write: đăng thay bạn

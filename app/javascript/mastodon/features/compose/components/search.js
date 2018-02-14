@@ -26,7 +26,7 @@ class SearchPopout extends React.PureComponent {
               <h4><FormattedMessage id='search_popout.search_format' defaultMessage='Advanced search format' /></h4>
 
               <ul>
-                <li><em>#district1</em><span> and any district</span></li>
+                <li><em>#district1</em><span> <FormattedMessage id='search_popout.tips.district' defaultMessage='and any district' /></span></li>
                 <li><em>#100sqm</em><span> (100sqm≧)</span></li>
                 <li><em>#150sqm</em><span> (101≦150)</span></li>
                 <li><em>#200sqm</em><span> (151≦200)</span></li>

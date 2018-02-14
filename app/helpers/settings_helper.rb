@@ -3,6 +3,7 @@
 module SettingsHelper
   HUMAN_LOCALES = {
     en: 'English',
+    vi: 'Tiếng Việt',
     ar: 'العربية',
     bg: 'Български',
     ca: 'Català',

@@ -1,6 +1,6 @@
 body {
   font-family: 'mastodon-font-sans-serif', sans-serif;
-  background: $custom-background-color;
+  background: linear-gradient(150deg, lighten($custom-background-color, 8%), $custom-background-color);
   background-size: cover;
   background-attachment: fixed;
   font-size: 13px;
@@ -34,11 +34,11 @@ body {
     width: 100%;
     height: 100%;
     padding: 0;
-    background: $ui-base-color;
+    background: $custom-background-color;
   }
 
   &.about-body {
-    background: darken($ui-base-color, 8%);
+    background: darken($custom-background-color, 8%);
     padding-bottom: 0;
   }
 

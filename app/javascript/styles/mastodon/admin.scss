@@ -6,10 +6,10 @@
   .sidebar-wrapper {
     flex: 1;
     height: 100%;
-    background: $custom-background-color;
+    background: lighten($custom-background-color, 2%);
     display: flex;
     justify-content: flex-end;
-    scrollbar-base-color: $custom-input-background-color;
+    scrollbar-base-color: $custom-background-color;
   }
 
   .sidebar {
@@ -45,7 +45,7 @@
 
         &:hover {
           color: $custom-base-text-color;
-          background-color: darken($ui-base-color, 5%);
+          background-color: darken($custom-background-color, 10%);
           transition: all 100ms linear;
         }
 
@@ -66,12 +66,12 @@
 
           &.selected {
             color: $custom-base-text-color;
-            background-color: $ui-highlight-color;
+            background-color: darken($custom-background-color, 10%);
             border-bottom: 0;
             border-radius: 0;
 
             &:hover {
-              background-color: lighten($ui-highlight-color, 5%);
+              background-color: lighten($custom-background-color, 5%);
             }
           }
         }
@@ -82,7 +82,7 @@
   .content-wrapper {
     flex: 2;
     overflow: auto;
-    background: $custom-background-color;
+    background: linear-gradient(150deg, lighten($custom-background-color, 8%), $custom-background-color);
   }
 
   .content {
@@ -140,7 +140,7 @@
     }
 
     .muted-hint {
-      color: $ui-primary-color;
+      color: $ui-base-lighter-color;
 
       a {
         color: $ui-highlight-color;
@@ -150,6 +150,14 @@
     .positive-hint {
       color: $valid-value-color;
       font-weight: 500;
+    }
+
+    a.button {
+      background: $custom-fav-star-color;
+
+      &.negative {
+        background: $error-red;
+      }
     }
   }
 
@@ -230,6 +238,7 @@
       font-weight: 500;
       text-transform: uppercase;
       font-size: 12px;
+      color: $custom-base-text-color;
 
       @each $lang in $cjk-langs {
         &:lang(#{$lang}) {
@@ -381,7 +390,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    background: $ui-base-color;
+    background: $simple-background-color;
     color: $ui-primary-color;
     border-radius: 4px 4px 0 0;
     font-size: 14px;
@@ -404,6 +413,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: $custom-base-text-color;
   }
 
   &__timestamp {
@@ -411,7 +421,7 @@
   }
 
   &__extras {
-    background: lighten($ui-base-color, 6%);
+    background: lighten($custom-background-color, 2%);
     border-radius: 0 0 4px 4px;
     padding: 10px;
     color: $ui-primary-color;
@@ -451,7 +461,7 @@
   a,
   .username,
   .target {
-    color: $ui-secondary-color;
+    color: $ui-base-lighter-color;
     text-decoration: none;
     font-weight: 500;
   }
@@ -460,8 +470,12 @@
     color: $error-red;
   }
 
+  .diff-key {
+    color: $ui-base-lighter-color;
+  }
+
   .diff-neutral {
-    color: $ui-secondary-color;
+    color: $custom-base-text-color;
   }
 
   .diff-new {

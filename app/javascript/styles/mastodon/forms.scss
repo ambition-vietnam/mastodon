@@ -17,7 +17,7 @@ code {
 
   span.hint {
     display: block;
-    color: $ui-primary-color;
+    color: $ui-base-lighter-color;
     font-size: 12px;
     margin-top: 4px;
   }
@@ -34,7 +34,7 @@ code {
 
   p.hint {
     margin-bottom: 15px;
-    color: $ui-primary-color;
+    color: $ui-base-lighter-color;
 
     &.subtle-hint {
       text-align: center;
@@ -42,7 +42,7 @@ code {
       line-height: 18px;
       margin-top: 15px;
       margin-bottom: 0;
-      color: $ui-primary-color;
+      color: $ui-base-lighter-color;
 
       a {
         color: $ui-highlight-color;
@@ -66,6 +66,7 @@ code {
 
   .label_input {
     display: flex;
+    color: $ui-base-lighter-color;
 
     label {
       flex: 0 0 auto;
@@ -140,6 +141,10 @@ code {
       color: $custom-base-text-color;
       display: block;
       padding-top: 5px;
+    }
+
+    & > input {
+      color: $ui-base-lighter-color;
     }
 
     .hint {
@@ -287,8 +292,8 @@ code {
     width: 100%;
     border: 0;
     border-radius: 4px;
-    background: $ui-highlight-color;
-    color: $custom-base-text-color;
+    background: $custom-fav-star-color;
+    color: $primary-text-color;
     font-size: 18px;
     line-height: inherit;
     height: auto;
@@ -308,12 +313,12 @@ code {
     }
 
     &:hover {
-      background-color: lighten($ui-highlight-color, 5%);
+      background-color: lighten($custom-fav-star-color, 5%);
     }
 
     &:active,
     &:focus {
-      background-color: darken($ui-highlight-color, 5%);
+      background-color: darken($custom-fav-star-color, 5%);
     }
 
     &.negative {
@@ -358,8 +363,8 @@ code {
 }
 
 .flash-message {
-  background: lighten($ui-base-color, 8%);
-  color: $ui-primary-color;
+  background: $custom-background-color;
+  color: $ui-base-lighter-color;
   border-radius: 4px;
   padding: 15px 10px;
   margin-bottom: 30px;
@@ -419,7 +424,7 @@ code {
   text-align: center;
 
   a {
-    color: $ui-primary-color;
+    color: $ui-base-lighter-color;
     text-decoration: none;
 
     &:hover {
@@ -489,6 +494,7 @@ code {
 .table-form {
   p {
     margin-bottom: 15px;
+    color: $ui-base-lighter-color;
 
     strong {
       font-weight: 500;

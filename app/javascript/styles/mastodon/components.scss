@@ -127,7 +127,7 @@
   }
 
   &.active {
-    color: $custom-search-background-color;
+    color: $custom-fav-star-color;
   }
 
   &::-moz-focus-inner {
@@ -948,7 +948,7 @@
 
 .account {
   padding: 10px;
-  border-bottom: 1px solid lighten($ui-base-color, 8%);
+  border-bottom: 1px solid $custom-header-background-color;
 
   .account__display-name {
     flex: 1 1 auto;

@@ -49,6 +49,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     onEmbed: PropTypes.func,
     onMuteConversation: PropTypes.func,
     onPin: PropTypes.func,
+    onTranslate: PropTypes.func,
     withDismiss: PropTypes.bool,
     intl: PropTypes.object.isRequired,
   };
@@ -117,7 +118,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
   }
 
   handleTranslateClick = () => {
-    console.log('handleTranslateClick');
+    this.props.onTranslate(this.props.status);
   }
 
   render () {

@@ -15,6 +15,7 @@ import {
   CONTEXT_FETCH_SUCCESS,
   STATUS_MUTE_SUCCESS,
   STATUS_UNMUTE_SUCCESS,
+  STATUS_TRANSLATE_SUCCESS,
 } from '../actions/statuses';
 import {
   TIMELINE_REFRESH_SUCCESS,
@@ -91,6 +92,7 @@ export default function statuses(state = initialState, action) {
   case TIMELINE_UPDATE:
   case STATUS_FETCH_SUCCESS:
   case NOTIFICATIONS_UPDATE:
+  case STATUS_TRANSLATE_SUCCESS:
     return normalizeStatus(state, action.status);
   case REBLOG_SUCCESS:
   case UNREBLOG_SUCCESS:

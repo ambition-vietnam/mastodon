@@ -213,6 +213,7 @@ Rails.application.routes.draw do
         member do
           get :context
           get :card
+          get :translate
         end
       end
 

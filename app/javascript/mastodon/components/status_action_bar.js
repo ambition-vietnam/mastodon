@@ -133,8 +133,8 @@ export default class StatusActionBar extends ImmutablePureComponent {
     let replyIcon;
     let replyTitle;
 
-    menu.push({ text: intl.formatMessage(messages.translate), action: this.handleTranslateClick });
     menu.push({ text: intl.formatMessage(messages.open), action: this.handleOpen });
+    menu.push({ text: intl.formatMessage(messages.translate), action: this.handleTranslateClick });
 
     if (publicStatus) {
       menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });

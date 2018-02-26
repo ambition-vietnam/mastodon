@@ -1665,7 +1665,7 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  background: darken($ui-base-color, 7%);
+  background: $custom-background-color;
 }
 
 .drawer {
@@ -1805,7 +1805,7 @@
 
 .tabs-bar {
   display: flex;
-  background: lighten($ui-base-color, 8%);
+  background: $simple-background-color;
   flex: 0 0 auto;
   overflow-y: auto;
 }
@@ -1814,12 +1814,12 @@
   display: block;
   flex: 1 1 auto;
   padding: 15px 10px;
-  color: $primary-text-color;
+  color: $custom-search-background-color;
   text-decoration: none;
   text-align: center;
   font-size: 14px;
   font-weight: 500;
-  border-bottom: 2px solid lighten($ui-base-color, 8%);
+  border-bottom: 2px solid $simple-background-color;
   transition: all 200ms linear;
 
   .fa {
@@ -1828,8 +1828,8 @@
   }
 
   &.active {
-    border-bottom: 2px solid $ui-highlight-color;
-    color: $ui-highlight-color;
+    border-bottom: 2px solid $custom-header-background-color;
+    color: $custom-header-background-color;
   }
 
   &:hover,

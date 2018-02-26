@@ -23,6 +23,10 @@ export const STATUS_UNMUTE_REQUEST = 'STATUS_UNMUTE_REQUEST';
 export const STATUS_UNMUTE_SUCCESS = 'STATUS_UNMUTE_SUCCESS';
 export const STATUS_UNMUTE_FAIL    = 'STATUS_UNMUTE_FAIL';
 
+export const STATUS_TRANSLATE_REQUEST = 'STATUS_TRANSLATE_REQUEST';
+export const STATUS_TRANSLATE_SUCCESS = 'STATUS_TRANSLATE_SUCCESS';
+export const STATUS_TRANSLATE_FAIL    = 'STATUS_TRANSLATE_FAIL';
+
 export function fetchStatusRequest(id, skipLoading) {
   return {
     type: STATUS_FETCH_REQUEST,
@@ -211,6 +215,40 @@ export function unmuteStatusSuccess(id) {
 export function unmuteStatusFail(id, error) {
   return {
     type: STATUS_UNMUTE_FAIL,
+    id,
+    error,
+  };
+};
+
+export function translateStatus(id) {
+  return (dispatch, getState) => {
+    dispatch(translateStatusRequest(id));
+
+    api(getState).get(`/api/v1/statuses/${id}/translate`).then(response => {
+      dispatch(translateStatusSuccess(response.data));
+    }).catch(error => {
+      dispatch(translateStatusFail(id, error));
+    });
+  };
+};
+
+export function translateStatusRequest(id) {
+  return {
+    type: STATUS_TRANSLATE_REQUEST,
+    id,
+  };
+};
+
+export function translateStatusSuccess(status) {
+  return {
+    type: STATUS_TRANSLATE_SUCCESS,
+    status,
+  };
+};
+
+export function translateStatusFail(id, error) {
+  return {
+    type: STATUS_TRANSLATE_FAIL,
     id,
     error,
   };

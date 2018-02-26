@@ -6,7 +6,7 @@ class Api::V1::StatusesController < Api::BaseController
   before_action :authorize_if_got_token, except:            [:create, :destroy]
   before_action -> { doorkeeper_authorize! :write }, only:  [:create, :destroy]
   before_action :require_user!, except:  [:show, :context, :card]
-  before_action :set_status, only:       [:show, :context, :card]
+  before_action :set_status, only:       [:show, :context, :card, :translate]
 
   respond_to :json
 
@@ -37,6 +37,12 @@ class Api::V1::StatusesController < Api::BaseController
     else
       render json: @card, serializer: REST::PreviewCardSerializer
     end
+  end
+
+  def translate
+    @status.text = TranslateService.new.call(@status.text, I18n.locale)
+
+    render json: @status, serializer: REST::StatusSerializer
   end
 
   def create

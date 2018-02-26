@@ -92,7 +92,6 @@ export default function statuses(state = initialState, action) {
   case TIMELINE_UPDATE:
   case STATUS_FETCH_SUCCESS:
   case NOTIFICATIONS_UPDATE:
-  case STATUS_TRANSLATE_SUCCESS:
     return normalizeStatus(state, action.status);
   case REBLOG_SUCCESS:
   case UNREBLOG_SUCCESS:

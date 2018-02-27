@@ -171,7 +171,7 @@ class Status < ApplicationRecord
           (SELECT status_id, COUNT(status_id) AS num_of_tags
           FROM statuses, tags, statuses_tags
           WHERE
-            (statuses.created_at > current_date - interval '35' day)
+            (statuses.created_at > current_date - interval '365' day)
             AND (tag_id IN (:tag_id_list))
             AND (statuses.id = status_id)
             AND (tags.id = tag_id)

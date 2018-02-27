@@ -4616,7 +4616,7 @@ noscript {
 }
 
 .trend-tags {
-  background: $ui-base-color;
+  background: $simple-background-color;
   .suggestion-tags__name {
     font-size: 14px;
   }
@@ -4629,21 +4629,23 @@ noscript {
   display: flex;
   align-items: center;
   padding: 15px;
-  background: lighten($ui-base-color, 4%);
+  background: lighten($custom-input-background-color, 2%);
   font-size: 16px;
+  border-bottom: 1px solid $custom-header-background-color;
 }
 
 .trend-tags__header__icon {
   width: 20px;
   margin-right: 7px;
+  color: $custom-header-background-color;
 }
 
 .trend-tags__header__name{
+  color: $custom-base-text-color;
   flex: 1;
 }
 
 .trend-tags__header__description{
-  color: rgba(#FFF, 0.6);
   font-size: 12px;
 }
 
@@ -4651,7 +4653,7 @@ noscript {
   padding: 10px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid lighten($ui-base-color, 8%);
+  border-bottom: 1px solid $custom-header-background-color;
 }
 
 .suggestion-tags__content {
@@ -4660,10 +4662,10 @@ noscript {
 
 .suggestion-tags__name {
   font-size: 15px;
-  color: #FFF;
+  color: $custom-base-text-color;
   text-decoration: none;
   &:hover{
-    color: rgba(#FFF, 0.9);
+    color: lighten($custom-base-text-color, 4%);
     text-decoration: underline;
   }
 }
@@ -4671,12 +4673,12 @@ noscript {
 .suggestion-tags__description {
   position: relative;
   font-size: 14px;
-  color: rgba(#FFF, 0.5);
+  color: $ui-base-lighter-color;
 }
 
 .suggestion-tags__button {
   color: lighten($ui-base-color, 13%);
-  background: lighten($ui-base-color, 33%);
+  background: $custom-input-background-color;
   border: 0;
   border-radius: 5px;
   cursor: pointer;
@@ -4688,6 +4690,6 @@ noscript {
   &:hover,
   &:focus {
     color: lighten($ui-base-color, 8%);
-    background: lighten($ui-base-color, 26%);
+    background: darken($custom-input-background-color, 4%);
   }
 }

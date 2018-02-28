@@ -1,14 +1,17 @@
 - content_for :page_title do
-  = t('admin.suggestion.title')
+  = I18n.t('admin.suggestion.title')
 
 %from
   %table.table
     %thead
       %tr
-        %th 優先順位
-        %th タイプ
-        %th ハッシュタグ
-        %th 説明文
+        %th
+          = I18n.t('admin.suggestion.priority')
+        %th
+          = I18n.t('admin.suggestion.type')
+        %th Hashtag
+        %th
+          = I18n.t('admin.suggestion.explanation')
         %th
         %th
     %tbody
@@ -21,9 +24,9 @@
           %td
             = link_to edit_admin_suggestion_tag_path(tag), class: 'table-action-link' do
               %i.fa.fa-pencil-square-o
-              編集する
+              = I18n.t('admin.suggestion.edit')
           %td
             = link_to admin_suggestion_tag_path(tag), method: :delete, class: 'table-action-link' do
               %i.fa.fa-trash
-              削除する
-  = link_to '追加', new_admin_suggestion_tag_path, class: 'button'
+              = I18n.t('admin.suggestion.delete')
+  = link_to I18n.t('admin.suggestion.add'), new_admin_suggestion_tag_path, class: 'button'

@@ -17,9 +17,9 @@ module Admin
       @suggestion_tag = SuggestionTag.new(suggestion_tag_params)
 
       if @suggestion_tag.save
-        redirect_to admin_suggestion_tags_url, notice: 'タグを作成しました'
+        redirect_to admin_suggestion_tags_url, notice: I18n.t('admin.suggestion.add_successfully')
       else
-        flash.now[:alert] = '保存に失敗しました'
+        flash.now[:alert] = I18n.t('admin.suggestion.add_failed')
         render :new, status: :unprocessable_entity
       end
     end
@@ -28,16 +28,16 @@ module Admin
 
     def update
       if @suggestion_tag.update(suggestion_tag_params_for_update)
-        redirect_to admin_suggestion_tags_url, notice: 'タグを更新しました'
+        redirect_to admin_suggestion_tags_url, notice: I18n.t('admin.suggestion.update_successfully')
       else
-        flash.now[:alert] = 'タグの更新に失敗しました'
+        flash.now[:alert] = I18n.t('admin.suggestion.update_failed')
         render :edit, status: :unprocessable_entity
       end
     end
 
     def destroy
       @suggestion_tag.destroy
-      redirect_to admin_suggestion_tags_url, notice: 'タグを削除しました'
+      redirect_to admin_suggestion_tags_url, notice: I18n.t('admin.suggestion.delete_successfully')
     end
 
     private

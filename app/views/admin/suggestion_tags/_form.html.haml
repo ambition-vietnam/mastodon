@@ -1,18 +1,21 @@
 = simple_form_for [:admin, suggestion_tag] do |f|
   = render 'shared/error_messages', object: f.object
 
-  = f.input :suggestion_type, collection: SuggestionTag.suggestion_types.keys.to_a, include_blank: false, wrapper: :with_label, label: 'タイプ'
+  = f.input :suggestion_type, collection: SuggestionTag.suggestion_types.keys.to_a, include_blank: false, wrapper: :with_label, label: I18n.t('admin.suggestion.type')
 
   - if f.object.new_record?
     = f.fields_for :tag do |ff|
-      = ff.input :name, placeholder: 'タグ名'
-    %p.hint 先頭シャープは付けないで下さい。
+      = ff.input :name, placeholder: I18n.t('admin.suggestion.tag_name')
+    %p.hint
+      = I18n.t('admin.suggestion.placeholder.hashtag')
 
-  = f.input :description, placeholder: '説明文'
-  %p.hint タグの下に出る説明文です
+  = f.input :description, placeholder: I18n.t('admin.suggestion.explanation')
+  %p.hint
+    = I18n.t('admin.suggestion.placeholder.explanation')
 
-  = f.input :order, placeholder: '表示順'
-  %p.hint 数が小さい順に表示されます
+  = f.input :order, placeholder: I18n.t('admin.suggestion.order')
+  %p.hint
+    = I18n.t('admin.suggestion.placeholder.order')
 
   .actions
-    = f.button :button, (f.object.new_record? ? '作成' : '保存'), type: :submit
+    = f.button :button, (f.object.new_record? ? I18n.t('admin.suggestion.create') : I18n.t('admin.suggestion.save')), type: :submit

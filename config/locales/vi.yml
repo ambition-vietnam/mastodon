@@ -333,6 +333,7 @@ vi:
       add: Thêm
       priority: Độ ưu tiên
       type: Loại
+      hashtag: Thẻ hashtag
       explanation: Chú thích
       create: Tạo
       save: Lưu

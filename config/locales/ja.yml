@@ -325,7 +325,7 @@ ja:
       title: WebSub
       topic: トピック
     suggestion:
-      title: 運営タグ
+      title: おすすめタグ
       add: 追加
       priority: 優先順位
       type: タイプ
@@ -333,14 +333,14 @@ ja:
       explanation: 説明文
       create: 作成
       save: 保存
-      edit: 編集する
-      delete: 削除する
+      edit: 編集
+      delete: 削除
       placeholder:
         hashtag: タグ名
         explanation: 説明文
         order: 表示順
       hint:
-        hashtag: 先頭シャープは付けないで下さい。
+        hashtag: 先頭にシャープは付けないで下さい。
         explanation: タグの下に出る説明文です
         order: 数が小さい順に表示されます
       add_successfully: タグを作成しました

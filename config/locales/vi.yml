@@ -328,6 +328,30 @@ vi:
       last_delivery: Gởi lần cuối
       title: WebSub
       topic: Đề tài
+    suggestion:
+      title: Hashtags được đề xuất
+      add: Thêm
+      priority: Độ ưu tiên
+      type: Loại
+      hashtag: Hashtag
+      explanation: Chú thích
+      create: Tạo
+      save: Lưu
+      edit: Chỉnh sửa
+      delete: Xóa
+      placeholder:
+        hashtag: Hashtag
+        explanation: Chú thích
+        order: Thứ tự
+      hint:
+        hashtag: Không thêm dấu thăng ở đầu
+        explanation: Giải thích bên dưới hashtag
+        order: Được hiển thị theo thứ tự tăng dần
+      add_successfully: Tag được tạo thành công
+      add_failed: Lưu thất bại
+      update_successfully: Tag được sửa thành công
+      update_failed: Cập nhật thất bại
+      delete_successfully: Tag được xóa thành công
     title: Quản trị
   admin_mailer:
     new_report:

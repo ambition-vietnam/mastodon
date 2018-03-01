@@ -1,0 +1,21 @@
+= simple_form_for [:admin, suggestion_tag] do |f|
+  = render 'shared/error_messages', object: f.object
+
+  = f.input :suggestion_type, collection: SuggestionTag.suggestion_types.keys.to_a, include_blank: false, wrapper: :with_label, label: I18n.t('admin.suggestion.type')
+
+  - if f.object.new_record?
+    = f.fields_for :tag do |ff|
+      = ff.input :name, placeholder: I18n.t('admin.suggestion.placeholder.hashtag')
+    %p.hint
+      = I18n.t('admin.suggestion.hint.hashtag')
+
+  = f.input :description, placeholder: I18n.t('admin.suggestion.placeholder.explanation')
+  %p.hint
+    = I18n.t('admin.suggestion.hint.explanation')
+
+  = f.input :order, placeholder: I18n.t('admin.suggestion.placeholder.order')
+  %p.hint
+    = I18n.t('admin.suggestion.hint.order')
+
+  .actions
+    = f.button :button, (f.object.new_record? ? I18n.t('admin.suggestion.create') : I18n.t('admin.suggestion.save')), type: :submit

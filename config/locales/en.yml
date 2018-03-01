@@ -327,6 +327,30 @@ en:
       last_delivery: Last delivery
       title: WebSub
       topic: Topic
+    suggestion:
+      title: Suggestion Tags
+      add: Add
+      priority: Priority
+      type: Type
+      hashtag: Hashtag
+      explanation: Explanation
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      placeholder:
+        hashtag: Hashtag
+        explanation: Explanation
+        order: Order
+      hint:
+        hashtag: Do not add leading sharp
+        explanation: It is an explanation under the tag
+        order: It is displayed in ascending order of number
+      add_successfully: Tag successfully created
+      add_failed: Saving failed
+      update_successfully: Tag successfully updated
+      update_failed: Updating failed
+      delete_successfully: Tag successfully deleted
     title: Administration
   admin_mailer:
     new_report:

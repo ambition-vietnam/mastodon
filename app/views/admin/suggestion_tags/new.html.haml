@@ -1,0 +1,4 @@
+- content_for :page_title do
+  = I18n.t('admin.suggestion.title')
+
+= render 'form', suggestion_tag: @suggestion_tag

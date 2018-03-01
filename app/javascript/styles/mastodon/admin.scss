@@ -6,7 +6,7 @@
   .sidebar-wrapper {
     flex: 1;
     height: 100%;
-    background: $ui-base-color;
+    background: lighten($custom-background-color, 2%);
     display: flex;
     justify-content: flex-end;
   }
@@ -33,7 +33,7 @@
       a {
         display: block;
         padding: 15px;
-        color: rgba($primary-text-color, 0.7);
+        color: $custom-base-text-color;
         text-decoration: none;
         transition: all 200ms linear;
         border-radius: 4px 0 0 4px;
@@ -43,19 +43,19 @@
         }
 
         &:hover {
-          color: $primary-text-color;
-          background-color: darken($ui-base-color, 5%);
+          color: $custom-base-text-color;
+          background-color: darken($custom-background-color, 10%);
           transition: all 100ms linear;
         }
 
         &.selected {
-          background: darken($ui-base-color, 2%);
+          background: darken($custom-background-color, 2%);
           border-radius: 4px 0 0;
         }
       }
 
       ul {
-        background: darken($ui-base-color, 4%);
+        background: darken($custom-background-color, 4%);
         border-radius: 0 0 0 4px;
         margin: 0;
 
@@ -64,13 +64,13 @@
           padding: 15px 35px;
 
           &.selected {
-            color: $primary-text-color;
-            background-color: $ui-highlight-color;
+            color: $custom-base-text-color;
+            background-color: darken($custom-background-color, 10%);
             border-bottom: 0;
             border-radius: 0;
 
             &:hover {
-              background-color: lighten($ui-highlight-color, 5%);
+              background-color: lighten($custom-background-color, 5%);
             }
           }
         }
@@ -81,6 +81,7 @@
   .content-wrapper {
     flex: 2;
     overflow: auto;
+    background: linear-gradient(150deg, lighten($custom-background-color, 8%), $custom-background-color);
   }
 
   .content {
@@ -90,7 +91,7 @@
     padding-left: 25px;
 
     h2 {
-      color: $ui-secondary-color;
+      color: $custom-base-text-color;
       font-size: 24px;
       line-height: 28px;
       font-weight: 400;
@@ -98,7 +99,7 @@
     }
 
     h3 {
-      color: $ui-secondary-color;
+      color: $custom-base-text-color;
       font-size: 20px;
       line-height: 28px;
       font-weight: 400;
@@ -107,7 +108,7 @@
 
     h6 {
       font-size: 16px;
-      color: $ui-secondary-color;
+      color: $custom-base-text-color;
       line-height: 28px;
       font-weight: 400;
     }
@@ -115,11 +116,11 @@
     & > p {
       font-size: 14px;
       line-height: 18px;
-      color: $ui-secondary-color;
+      color: $custom-base-text-color;
       margin-bottom: 20px;
 
       strong {
-        color: $primary-text-color;
+        color: $custom-base-text-color;
         font-weight: 500;
 
         @each $lang in $cjk-langs {
@@ -138,7 +139,7 @@
     }
 
     .muted-hint {
-      color: $ui-primary-color;
+      color: $ui-base-lighter-color;
 
       a {
         color: $ui-highlight-color;
@@ -148,6 +149,14 @@
     .positive-hint {
       color: $valid-value-color;
       font-weight: 500;
+    }
+
+    a.button {
+      background: $custom-fav-star-color;
+
+      &.negative {
+        background: $error-red;
+      }
     }
   }
 
@@ -228,6 +237,7 @@
       font-weight: 500;
       text-transform: uppercase;
       font-size: 12px;
+      color: $custom-base-text-color;
 
       @each $lang in $cjk-langs {
         &:lang(#{$lang}) {
@@ -238,7 +248,7 @@
 
     a {
       display: inline-block;
-      color: rgba($primary-text-color, 0.7);
+      color: $custom-base-text-color;
       text-decoration: none;
       text-transform: uppercase;
       font-size: 12px;
@@ -246,7 +256,7 @@
       border-bottom: 2px solid $ui-base-color;
 
       &:hover {
-        color: $primary-text-color;
+        color: $custom-base-text-color;
         border-bottom: 2px solid lighten($ui-base-color, 5%);
       }
 
@@ -379,7 +389,7 @@
     justify-content: flex-start;
     align-items: center;
     padding: 10px;
-    background: $ui-base-color;
+    background: $simple-background-color;
     color: $ui-primary-color;
     border-radius: 4px 4px 0 0;
     font-size: 14px;
@@ -402,6 +412,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    color: $custom-base-text-color;
   }
 
   &__timestamp {
@@ -409,7 +420,7 @@
   }
 
   &__extras {
-    background: lighten($ui-base-color, 6%);
+    background: lighten($custom-background-color, 2%);
     border-radius: 0 0 4px 4px;
     padding: 10px;
     color: $ui-primary-color;
@@ -449,7 +460,7 @@
   a,
   .username,
   .target {
-    color: $ui-secondary-color;
+    color: $ui-base-lighter-color;
     text-decoration: none;
     font-weight: 500;
   }
@@ -458,8 +469,12 @@
     color: $error-red;
   }
 
+  .diff-key {
+    color: $ui-base-lighter-color;
+  }
+
   .diff-neutral {
-    color: $ui-secondary-color;
+    color: $custom-base-text-color;
   }
 
   .diff-new {

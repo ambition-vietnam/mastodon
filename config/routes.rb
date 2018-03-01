@@ -213,6 +213,7 @@ Rails.application.routes.draw do
         member do
           get :context
           get :card
+          get :translate
         end
       end
 
@@ -235,6 +236,7 @@ Rails.application.routes.draw do
       resources :mutes,      only: [:index]
       resources :favourites, only: [:index]
       resources :reports,    only: [:index, :create]
+      resources :trend_tags, only: [:index]
 
       namespace :apps do
         get :verify_credentials, to: 'credentials#show'

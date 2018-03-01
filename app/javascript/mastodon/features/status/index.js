@@ -22,7 +22,7 @@ import {
   mentionCompose,
   changeCompose,
 } from '../../actions/compose';
-import { deleteStatus } from '../../actions/statuses';
+import { deleteStatus, translateStatus } from '../../actions/statuses';
 import { initReport } from '../../actions/reports';
 import { makeGetStatus } from '../../selectors';
 import { ScrollContainer } from 'react-router-scroll-4';
@@ -161,6 +161,10 @@ export default class Status extends ImmutablePureComponent {
 
   handleEmbed = (status) => {
     this.props.dispatch(openModal('EMBED', { url: status.get('url') }));
+  }
+
+  handleTranslate = (status) => {
+    this.props.dispatch(translateStatus(status.get('id')));
   }
 
   handleHotkeyMoveUp = () => {
@@ -332,6 +336,7 @@ export default class Status extends ImmutablePureComponent {
                   onReport={this.handleReport}
                   onPin={this.handlePin}
                   onEmbed={this.handleEmbed}
+                  onTranslate={this.handleTranslate}
                 />
               </div>
             </HotKeys>

@@ -41,6 +41,7 @@ export const COMPOSE_LISTABILITY_CHANGE = 'COMPOSE_LISTABILITY_CHANGE';
 export const COMPOSE_COMPOSING_CHANGE = 'COMPOSE_COMPOSING_CHANGE';
 
 export const COMPOSE_EMOJI_INSERT = 'COMPOSE_EMOJI_INSERT';
+export const COMPOSE_TAG_INSERT = 'COMPOSE_TAG_INSERT';
 
 export const COMPOSE_UPLOAD_CHANGE_REQUEST     = 'COMPOSE_UPLOAD_UPDATE_REQUEST';
 export const COMPOSE_UPLOAD_CHANGE_SUCCESS     = 'COMPOSE_UPLOAD_UPDATE_SUCCESS';
@@ -392,6 +393,13 @@ export function insertEmojiCompose(position, emoji) {
     emoji,
   };
 };
+
+export function insertTagCompose(tag) {
+  return {
+    type: COMPOSE_TAG_INSERT,
+    tag,
+  };
+}
 
 export function changeComposing(value) {
   return {

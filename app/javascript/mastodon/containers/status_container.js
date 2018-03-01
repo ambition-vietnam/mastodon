@@ -16,7 +16,7 @@ import {
   unpin,
 } from '../actions/interactions';
 import { blockAccount } from '../actions/accounts';
-import { muteStatus, unmuteStatus, deleteStatus } from '../actions/statuses';
+import { muteStatus, unmuteStatus, deleteStatus, translateStatus } from '../actions/statuses';
 import { initMuteModal } from '../actions/mutes';
 import { initReport } from '../actions/reports';
 import { openModal } from '../actions/modal';
@@ -131,6 +131,10 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
     } else {
       dispatch(muteStatus(status.get('id')));
     }
+  },
+
+  onTranslate (status) {
+    dispatch(translateStatus(status.get('id')));
   },
 
 });

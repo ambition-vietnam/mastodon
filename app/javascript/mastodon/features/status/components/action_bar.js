@@ -18,6 +18,7 @@ const messages = defineMessages({
   pin: { id: 'status.pin', defaultMessage: 'Pin on profile' },
   unpin: { id: 'status.unpin', defaultMessage: 'Unpin from profile' },
   embed: { id: 'status.embed', defaultMessage: 'Embed' },
+  translate: { id: 'status.translate', defaultMessage: 'Translate' },
 });
 
 @injectIntl
@@ -38,6 +39,7 @@ export default class ActionBar extends React.PureComponent {
     onReport: PropTypes.func,
     onPin: PropTypes.func,
     onEmbed: PropTypes.func,
+    onTranslate: PropTypes.func,
     intl: PropTypes.object.isRequired,
   };
 
@@ -84,12 +86,17 @@ export default class ActionBar extends React.PureComponent {
     this.props.onEmbed(this.props.status);
   }
 
+  handleTranslate = () => {
+    this.props.onTranslate(this.props.status);
+  }
+
   render () {
     const { status, intl } = this.props;
 
     const publicStatus = ['public', 'unlisted'].includes(status.get('visibility'));
 
     let menu = [];
+    menu.push({ text: intl.formatMessage(messages.translate), action: this.handleTranslate });
 
     if (publicStatus) {
       menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });

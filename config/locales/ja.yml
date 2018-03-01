@@ -324,6 +324,27 @@ ja:
       last_delivery: 最終配送
       title: WebSub
       topic: トピック
+    suggestion:
+      title: 運営タグ
+      add: 追加
+      priority: 優先順位
+      type: タイプ
+      hashtag: ハッシュタグ
+      explanation: 説明文
+      create: 作成
+      save: 保存
+      edit: 編集する
+      delete: 削除する
+      tag_name: タグ名
+      placeholder:
+        hashtag: 先頭シャープは付けないで下さい。
+        explanation: タグの下に出る説明文です
+        order: 数が小さい順に表示されます
+      add_successfully: タグを作成しました
+      add_failed: 保存に失敗しました
+      update_successfully: タグを更新しました
+      update_failed: タグの更新に失敗しました
+      delete_successfully: タグを削除しました
     title: 管理
   admin_mailer:
     new_report:
@@ -599,6 +620,7 @@ ja:
       private: 非公開のトゥートを固定することはできません
       reblog: ブーストされたトゥートを固定することはできません
     show_more: もっと見る
+    title: '%{name}: "%{quote}"'
     visibilities:
       private: 非公開
       private_long: フォロワーにのみ表示されます

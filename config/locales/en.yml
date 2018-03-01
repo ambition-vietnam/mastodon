@@ -332,6 +332,7 @@ en:
       add: Add
       priority: Priority
       type: Type
+      hashtag: Hashtag
       explanation: Explanation
       create: Create
       save: Save

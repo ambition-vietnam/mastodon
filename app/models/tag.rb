@@ -28,7 +28,7 @@ class Tag < ApplicationRecord
       tags = term.split(' ')
       if tags.length == 1
         pattern = sanitize_sql_like(term.strip) + '%'
-        Tag.joins(:statuses).where('lower(name) like lower(?)', pattern).order(:name).limit(limit).uniq
+        Tag.joins(:statuses).where('lower(name) like lower(?)', pattern).order(:name).distinct.limit(limit)
       else
         sql = <<-SQL
           SELECT

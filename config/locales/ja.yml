@@ -335,8 +335,11 @@ ja:
       save: 保存
       edit: 編集する
       delete: 削除する
-      tag_name: タグ名
       placeholder:
+        hashtag: タグ名
+        explanation: 説明文
+        order: 表示順
+      hint:
         hashtag: 先頭シャープは付けないで下さい。
         explanation: タグの下に出る説明文です
         order: 数が小さい順に表示されます

@@ -99,6 +99,8 @@ Rails.application.routes.draw do
     resource :migration, only: [:show, :update]
 
     resources :sessions, only: [:destroy]
+
+    resources :outgoing_webhooks, only: [:index, :new, :create, :edit, :update, :destroy]
   end
 
   resources :media,  only: [:show]

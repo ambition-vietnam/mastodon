@@ -333,14 +333,17 @@ vi:
       add: Thêm
       priority: Độ ưu tiên
       type: Loại
-      hashtag: Thẻ hashtag
+      hashtag: Hashtag
       explanation: Chú thích
       create: Tạo
       save: Lưu
       edit: Chỉnh sửa
       delete: Xóa
-      tag_name: Tên tag
       placeholder:
+        hashtag: Hashtag
+        explanation: Chú thích
+        order: Thứ tự
+      hint:
         hashtag: Không thêm dấu thăng ở đầu
         explanation: Giải thích bên dưới hashtag
         order: Được hiển thị theo thứ tự tăng dần

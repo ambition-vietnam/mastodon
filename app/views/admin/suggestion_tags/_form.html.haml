@@ -5,17 +5,17 @@
 
   - if f.object.new_record?
     = f.fields_for :tag do |ff|
-      = ff.input :name, placeholder: I18n.t('admin.suggestion.tag_name')
+      = ff.input :name, placeholder: I18n.t('admin.suggestion.placeholder.hashtag')
     %p.hint
-      = I18n.t('admin.suggestion.placeholder.hashtag')
+      = I18n.t('admin.suggestion.hint.hashtag')
 
-  = f.input :description, placeholder: I18n.t('admin.suggestion.explanation')
+  = f.input :description, placeholder: I18n.t('admin.suggestion.placeholder.explanation')
   %p.hint
-    = I18n.t('admin.suggestion.placeholder.explanation')
+    = I18n.t('admin.suggestion.hint.explanation')
 
-  = f.input :order, placeholder: I18n.t('admin.suggestion.order')
+  = f.input :order, placeholder: I18n.t('admin.suggestion.placeholder.order')
   %p.hint
-    = I18n.t('admin.suggestion.placeholder.order')
+    = I18n.t('admin.suggestion.hint.order')
 
   .actions
     = f.button :button, (f.object.new_record? ? I18n.t('admin.suggestion.create') : I18n.t('admin.suggestion.save')), type: :submit

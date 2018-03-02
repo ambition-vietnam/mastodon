@@ -1,0 +1,17 @@
+= simple_form_for [:settings, outgoing_webhook] do |f|
+  = render 'shared/error_messages', object: f.object
+
+  = f.input :name, placeholder: I18n.t('settings.outgoing_webhooks.placeholder.name')
+  %p.hint
+    = I18n.t('settings.outgoing_webhooks.hint.name')
+
+  = f.input :url, placeholder: I18n.t('settings.outgoing_webhooks.placeholder.url')
+  %p.hint
+    = I18n.t('settings.outgoing_webhooks.hint.url')
+
+  = f.input :trigger_word, placeholder: I18n.t('settings.outgoing_webhooks.placeholder.trigger_word')
+  %p.hint
+    = I18n.t('settings.outgoing_webhooks.hint.trigger_word')
+
+  .actions
+    = f.button :button, (f.object.new_record? ? I18n.t('settings.outgoing_webhooks.create') : I18n.t('settings.outgoing_webhooks.save')), type: :submit

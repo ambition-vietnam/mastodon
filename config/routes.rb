@@ -100,7 +100,11 @@ Rails.application.routes.draw do
 
     resources :sessions, only: [:destroy]
 
-    resources :outgoing_webhooks, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :outgoing_webhooks, only: [:index, :new, :create, :edit, :update, :destroy, :generate] do
+      member do
+        post :generate
+      end
+    end
   end
 
   resources :media,  only: [:show]

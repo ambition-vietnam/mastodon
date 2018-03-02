@@ -125,7 +125,6 @@ export default class Status extends ImmutablePureComponent {
   }
 
   handleEditClick = (status) => {
-    // fixme
     this.props.dispatch(editCompose(status, this.context.router.history));
   }
 

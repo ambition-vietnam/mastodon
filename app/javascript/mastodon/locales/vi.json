@@ -216,6 +216,7 @@
   "standalone.public_title": "Sẽ trông như...",
   "status.cannot_reblog": "Bài viết này không thể boost được",
   "status.delete": "Xóa",
+  "status.edit": "Chỉnh sửa",
   "status.embed": "Nhúng",
   "status.favourite": "Ưa thích",
   "status.load_more": "Xem thêm",

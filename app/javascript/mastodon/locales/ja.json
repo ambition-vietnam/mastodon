@@ -215,6 +215,8 @@
   "standalone.public_title": "今こんな話をしています...",
   "status.cannot_reblog": "この投稿はブーストできません",
   "status.delete": "削除",
+  "status.translate": "翻訳",
+  "status.edit": "編集",
   "status.embed": "埋め込み",
   "status.favourite": "お気に入り",
   "status.load_more": "もっと見る",
@@ -255,5 +257,6 @@
   "video.mute": "ミュート",
   "video.pause": "一時停止",
   "video.play": "再生",
-  "video.unmute": "ミュートを解除する"
+  "video.unmute": "ミュートを解除する",
+  "trend_tags.title": "おすすめタグ"
 }

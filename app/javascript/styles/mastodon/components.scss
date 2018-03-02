@@ -600,7 +600,7 @@
   border-radius: 2px 2px 0 0;
   position: relative;
   bottom: 0px;
-  background: $ui-primary-color;
+  background: darken($custom-input-background-color, 2%);
   padding: 2px;
 }
 

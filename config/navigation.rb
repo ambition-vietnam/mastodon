@@ -20,7 +20,7 @@ SimpleNavigation::Configuration.run do |navigation|
 
     primary.item :development, safe_join([fa_icon('code fw'), t('settings.development')]), settings_applications_url do |development|
       development.item :your_apps, safe_join([fa_icon('list fw'), t('settings.your_apps')]), settings_applications_url, highlights_on: %r{/settings/applications}
-      development.item :outgoing_webhooks, safe_join([fa_icon('list fw'), t('settings.outgoing_webhooks.title')]), settings_outgoing_webhooks_url, highlights_on: %r{/settings/outgoing_webhooks}
+      development.item :outgoing_webhooks, safe_join([fa_icon('cloud-download fw'), t('settings.outgoing_webhooks.title')]), settings_outgoing_webhooks_url, highlights_on: %r{/settings/outgoing_webhooks}
     end
 
     primary.item :moderation, safe_join([fa_icon('gavel fw'), t('moderation.title')]), admin_reports_url, if: proc { current_user.staff? } do |admin|

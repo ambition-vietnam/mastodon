@@ -5,6 +5,7 @@ class CreateOutgoingWebhooks < ActiveRecord::Migration[5.1]
       t.string :url, null: false, default: ''
       t.string :trigger_word, null: false, default: ''
       t.string :token, null: false, default: ''
+      t.integer :account_id, null: false
 
       t.timestamps
     end

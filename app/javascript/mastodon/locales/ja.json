@@ -71,6 +71,7 @@
   "confirmations.mute.message": "本当に{name}さんをミュートしますか？",
   "confirmations.unfollow.confirm": "フォロー解除",
   "confirmations.unfollow.message": "本当に{name}さんをフォロー解除しますか？",
+  "edit_indicator.cancel": "キャンセル",
   "embed.instructions": "下記のコードをコピーしてウェブサイトに埋め込みます。",
   "embed.preview": "表示例:",
   "emoji_button.activity": "活動",

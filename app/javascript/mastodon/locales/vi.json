@@ -71,6 +71,7 @@
   "confirmations.mute.message": "Bạn chắc chắn muốn tắt tiếng {name}?",
   "confirmations.unfollow.confirm": "Bỏ theo dõi",
   "confirmations.unfollow.message": "Bạn chắc chắn muốn bỏ theo dõi {name}?",
+  "edit_indicator.cancel": "Hủy bỏ",
   "embed.instructions": "Nhúng trạng thái này vào trang web của bạn bằng cách sao chép mã dưới đây.",
   "embed.preview": "Nó sẽ trông giống như sau:",
   "emoji_button.activity": "Hoạt động",

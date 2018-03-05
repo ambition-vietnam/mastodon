@@ -615,34 +615,32 @@ ja:
     two_factor_authentication: 二段階認証
     your_apps: アプリ
     outgoing_webhooks:
-      title: Outgoing Webhooks
-      name: Name
+      title: 外部API連携
+      name: 名称
       url: URL
-      trigger_word: Trigger Word
-      token: Token
-      add: Add
-      create: Create
-      save: Save
-      edit: Edit
-      delete: Delete
-      generate: Generate
+      trigger_word: キーワード
+      token: トークン
+      add: 追加
+      create: 作成
+      save: 保存
+      edit: 編集
+      delete: 削除
+      generate: 発行
       placeholder:
-        name: Name
-        url: Url
-        trigger_word: Trigger Word
-        token: Token
+        name: 名称
+        url: URL
+        trigger_word: キーワード
+        token: トークン
       hint:
-        name: Name
-        url: Url
-        trigger_word: Trigger Word
-        token: Token
-      add_successfully: Webhook successfully created
-      add_failed: Saving failed
-      update_successfully: Webhook successfully updated
-      update_failed: Updating failed
-      delete_successfully: Webhook successfully deleted
-      generate_successfully: Token successfully generated
-      generate_failed: Token failed generated
+        name: 連携するAPIの名称
+        url: 連携するAPIのURL
+        trigger_word: 連携のトリガーとなるキーワード
+        token: 認証用トークン
+      add_successfully: Webhookを登録しました。
+      add_failed: Webhook登録に失敗しました。
+      update_successfully: Webhookを更新しました。
+      update_failed: Webhookの更新に失敗しました。
+      delete_successfully: Webhookを削除しました。
   statuses:
     open_in_web: Webで開く
     over_character_limit: 上限は %{max}文字までです

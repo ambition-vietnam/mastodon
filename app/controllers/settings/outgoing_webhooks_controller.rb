@@ -15,9 +15,7 @@ class Settings::OutgoingWebhooksController < ApplicationController
   end
 
   def create
-    default_params = outgoing_webhook_params
-    default_params[:account_id] = current_user.id
-    @outgoing_webhook = OutgoingWebhook.new(default_params)
+    @outgoing_webhook = OutgoingWebhook.new(outgoing_webhook_params_for_create)
     if @outgoing_webhook.save
       redirect_to settings_outgoing_webhooks_url, notice: I18n.t('settings.outgoing_webhooks.add_successfully')
     else
@@ -60,5 +58,11 @@ class Settings::OutgoingWebhooksController < ApplicationController
 
   def outgoing_webhook_params
     params.require(:outgoing_webhook).permit(:name, :url, :trigger_word)
+  end
+
+  def outgoing_webhook_params_for_create
+    webhook_params = outgoing_webhook_params
+    webhook_params[:account_id] = current_user.id
+    webhook_params
   end
 end

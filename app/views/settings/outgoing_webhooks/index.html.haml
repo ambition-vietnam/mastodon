@@ -1,7 +1,7 @@
 - content_for :page_title do
   = I18n.t('settings.outgoing_webhooks.title')
 
-%from
+.table-wrapper
   %table.table
     %thead
       %tr
@@ -35,4 +35,5 @@
             = link_to generate_settings_outgoing_webhook_path(webhook), method: :post, class: 'table-action-link' do
               %i.fa.fa-key
               = I18n.t('settings.outgoing_webhooks.generate')
-  = link_to I18n.t('settings.outgoing_webhooks.add'), new_settings_outgoing_webhook_path, class: 'button'
+
+= link_to I18n.t('settings.outgoing_webhooks.add'), new_settings_outgoing_webhook_path, class: 'button'

@@ -20,7 +20,6 @@ import {
   replyCompose,
   editCompose,
   mentionCompose,
-  changeCompose,
 } from '../../actions/compose';
 import { deleteStatus, translateStatus } from '../../actions/statuses';
 import { initReport } from '../../actions/reports';

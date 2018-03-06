@@ -2,6 +2,8 @@ import {
   COMPOSE_MOUNT,
   COMPOSE_UNMOUNT,
   COMPOSE_CHANGE,
+  COMPOSE_EDIT,
+  COMPOSE_EDIT_CANCEL,
   COMPOSE_REPLY,
   COMPOSE_REPLY_CANCEL,
   COMPOSE_MENTION,
@@ -55,7 +57,19 @@ const initialState = ImmutableMap({
   default_sensitive: false,
   resetFileKey: Math.floor((Math.random() * 0x10000)),
   idempotencyKey: null,
+  statusId: '',
 });
+
+function statusToText(status) {
+  let text = status.get('content').replace(/<br[^>]*>/g, "\n");
+  text = text.replace(/<[^>]+>/g, '');
+  text = text.replace(/&lt;/g, '<');
+  text = text.replace(/&gt;/g, '>');
+  text = text.replace(/&quot;/g, '"');
+  text = text.replace(/&amp;/g, '&');
+  text = text.replace(/&apos;/g, '\'');
+  return text;
+}
 
 function statusToTextMentions(state, status) {
   let set = ImmutableOrderedSet([]);
@@ -78,6 +92,7 @@ function clearAll(state) {
     map.set('sensitive', false);
     map.update('media_attachments', list => list.clear());
     map.set('idempotencyKey', uuid());
+    map.set('statusId', '');
   });
 };
 
@@ -208,6 +223,26 @@ export default function compose(state = initialState, action) {
       .set('idempotencyKey', uuid());
   case COMPOSE_COMPOSING_CHANGE:
     return state.set('is_composing', action.value);
+  case COMPOSE_EDIT:
+    return state.withMutations(map => {
+      for (let media of action.status.get('media_attachments')) {
+        map.update('media_attachments', list => list.push(media));
+      }
+      map.set('text', statusToText(action.status));
+      map.set('idempotencyKey', uuid());
+      map.set('statusId', action.status.get('id'));
+      map.set('in_reply_to', action.status.get('in_reply_to_id'));
+      map.set('privacy', action.status.get('visibility'));
+      map.set('focusDate', new Date());
+      map.set('preselectDate', new Date());
+      if (action.status.get('spoiler_text').length > 0) {
+        map.set('spoiler', true);
+        map.set('spoiler_text', action.status.get('spoiler_text'));
+      } else {
+        map.set('spoiler', false);
+        map.set('spoiler_text', '');
+      }
+    });
   case COMPOSE_REPLY:
     return state.withMutations(map => {
       map.set('in_reply_to', action.status.get('id'));
@@ -225,6 +260,7 @@ export default function compose(state = initialState, action) {
         map.set('spoiler_text', '');
       }
     });
+  case COMPOSE_EDIT_CANCEL:
   case COMPOSE_REPLY_CANCEL:
   case COMPOSE_RESET:
     return state.withMutations(map => {
@@ -234,6 +270,7 @@ export default function compose(state = initialState, action) {
       map.set('spoiler_text', '');
       map.set('privacy', state.get('default_privacy'));
       map.set('idempotencyKey', uuid());
+      map.set('statusId', '');
     });
   case COMPOSE_SUBMIT_REQUEST:
   case COMPOSE_UPLOAD_CHANGE_REQUEST:

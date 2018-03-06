@@ -74,9 +74,11 @@ const updateTimeline = (state, timeline, status) => {
   }));
 };
 
-const deleteStatus = (state, id, accountId, references) => {
+const deleteStatus = (state, id, accountId, references, reblogOf, edit) => {
   state.keySeq().forEach(timeline => {
-    state = state.updateIn([timeline, 'items'], list => list.filterNot(item => item === id));
+    if (!edit && timeline !== 'home') {
+      state = state.updateIn([timeline, 'items'], list => list.filterNot(item => item === id));
+    }
   });
 
   // Remove reblogs of deleted status
@@ -130,7 +132,7 @@ export default function timelines(state = initialState, action) {
   case TIMELINE_UPDATE:
     return updateTimeline(state, action.timeline, fromJS(action.status));
   case TIMELINE_DELETE:
-    return deleteStatus(state, action.id, action.accountId, action.references, action.reblogOf);
+    return deleteStatus(state, action.id, action.accountId, action.references, action.reblogOf, action.edit);
   case ACCOUNT_BLOCK_SUCCESS:
   case ACCOUNT_MUTE_SUCCESS:
     return filterTimelines(state, action.relationship, action.statuses);

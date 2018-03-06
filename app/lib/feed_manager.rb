@@ -87,11 +87,19 @@ class FeedManager
     end
 
     query.each do |status|
-      next if status.direct_visibility? || filter?(:home, status, into_account)
+      next if filter_direct_message_to_other_account?(status, into_account.id) || filter?(:home, status, into_account)
       add_to_feed(:home, into_account.id, status)
     end
 
     trim(:home, into_account.id)
+  end
+
+  def filter_direct_message_to_other_account?(status, into_account)
+    return false unless status.direct_visibility?
+    return false if status.mentions.blank?
+    return false if status.mentions.pluck(:account_id).include?(into_account)
+
+    true
   end
 
   def unmerge_from_timeline(from_account, into_account)

@@ -18,6 +18,7 @@ import {
 } from '../../actions/interactions';
 import {
   replyCompose,
+  editCompose,
   mentionCompose,
 } from '../../actions/compose';
 import { deleteStatus, translateStatus } from '../../actions/statuses';
@@ -120,6 +121,10 @@ export default class Status extends ImmutablePureComponent {
         this.props.dispatch(openModal('BOOST', { status, onReblog: this.handleModalReblog }));
       }
     }
+  }
+
+  handleEditClick = (status) => {
+    this.props.dispatch(editCompose(status, this.context.router.history));
   }
 
   handleDeleteClick = (status) => {
@@ -323,6 +328,7 @@ export default class Status extends ImmutablePureComponent {
                   onReply={this.handleReplyClick}
                   onFavourite={this.handleFavouriteClick}
                   onReblog={this.handleReblogClick}
+                  onEdit={this.handleEditClick}
                   onDelete={this.handleDeleteClick}
                   onMention={this.handleMentionClick}
                   onReport={this.handleReport}

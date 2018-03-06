@@ -30,7 +30,7 @@ export function connectTimelineStream (timelineId, path, pollingRefresh = null) 
           dispatch(updateTimeline(timelineId, JSON.parse(data.payload)));
           break;
         case 'delete':
-          dispatch(deleteFromTimelines(data.payload));
+          dispatch(deleteFromTimelines(data.payload, data.type));
           break;
         case 'notification':
           dispatch(updateNotifications(JSON.parse(data.payload), messages, locale));

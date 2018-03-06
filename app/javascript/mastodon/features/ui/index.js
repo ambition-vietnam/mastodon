@@ -393,6 +393,7 @@ export default class UI extends React.Component {
               <WrappedRoute path='/pinned' component={PinnedStatuses} content={children} />
 
               <WrappedRoute path='/statuses/new' component={Compose} content={children} />
+              <WrappedRoute path='/statuses/edit' component={Compose} content={children} />
               <WrappedRoute path='/statuses/:statusId' exact component={Status} content={children} />
               <WrappedRoute path='/statuses/:statusId/reblogs' component={Reblogs} content={children} />
               <WrappedRoute path='/statuses/:statusId/favourites' component={Favourites} content={children} />

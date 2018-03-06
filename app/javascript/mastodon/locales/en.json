@@ -71,6 +71,7 @@
   "confirmations.mute.message": "Are you sure you want to mute {name}?",
   "confirmations.unfollow.confirm": "Unfollow",
   "confirmations.unfollow.message": "Are you sure you want to unfollow {name}?",
+  "edit_indicator.cancel": "Cancel",
   "embed.instructions": "Embed this status on your website by copying the code below.",
   "embed.preview": "Here is what it will look like:",
   "emoji_button.activity": "Activity",

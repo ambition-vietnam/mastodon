@@ -4,6 +4,7 @@ import Status from '../components/status';
 import { makeGetStatus } from '../selectors';
 import {
   replyCompose,
+  editCompose,
   mentionCompose,
 } from '../actions/compose';
 import {
@@ -78,6 +79,10 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
 
   onEmbed (status) {
     dispatch(openModal('EMBED', { url: status.get('url') }));
+  },
+
+  onEdit (status, router) {
+    dispatch(editCompose(status, router));
   },
 
   onDelete (status) {

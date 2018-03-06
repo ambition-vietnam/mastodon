@@ -23,6 +23,7 @@
 #  account_id             :integer          not null
 #  application_id         :integer
 #  in_reply_to_account_id :integer
+#  edited                 :boolean
 #
 
 class Status < ApplicationRecord
@@ -240,6 +241,13 @@ class Status < ApplicationRecord
 
         where(visibility: visibility).or(where(id: account.mentions.select(:status_id)))
       end
+    end
+
+    def delete_tags(status_id)
+      sql = <<-SQL
+        DELETE FROM statuses_tags WHERE status_id = :id
+      SQL
+      Status.find_by_sql([sql, {id: status_id}])
     end
 
     private

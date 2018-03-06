@@ -8,6 +8,7 @@ import { me } from '../../../initial_state';
 
 const messages = defineMessages({
   delete: { id: 'status.delete', defaultMessage: 'Delete' },
+  edit: { id: 'status.edit', defaultMessage: 'Edit' },
   mention: { id: 'status.mention', defaultMessage: 'Mention @{name}' },
   reply: { id: 'status.reply', defaultMessage: 'Reply' },
   reblog: { id: 'status.reblog', defaultMessage: 'Boost' },
@@ -33,6 +34,7 @@ export default class ActionBar extends React.PureComponent {
     onReply: PropTypes.func.isRequired,
     onReblog: PropTypes.func.isRequired,
     onFavourite: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
     onMention: PropTypes.func.isRequired,
     onReport: PropTypes.func,
@@ -52,6 +54,10 @@ export default class ActionBar extends React.PureComponent {
 
   handleFavouriteClick = () => {
     this.props.onFavourite(this.props.status);
+  }
+
+  handleEditClick = () => {
+    this.props.onEdit(this.props.status);
   }
 
   handleDeleteClick = () => {
@@ -102,6 +108,7 @@ export default class ActionBar extends React.PureComponent {
         menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });
       }
 
+      menu.push({ text: intl.formatMessage(messages.edit), action: this.handleEditClick });
       menu.push({ text: intl.formatMessage(messages.delete), action: this.handleDeleteClick });
     } else {
       menu.push({ text: intl.formatMessage(messages.mention, { name: status.getIn(['account', 'username']) }), action: this.handleMentionClick });

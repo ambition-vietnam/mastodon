@@ -312,7 +312,7 @@ const startWorker = (workerId) => {
     log.verbose(req.requestId, `Starting stream from ${id} for ${accountId}${streamType}`);
 
     const listener = message => {
-      const { event, payload, queued_at } = JSON.parse(message);
+      const { event, payload, type, queued_at } = JSON.parse(message);
 
       const transmit = () => {
         const now            = new Date().getTime();
@@ -320,7 +320,7 @@ const startWorker = (workerId) => {
         const encodedPayload = typeof payload === 'object' ? JSON.stringify(payload) : payload;
 
         log.silly(req.requestId, `Transmitting for ${accountId}: ${event} ${encodedPayload} Delay: ${delta}ms`);
-        output(event, encodedPayload);
+        output(event, encodedPayload, type);
       };
 
       if (notificationOnly && event !== 'notification') {
@@ -412,13 +412,13 @@ const startWorker = (workerId) => {
   };
 
   // Setup stream output to WebSockets
-  const streamToWs = (req, ws) => (event, payload) => {
+  const streamToWs = (req, ws) => (event, payload, type = null) => {
     if (ws.readyState !== ws.OPEN) {
       log.error(req.requestId, 'Tried writing to closed socket');
       return;
     }
 
-    ws.send(JSON.stringify({ event, payload }));
+    ws.send(JSON.stringify({ event, payload, type }));
   };
 
   // Setup stream end for WebSockets

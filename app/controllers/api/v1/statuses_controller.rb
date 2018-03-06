@@ -54,6 +54,7 @@ class Api::V1::StatusesController < Api::BaseController
                                          spoiler_text: status_params[:spoiler_text],
                                          visibility: status_params[:visibility],
                                          application: doorkeeper_token.application,
+                                         status_id: request.headers['Status-Id'],
                                          idempotency: request.headers['Idempotency-Key'])
 
     render json: @status, serializer: REST::StatusSerializer

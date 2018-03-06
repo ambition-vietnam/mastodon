@@ -9,6 +9,7 @@ import { me } from '../initial_state';
 
 const messages = defineMessages({
   delete: { id: 'status.delete', defaultMessage: 'Delete' },
+  edit: {id: 'status.edit', defaultMessage: 'Edit'},
   mention: { id: 'status.mention', defaultMessage: 'Mention @{name}' },
   mute: { id: 'account.mute', defaultMessage: 'Mute @{name}' },
   block: { id: 'account.block', defaultMessage: 'Block @{name}' },
@@ -41,6 +42,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     onReply: PropTypes.func,
     onFavourite: PropTypes.func,
     onReblog: PropTypes.func,
+    onEdit: PropTypes.func,
     onDelete: PropTypes.func,
     onMention: PropTypes.func,
     onMute: PropTypes.func,
@@ -78,6 +80,10 @@ export default class StatusActionBar extends ImmutablePureComponent {
 
   handleReblogClick = (e) => {
     this.props.onReblog(this.props.status, e);
+  }
+
+  handleEditClick = () => {
+    this.props.onEdit(this.props.status, this.context.router.history);
   }
 
   handleDeleteClick = () => {
@@ -152,6 +158,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
         menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });
       }
 
+      menu.push({ text: intl.formatMessage(messages.edit), action: this.handleEditClick });
       menu.push({ text: intl.formatMessage(messages.delete), action: this.handleDeleteClick });
     } else {
       menu.push({ text: intl.formatMessage(messages.mention, { name: status.getIn(['account', 'username']) }), action: this.handleMentionClick });

@@ -172,6 +172,10 @@
         "id": "status.delete"
       },
       {
+        "defaultMessage": "Edit",
+        "id": "status.delete"
+      },
+      {
         "defaultMessage": "Mention @{name}",
         "id": "status.mention"
       },

@@ -596,6 +596,36 @@
   margin-right: 5px;
 }
 
+.edit-indicator {
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  bottom: 0px;
+  background: darken($custom-input-background-color, 2%);
+  padding: 2px;
+}
+
+.edit-indicator__header {
+  margin-botton: 0px;
+  overflow: hidden;
+}
+
+.edit-indicator__cancel {
+  float: right;
+  line-height: 24px;
+}
+
+.edit-indicator__content {
+  color: $ui-base-color;
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  line-height: 24px;
+  padding-left: 6px;
+  padding-right: 25px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .status__content--with-action {
   cursor: pointer;
 }

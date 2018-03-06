@@ -3,6 +3,7 @@ import CharacterCounter from './character_counter';
 import Button from '../../../components/button';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
+import EditIndicatorContainer from '../containers/edit_indicator_container';
 import ReplyIndicatorContainer from '../containers/reply_indicator_container';
 import AutosuggestTextarea from '../../../components/autosuggest_textarea';
 import UploadButtonContainer from '../containers/upload_button_container';
@@ -168,6 +169,8 @@ export default class ComposeForm extends ImmutablePureComponent {
         </Collapsable>
 
         <ReplyIndicatorContainer />
+
+        <EditIndicatorContainer />
 
         <div className='compose-form__autosuggest-wrapper'>
           <AutosuggestTextarea

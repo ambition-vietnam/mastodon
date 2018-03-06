@@ -7,7 +7,7 @@ class Settings::OutgoingWebhooksController < ApplicationController
   before_action :set_outgoing_webhook, only: [:edit, :update, :destroy, :generate]
 
   def index
-    @outgoing_webhooks = OutgoingWebhook.all.order(:id)
+    @outgoing_webhooks = OutgoingWebhook.where(account_id: current_user.id).all.order(:id)
   end
 
   def new

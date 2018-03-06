@@ -30,7 +30,7 @@ const output = {
   publicPath: formatPublicPath(env.ASSET_HOST, settings.public_output_path),
 };
 
-const version = '1.0.1';
+const version = '1.0.2';
 
 module.exports = {
   settings,

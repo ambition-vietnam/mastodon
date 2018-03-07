@@ -8,7 +8,8 @@ class OutgoingWebhookWorker
 
     @status.account.outgoing_webhooks.each do |webhook|
       if @status.text.include? webhook.trigger_word
-        HttpService.new.call(webhook.url, 'post', set_webhook_params(webhook))
+        http = HttpService.new.call(webhook.url, 'post', set_webhook_params(webhook))
+        Rails.logger.info "Called outgoing webhook: #{http}"
       end
     end
   end

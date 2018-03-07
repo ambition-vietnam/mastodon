@@ -3,9 +3,13 @@
 require 'net/http'
 
 class HttpService < BaseService
-  def post(url, params)
+  def call(url, method = 'get', params = {})
     uri = URI(url)
-    res = Net::HTTP.post_form(uri, params)
+    if method == 'get'
+      res = Net::HTTP.get_response(uri)
+    else
+      res = Net::HTTP.post_form(uri, params)
+    end
     res.body
   end
 end

@@ -55,6 +55,7 @@ class Api::V1::StatusesController < Api::BaseController
                                          visibility: status_params[:visibility],
                                          application: doorkeeper_token.application,
                                          idempotency: request.headers['Idempotency-Key'])
+    OutgoingWebhookWorker.perform_async(@status.id)
 
     render json: @status, serializer: REST::StatusSerializer
   end

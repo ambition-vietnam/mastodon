@@ -618,6 +618,35 @@ vi:
     settings: Cài đặt
     two_factor_authentication: Xác thực 2 lớp
     your_apps: Ứng dụng của bạn
+    outgoing_webhooks:
+      title: Outgoing Webhooks
+      name: Tên
+      url: URL
+      trigger_word: Từ kích hoạt
+      token: Token
+      add: Thêm
+      create: Tạo
+      save: Lưu
+      edit: Chỉnh sửa
+      delete: Xóa
+      generate: Tạo token
+      placeholder:
+        name: Tên
+        url: Url
+        trigger_word: Từ kích hoạt
+        token: Token
+      hint:
+        name: Tên
+        url: Url
+        trigger_word: Từ kích hoạt
+        token: Token
+      add_successfully: Webhook được tạo thành công
+      add_failed: Lưu thất bại
+      update_successfully: Webhook được sửa thành công
+      update_failed: Cập nhật thất bại
+      delete_successfully: Webhook được xóa thành công
+      generate_successfully: Token được khởi tạo thành công
+      generate_failed: Token khởi tạo thất bại
   statuses:
     open_in_web: Mở trên web
     over_character_limit: đã vượt quá %{max} ký tự

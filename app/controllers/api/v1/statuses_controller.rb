@@ -56,6 +56,7 @@ class Api::V1::StatusesController < Api::BaseController
                                          application: doorkeeper_token.application,
                                          status_id: request.headers['Status-Id'],
                                          idempotency: request.headers['Idempotency-Key'])
+    OutgoingWebhookWorker.perform_async(@status.id)
 
     render json: @status, serializer: REST::StatusSerializer
   end

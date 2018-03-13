@@ -1,0 +1,39 @@
+- content_for :page_title do
+  = I18n.t('settings.outgoing_webhooks.title')
+
+.table-wrapper
+  %table.table
+    %thead
+      %tr
+        %th
+          = I18n.t('settings.outgoing_webhooks.name')
+        %th
+          = I18n.t('settings.outgoing_webhooks.url')
+        %th
+          = I18n.t('settings.outgoing_webhooks.trigger_word')
+        %th
+          = I18n.t('settings.outgoing_webhooks.token')
+        %th
+        %th
+        %th
+    %tbody
+      - @outgoing_webhooks.each do |webhook|
+        %tr
+          %td= webhook.name
+          %td= webhook.url
+          %td= webhook.trigger_word
+          %td= webhook.token
+          %td
+            = link_to edit_settings_outgoing_webhook_path(webhook), class: 'table-action-link' do
+              %i.fa.fa-pencil-square-o
+              = I18n.t('settings.outgoing_webhooks.edit')
+          %td
+            = link_to settings_outgoing_webhook_path(webhook), method: :delete, class: 'table-action-link' do
+              %i.fa.fa-trash
+              = I18n.t('settings.outgoing_webhooks.delete')
+          %td
+            = link_to generate_settings_outgoing_webhook_path(webhook), method: :post, class: 'table-action-link' do
+              %i.fa.fa-key
+              = I18n.t('settings.outgoing_webhooks.generate')
+
+= link_to I18n.t('settings.outgoing_webhooks.add'), new_settings_outgoing_webhook_path, class: 'button'

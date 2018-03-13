@@ -531,6 +531,35 @@ ko:
     settings: 설정
     two_factor_authentication: 2단계 인증
     your_apps: 애플리케이션
+    outgoing_webhooks:
+      title: Outgoing Webhooks
+      name: Name
+      url: URL
+      trigger_word: Trigger Word
+      token: Token
+      add: Add
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      generate: Generate
+      placeholder:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      hint:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      add_successfully: Webhook successfully created
+      add_failed: Saving failed
+      update_successfully: Webhook successfully updated
+      update_failed: Updating failed
+      delete_successfully: Webhook successfully deleted
+      generate_successfully: Token successfully generated
+      generate_failed: Token failed generated
   statuses:
     open_in_web: Web으로 열기
     over_character_limit: 최대 %{max}자까지 입력할 수 있습니다

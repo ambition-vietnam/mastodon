@@ -50,6 +50,10 @@ RSpec.configure do |config|
     Capybara.app_host = "http#{https ? 's' : ''}://#{ENV.fetch('LOCAL_DOMAIN')}"
   end
 
+  config.before :each, type: :controller do
+    stub_request(:post, /example.com/)
+  end
+
   config.after :each do
     keys = Redis.current.keys
     Redis.current.del(keys) if keys.any?

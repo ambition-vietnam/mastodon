@@ -13,6 +13,8 @@
 #
 
 class OutgoingWebhook < ApplicationRecord
+  validates :name, :url, :trigger_word, :token, :account_id, presence: true
+
   def initialize(params = {})
     super(params)
     generate_token

@@ -35,6 +35,8 @@ RSpec.describe Api::V1::StatusesController, type: :controller do
     end
 
     describe 'POST #create' do
+      let!(:outgoing_webhook) { Fabricate(:outgoing_webhook, account_id: user.account_id, trigger_word: 'Hello') }
+
       before do
         post :create, params: { status: 'Hello world' }
       end

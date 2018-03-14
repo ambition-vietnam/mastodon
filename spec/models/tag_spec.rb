@@ -45,7 +45,9 @@ RSpec.describe Tag, type: :model do
   describe '.search_for' do
     it 'finds tag records with matching names' do
       tag = Fabricate(:tag, name: "match")
-      Fabricate(:status, tags: [tag])
+      _miss_tag = Fabricate(:tag, name: "miss")
+
+      Fabricate(:status, tags: [tag, _miss_tag])
 
       results = Tag.search_for("match")
 
@@ -54,7 +56,9 @@ RSpec.describe Tag, type: :model do
 
     it 'finds tag records in case insensitive' do
       tag = Fabricate(:tag, name: "MATCH")
-      Fabricate(:status, tags: [tag])
+      _miss_tag = Fabricate(:tag, name: "miss")
+
+      Fabricate(:status, tags: [tag, _miss_tag])
 
       results = Tag.search_for("match")
 
@@ -65,8 +69,7 @@ RSpec.describe Tag, type: :model do
       similar_tag = Fabricate(:tag, name: "matchlater")
       tag = Fabricate(:tag, name: "match")
 
-      Fabricate(:status, tags: [similar_tag])
-      Fabricate(:status, tags: [tag])
+      Fabricate(:status, tags: [similar_tag, tag])
 
       results = Tag.search_for("match")
 

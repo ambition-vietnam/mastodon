@@ -24,7 +24,7 @@ class Api::V1::StatusesController < Api::BaseController
 
     @context = Context.new(ancestors: loaded_ancestors, descendants: loaded_descendants)
     statuses = [@status] + @context.ancestors + @context.descendants
-    Rails.logger.info "Accessed to status: status=#{@status.id}, author=#{@status.account_id}, account=#{current_user.id}"
+    Rails.logger.info "Accessed to status: status=#{@status.id}, author=#{@status.account_id}, account=#{current_user ? current_user.id : 'Not authorized'}"
 
     render json: @context, serializer: REST::ContextSerializer, relationships: StatusRelationshipsPresenter.new(statuses, current_user&.account_id)
   end

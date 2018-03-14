@@ -43,37 +43,32 @@ RSpec.describe Tag, type: :model do
   end
 
   describe '.search_for' do
-    let!(:account)  { Fabricate(:account) }
-
     it 'finds tag records with matching names' do
-      match = 'match'
+      tag = Fabricate(:tag, name: "match")
+      Fabricate(:status, tags: [tag])
 
-      PostStatusService.new.call(account, "This is ##{match} hashtag.")
-      tag     = Tag.where(name: match).first
-      results = Tag.search_for(match)
+      results = Tag.search_for("match")
 
       expect(results).to eq [tag]
     end
 
     it 'finds tag records in case insensitive' do
-      match = 'MATCH'
+      tag = Fabricate(:tag, name: "MATCH")
+      Fabricate(:status, tags: [tag])
 
-      PostStatusService.new.call(account, "This is ##{match} hashtag.")
-      tag     = Tag.where('lower(name) = ?', match.downcase).first
-      results = Tag.search_for(match)
+      results = Tag.search_for("match")
 
       expect(results).to eq [tag]
     end
 
     it 'finds the exact matching tag as the first item' do
-      match      = 'match'
-      matchlater = 'matchlater'
+      similar_tag = Fabricate(:tag, name: "matchlater")
+      tag = Fabricate(:tag, name: "match")
 
-      PostStatusService.new.call(account, "This is ##{match} hashtag.")
-      PostStatusService.new.call(account, "This is ##{matchlater} hashtag.")
-      tag         = Tag.where(name: match).first
-      similar_tag = Tag.where(name: matchlater).first
-      results     = Tag.search_for(match)
+      Fabricate(:status, tags: [similar_tag])
+      Fabricate(:status, tags: [tag])
+
+      results = Tag.search_for("match")
 
       expect(results).to eq [tag, similar_tag]
     end

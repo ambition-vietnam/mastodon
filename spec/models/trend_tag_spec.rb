@@ -19,8 +19,6 @@ RSpec.describe TrendTag, type: :model do
 
     context 'ng trend tag does not exist' do
       it 'includes trend tag and suggestion tag' do
-        p is_expected
-
         is_expected.to match([
           have_attributes(name: expected_trend_tag.name, description: expected_trend_tag.description),
           have_attributes(name: tag.name, description: tag_description)

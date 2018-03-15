@@ -27,10 +27,9 @@ RSpec.describe Admin::SuggestionTagsController, type: :controller do
   describe 'POST #create' do
     context 'success' do
       def call_create
-        tag = Fabricate(:tag)
         post :create, params: {
           suggestion_tag: {
-            tag_attributes: { name: tag.name },
+            tag_attributes: { name: Faker::Lorem.word },
             description: Faker::Lorem.word,
           }
         }

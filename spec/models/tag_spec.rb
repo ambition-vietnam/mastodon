@@ -47,6 +47,8 @@ RSpec.describe Tag, type: :model do
       tag = Fabricate(:tag, name: "match")
       _miss_tag = Fabricate(:tag, name: "miss")
 
+      Fabricate(:status, tags: [tag, _miss_tag])
+
       results = Tag.search_for("match")
 
       expect(results).to eq [tag]
@@ -56,6 +58,8 @@ RSpec.describe Tag, type: :model do
       tag = Fabricate(:tag, name: "MATCH")
       _miss_tag = Fabricate(:tag, name: "miss")
 
+      Fabricate(:status, tags: [tag, _miss_tag])
+
       results = Tag.search_for("match")
 
       expect(results).to eq [tag]
@@ -64,6 +68,8 @@ RSpec.describe Tag, type: :model do
     it 'finds the exact matching tag as the first item' do
       similar_tag = Fabricate(:tag, name: "matchlater")
       tag = Fabricate(:tag, name: "match")
+
+      Fabricate(:status, tags: [similar_tag, tag])
 
       results = Tag.search_for("match")
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180201022741) do
+ActiveRecord::Schema.define(version: 20180302040912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -303,6 +303,16 @@ ActiveRecord::Schema.define(version: 20180201022741) do
     t.bigint "owner_id"
     t.index ["owner_id", "owner_type"], name: "index_oauth_applications_on_owner_id_and_owner_type"
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
+  end
+
+  create_table "outgoing_webhooks", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url", default: "", null: false
+    t.string "trigger_word", default: "", null: false
+    t.string "token", default: "", null: false
+    t.integer "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "preview_cards", force: :cascade do |t|

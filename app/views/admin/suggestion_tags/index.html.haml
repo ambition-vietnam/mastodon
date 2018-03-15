@@ -1,7 +1,7 @@
 - content_for :page_title do
   = I18n.t('admin.suggestion.title')
 
-%from
+.table-wrapper
   %table.table
     %thead
       %tr
@@ -30,4 +30,5 @@
             = link_to admin_suggestion_tag_path(tag), method: :delete, class: 'table-action-link' do
               %i.fa.fa-trash
               = I18n.t('admin.suggestion.delete')
-  = link_to I18n.t('admin.suggestion.add'), new_admin_suggestion_tag_path, class: 'button'
+
+= link_to I18n.t('admin.suggestion.add'), new_admin_suggestion_tag_path, class: 'button'

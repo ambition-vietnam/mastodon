@@ -617,6 +617,35 @@ en:
     settings: Settings
     two_factor_authentication: Two-factor Auth
     your_apps: Your applications
+    outgoing_webhooks:
+      title: Outgoing Webhooks
+      name: Name
+      url: URL
+      trigger_word: Trigger Word
+      token: Token
+      add: Add
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      generate: Generate
+      placeholder:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      hint:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      add_successfully: Webhook successfully created
+      add_failed: Saving failed
+      update_successfully: Webhook successfully updated
+      update_failed: Updating failed
+      delete_successfully: Webhook successfully deleted
+      generate_successfully: Token successfully generated
+      generate_failed: Token failed generated
   statuses:
     open_in_web: Open in web
     over_character_limit: character limit of %{max} exceeded

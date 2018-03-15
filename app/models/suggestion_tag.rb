@@ -14,7 +14,7 @@
 class SuggestionTag < ApplicationRecord
   belongs_to :tag, required: true
 
-  validates :tag_id, :order, :description, presence: true
+  validates :order, :description, presence: true
   validates :tag_id, uniqueness: { scope: :suggestion_type }
 
   enum suggestion_type: { normal: 0, comiket: 1 }

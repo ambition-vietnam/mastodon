@@ -508,7 +508,7 @@ RSpec.describe Status, type: :model do
       status = Fabricate(:status, tags: [tag])
       other = Fabricate(:status)
 
-      results = Status.as_tag_timeline(tag)
+      results = Status.as_tag_timeline([tag])
       expect(results).to include(status)
       expect(results).not_to include(other)
     end
@@ -518,7 +518,7 @@ RSpec.describe Status, type: :model do
       tag = Fabricate(:tag)
       status = Fabricate(:status, tags: [tag], in_reply_to_id: original.id)
 
-      results = Status.as_tag_timeline(tag)
+      results = Status.as_tag_timeline([tag])
       expect(results).to include(status)
     end
   end

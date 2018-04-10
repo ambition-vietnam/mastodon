@@ -172,6 +172,10 @@
         "id": "status.delete"
       },
       {
+        "defaultMessage": "Edit",
+        "id": "status.delete"
+      },
+      {
         "defaultMessage": "Mention @{name}",
         "id": "status.mention"
       },
@@ -493,7 +497,7 @@
   {
     "descriptors": [
       {
-        "defaultMessage": "What is on your mind?",
+        "defaultMessage": "#nguyenhue #district1 #25usd #150sqm #200sqm...",
         "id": "compose_form.placeholder"
       },
       {

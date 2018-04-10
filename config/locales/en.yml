@@ -8,6 +8,7 @@ en:
     contact: Contact
     contact_missing: Not set
     contact_unavailable: N/A
+    contact_us: Contact Us
     description_headline: What is %{domain}?
     domain_count_after: other instances
     domain_count_before: Connected to
@@ -25,7 +26,7 @@ en:
       within_reach_title: Always within reach
     find_another_instance: Find another instance
     generic_description: "%{domain} is one server in the network"
-    hosted_on: Mastodon hosted on %{domain}
+    hosted_on: Build a community that maximizes all values
     learn_more: Learn more
     other_instances: Instance list
     source_code: Source code
@@ -326,6 +327,30 @@ en:
       last_delivery: Last delivery
       title: WebSub
       topic: Topic
+    suggestion:
+      title: Suggestion Tags
+      add: Add
+      priority: Priority
+      type: Type
+      hashtag: Hashtag
+      explanation: Explanation
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      placeholder:
+        hashtag: Hashtag
+        explanation: Explanation
+        order: Order
+      hint:
+        hashtag: Do not add leading sharp
+        explanation: It is an explanation under the tag
+        order: It is displayed in ascending order of number
+      add_successfully: Tag successfully created
+      add_failed: Saving failed
+      update_successfully: Tag successfully updated
+      update_failed: Updating failed
+      delete_successfully: Tag successfully deleted
     title: Administration
   admin_mailer:
     new_report:
@@ -579,7 +604,7 @@ en:
     title: Sessions
   settings:
     authorized_apps: Authorized apps
-    back: Back to Mastodon
+    back: Back to Offidon
     delete: Account deletion
     development: Development
     edit_profile: Edit profile
@@ -592,6 +617,35 @@ en:
     settings: Settings
     two_factor_authentication: Two-factor Auth
     your_apps: Your applications
+    outgoing_webhooks:
+      title: Outgoing Webhooks
+      name: Name
+      url: URL
+      trigger_word: Trigger Word
+      token: Token
+      add: Add
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      generate: Generate
+      placeholder:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      hint:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      add_successfully: Webhook successfully created
+      add_failed: Saving failed
+      update_successfully: Webhook successfully updated
+      update_failed: Updating failed
+      delete_successfully: Webhook successfully deleted
+      generate_successfully: Token successfully generated
+      generate_failed: Token failed generated
   statuses:
     open_in_web: Open in web
     over_character_limit: character limit of %{max} exceeded

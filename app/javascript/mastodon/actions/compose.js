@@ -14,6 +14,8 @@ export const COMPOSE_CHANGE          = 'COMPOSE_CHANGE';
 export const COMPOSE_SUBMIT_REQUEST  = 'COMPOSE_SUBMIT_REQUEST';
 export const COMPOSE_SUBMIT_SUCCESS  = 'COMPOSE_SUBMIT_SUCCESS';
 export const COMPOSE_SUBMIT_FAIL     = 'COMPOSE_SUBMIT_FAIL';
+export const COMPOSE_EDIT            = 'COMPOSE_EDIT';
+export const COMPOSE_EDIT_CANCEL     = 'COMPOSE_EDIT_CANCEL';
 export const COMPOSE_REPLY           = 'COMPOSE_REPLY';
 export const COMPOSE_REPLY_CANCEL    = 'COMPOSE_REPLY_CANCEL';
 export const COMPOSE_MENTION         = 'COMPOSE_MENTION';
@@ -39,6 +41,7 @@ export const COMPOSE_LISTABILITY_CHANGE = 'COMPOSE_LISTABILITY_CHANGE';
 export const COMPOSE_COMPOSING_CHANGE = 'COMPOSE_COMPOSING_CHANGE';
 
 export const COMPOSE_EMOJI_INSERT = 'COMPOSE_EMOJI_INSERT';
+export const COMPOSE_TAG_INSERT = 'COMPOSE_TAG_INSERT';
 
 export const COMPOSE_UPLOAD_CHANGE_REQUEST     = 'COMPOSE_UPLOAD_UPDATE_REQUEST';
 export const COMPOSE_UPLOAD_CHANGE_SUCCESS     = 'COMPOSE_UPLOAD_UPDATE_SUCCESS';
@@ -48,6 +51,25 @@ export function changeCompose(text) {
   return {
     type: COMPOSE_CHANGE,
     text: text,
+  };
+};
+
+export function editCompose(status, router) {
+  return (dispatch, getState) => {
+    dispatch({
+      type: COMPOSE_EDIT,
+      status: status,
+    });
+
+    if (!getState().getIn(['compose', 'mounted'])) {
+      router.push(`/statuses/edit`);
+    }
+  };
+};
+
+export function cancelEditCompose() {
+  return {
+    type: COMPOSE_EDIT_CANCEL,
   };
 };
 
@@ -109,6 +131,7 @@ export function submitCompose() {
     }, {
       headers: {
         'Idempotency-Key': getState().getIn(['compose', 'idempotencyKey']),
+        'Status-Id': getState().getIn(['compose', 'statusId'], ''),
       },
     }).then(function (response) {
       dispatch(submitComposeSuccess({ ...response.data }));
@@ -123,11 +146,13 @@ export function submitCompose() {
         }
       };
 
-      insertOrRefresh('home', refreshHomeTimeline);
+      if (response.data.edited !== true) {
+        insertOrRefresh('home', refreshHomeTimeline);
 
-      if (response.data.in_reply_to_id === null && response.data.visibility === 'public') {
-        insertOrRefresh('community', refreshCommunityTimeline);
-        insertOrRefresh('public', refreshPublicTimeline);
+        if (response.data.in_reply_to_id === null && response.data.visibility === 'public') {
+          insertOrRefresh('community', refreshCommunityTimeline);
+          insertOrRefresh('public', refreshPublicTimeline);
+        }
       }
     }).catch(function (error) {
       dispatch(submitComposeFail(error));
@@ -171,6 +196,7 @@ export function uploadCompose(files) {
         dispatch(uploadComposeProgress(e.loaded, e.total));
       },
     }).then(function (response) {
+      response.data.text_url = '';
       dispatch(uploadComposeSuccess(response.data));
     }).catch(function (error) {
       dispatch(uploadComposeFail(error));
@@ -367,6 +393,13 @@ export function insertEmojiCompose(position, emoji) {
     emoji,
   };
 };
+
+export function insertTagCompose(tag) {
+  return {
+    type: COMPOSE_TAG_INSERT,
+    tag,
+  };
+}
 
 export function changeComposing(value) {
   return {

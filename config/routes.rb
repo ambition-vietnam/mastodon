@@ -99,6 +99,12 @@ Rails.application.routes.draw do
     resource :migration, only: [:show, :update]
 
     resources :sessions, only: [:destroy]
+
+    resources :outgoing_webhooks, only: [:index, :new, :create, :edit, :update, :destroy, :generate] do
+      member do
+        post :generate
+      end
+    end
   end
 
   resources :media,  only: [:show]
@@ -119,6 +125,7 @@ Rails.application.routes.draw do
     resources :action_logs, only: [:index]
     resource :settings, only: [:edit, :update]
     resources :invites, only: [:index, :create, :destroy]
+    resources :suggestion_tags, only: [:index, :new, :create, :edit, :update, :destroy]
 
     resources :instances, only: [:index] do
       collection do
@@ -213,6 +220,7 @@ Rails.application.routes.draw do
         member do
           get :context
           get :card
+          get :translate
         end
       end
 
@@ -227,6 +235,7 @@ Rails.application.routes.draw do
       resources :custom_emojis, only: [:index]
 
       get '/search', to: 'search#index', as: :search
+      post '/bootstrap_timeline', to: 'bootstrap_timeline#create'
 
       resources :follows,    only: [:create]
       resources :media,      only: [:create, :update]
@@ -234,6 +243,7 @@ Rails.application.routes.draw do
       resources :mutes,      only: [:index]
       resources :favourites, only: [:index]
       resources :reports,    only: [:index, :create]
+      resources :trend_tags, only: [:index]
 
       namespace :apps do
         get :verify_credentials, to: 'credentials#show'

@@ -9,6 +9,7 @@ import { me } from '../initial_state';
 
 const messages = defineMessages({
   delete: { id: 'status.delete', defaultMessage: 'Delete' },
+  edit: {id: 'status.edit', defaultMessage: 'Edit'},
   mention: { id: 'status.mention', defaultMessage: 'Mention @{name}' },
   mute: { id: 'account.mute', defaultMessage: 'Mute @{name}' },
   block: { id: 'account.block', defaultMessage: 'Block @{name}' },
@@ -26,6 +27,7 @@ const messages = defineMessages({
   pin: { id: 'status.pin', defaultMessage: 'Pin on profile' },
   unpin: { id: 'status.unpin', defaultMessage: 'Unpin from profile' },
   embed: { id: 'status.embed', defaultMessage: 'Embed' },
+  translate: { id: 'status.translate', defaultMessage: 'Translate' },
 });
 
 @injectIntl
@@ -40,6 +42,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     onReply: PropTypes.func,
     onFavourite: PropTypes.func,
     onReblog: PropTypes.func,
+    onEdit: PropTypes.func,
     onDelete: PropTypes.func,
     onMention: PropTypes.func,
     onMute: PropTypes.func,
@@ -48,6 +51,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     onEmbed: PropTypes.func,
     onMuteConversation: PropTypes.func,
     onPin: PropTypes.func,
+    onTranslate: PropTypes.func,
     withDismiss: PropTypes.bool,
     intl: PropTypes.object.isRequired,
   };
@@ -78,6 +82,10 @@ export default class StatusActionBar extends ImmutablePureComponent {
     this.props.onReblog(this.props.status, e);
   }
 
+  handleEditClick = () => {
+    this.props.onEdit(this.props.status, this.context.router.history);
+  }
+
   handleDeleteClick = () => {
     this.props.onDelete(this.props.status);
   }
@@ -100,6 +108,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
 
   handleOpen = () => {
     this.context.router.history.push(`/statuses/${this.props.status.get('id')}`);
+    this.props.onReply(this.props.status, this.context.router.history);
   }
 
   handleEmbed = () => {
@@ -112,6 +121,10 @@ export default class StatusActionBar extends ImmutablePureComponent {
 
   handleConversationMuteClick = () => {
     this.props.onMuteConversation(this.props.status);
+  }
+
+  handleTranslateClick = () => {
+    this.props.onTranslate(this.props.status);
   }
 
   render () {
@@ -127,6 +140,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
     let replyTitle;
 
     menu.push({ text: intl.formatMessage(messages.open), action: this.handleOpen });
+    menu.push({ text: intl.formatMessage(messages.translate), action: this.handleTranslateClick });
 
     if (publicStatus) {
       menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });
@@ -144,6 +158,7 @@ export default class StatusActionBar extends ImmutablePureComponent {
         menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });
       }
 
+      menu.push({ text: intl.formatMessage(messages.edit), action: this.handleEditClick });
       menu.push({ text: intl.formatMessage(messages.delete), action: this.handleDeleteClick });
     } else {
       menu.push({ text: intl.formatMessage(messages.mention, { name: status.getIn(['account', 'username']) }), action: this.handleMentionClick });

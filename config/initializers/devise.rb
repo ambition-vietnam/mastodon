@@ -138,7 +138,7 @@ Devise.setup do |config|
   # config.pepper = '104d16705f794923e77c5e5167b52452d00646dc952a2d30b541c24086e647012c7b9625f253c51912e455981e503446772973d5f1638631196c819d7137fad4'
 
   # Send a notification email when the user's password is changed
-  config.send_password_change_notification = true
+  config.send_password_change_notification = false
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -227,11 +227,11 @@ Devise.setup do |config|
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
   # change their passwords.
-  config.reset_password_within = 6.hours
+  config.reset_password_within = 3.days
 
   # When set to false, does not sign a user in automatically after their password is
   # reset. Defaults to true, so a user is signed in automatically after a reset.
-  config.sign_in_after_reset_password = false
+  config.sign_in_after_reset_password = true
 
   # ==> Configuration for :encryptable
   # Allow you to use another encryption algorithm besides bcrypt (default). You can use

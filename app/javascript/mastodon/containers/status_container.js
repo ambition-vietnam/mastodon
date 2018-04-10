@@ -4,6 +4,7 @@ import Status from '../components/status';
 import { makeGetStatus } from '../selectors';
 import {
   replyCompose,
+  editCompose,
   mentionCompose,
 } from '../actions/compose';
 import {
@@ -15,7 +16,7 @@ import {
   unpin,
 } from '../actions/interactions';
 import { blockAccount } from '../actions/accounts';
-import { muteStatus, unmuteStatus, deleteStatus } from '../actions/statuses';
+import { muteStatus, unmuteStatus, deleteStatus, translateStatus } from '../actions/statuses';
 import { initMuteModal } from '../actions/mutes';
 import { initReport } from '../actions/reports';
 import { openModal } from '../actions/modal';
@@ -80,6 +81,10 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
     dispatch(openModal('EMBED', { url: status.get('url') }));
   },
 
+  onEdit (status, router) {
+    dispatch(editCompose(status, router));
+  },
+
   onDelete (status) {
     if (!deleteModal) {
       dispatch(deleteStatus(status.get('id')));
@@ -126,6 +131,10 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
     } else {
       dispatch(muteStatus(status.get('id')));
     }
+  },
+
+  onTranslate (status) {
+    dispatch(translateStatus(status.get('id')));
   },
 
 });

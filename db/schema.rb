@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212195226) do
+ActiveRecord::Schema.define(version: 20180302040912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -305,6 +305,16 @@ ActiveRecord::Schema.define(version: 20171212195226) do
     t.index ["uid"], name: "index_oauth_applications_on_uid", unique: true
   end
 
+  create_table "outgoing_webhooks", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "url", default: "", null: false
+    t.string "trigger_word", default: "", null: false
+    t.string "token", default: "", null: false
+    t.integer "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "preview_cards", force: :cascade do |t|
     t.string "url", default: "", null: false
     t.string "title", default: "", null: false
@@ -409,6 +419,7 @@ ActiveRecord::Schema.define(version: 20171212195226) do
     t.bigint "account_id", null: false
     t.bigint "application_id"
     t.bigint "in_reply_to_account_id"
+    t.boolean "edited"
     t.index ["account_id", "id"], name: "index_statuses_on_account_id_id"
     t.index ["conversation_id"], name: "index_statuses_on_conversation_id"
     t.index ["in_reply_to_id"], name: "index_statuses_on_in_reply_to_id"
@@ -447,12 +458,30 @@ ActiveRecord::Schema.define(version: 20171212195226) do
     t.index ["account_id", "callback_url"], name: "index_subscriptions_on_account_id_and_callback_url", unique: true
   end
 
+  create_table "suggestion_tags", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "order", default: 1, null: false
+    t.integer "suggestion_type", default: 0, null: false
+    t.string "description", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id", "suggestion_type"], name: "index_suggestion_tags_on_tag_id_and_suggestion_type", unique: true
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index "lower((name)::text) text_pattern_ops", name: "hashtag_search_index"
     t.index ["name"], name: "index_tags_on_name", unique: true
+  end
+
+  create_table "trend_ng_words", force: :cascade do |t|
+    t.string "word", default: "", null: false
+    t.string "memo", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["word"], name: "index_trend_ng_words_on_word", unique: true
   end
 
   create_table "users", force: :cascade do |t|

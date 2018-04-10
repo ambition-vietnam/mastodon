@@ -226,6 +226,30 @@ he:
       last_delivery: משלוח אחרון
       title: מנוי WebSub
       topic: נושא
+    suggestion:
+      title: Suggestion Tags
+      add: Add
+      priority: Priority
+      type: Type
+      hashtag: Hashtag
+      explanation: Explanation
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      placeholder:
+        hashtag: Hashtag
+        explanation: Explanation
+        order: Order
+      hint:
+        hashtag: Do not add leading sharp
+        explanation: It is an explanation under the tag
+        order: It is displayed in ascending order of number
+      add_successfully: Tag successfully created
+      add_failed: Saving failed
+      update_successfully: Tag successfully updated
+      update_failed: Updating failed
+      delete_successfully: Tag successfully deleted
     title: ניהול
   application_mailer:
     settings: 'שינוי הגדרות דוא"ל: %{link}'
@@ -363,6 +387,35 @@ he:
     preferences: העדפות
     settings: הגדרות
     two_factor_authentication: אימות דו-שלבי
+    outgoing_webhooks:
+      title: Outgoing Webhooks
+      name: Name
+      url: URL
+      trigger_word: Trigger Word
+      token: Token
+      add: Add
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      generate: Generate
+      placeholder:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      hint:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      add_successfully: Webhook successfully created
+      add_failed: Saving failed
+      update_successfully: Webhook successfully updated
+      update_failed: Updating failed
+      delete_successfully: Webhook successfully deleted
+      generate_successfully: Token successfully generated
+      generate_failed: Token failed generated
   statuses:
     open_in_web: פתח ברשת
     over_character_limit: חריגה מגבול התווים של %{max}

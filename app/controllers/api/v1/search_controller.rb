@@ -31,7 +31,7 @@ class Api::V1::SearchController < Api::BaseController
 
   def search_results
     SearchService.new.call(
-      params[:q],
+      params[:q].downcase,
       RESULTS_LIMIT,
       resolving_search?,
       current_account

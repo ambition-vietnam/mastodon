@@ -26,10 +26,15 @@ class SearchPopout extends React.PureComponent {
               <h4><FormattedMessage id='search_popout.search_format' defaultMessage='Advanced search format' /></h4>
 
               <ul>
-                <li><em>#example</em> <FormattedMessage id='search_popout.tips.hashtag' defaultMessage='hashtag' /></li>
-                <li><em>@username@domain</em> <FormattedMessage id='search_popout.tips.user' defaultMessage='user' /></li>
-                <li><em>URL</em> <FormattedMessage id='search_popout.tips.user' defaultMessage='user' /></li>
-                <li><em>URL</em> <FormattedMessage id='search_popout.tips.status' defaultMessage='status' /></li>
+                <li><em>#district1</em><span> <FormattedMessage id='search_popout.tips.district' defaultMessage='and any district' /></span></li>
+                <li><em>#100sqm</em><span> (100sqm≧)</span></li>
+                <li><em>#150sqm</em><span> (101≦150)</span></li>
+                <li><em>#200sqm</em><span> (151≦200)</span></li>
+                <li><em>#250sqm</em><span> (201≦250)</span></li>
+                <li><em>#15usd</em><span> (15usd≧)</span></li>
+                <li><em>#20usd</em><span> (16≦20)</span></li>
+                <li><em>#25usd</em><span> (21≦25)</span></li>
+                <li><em>#30usd</em><span> (26≦30)</span></li>
               </ul>
 
               <FormattedMessage id='search_popout.tips.text' defaultMessage='Simple text returns matching display names, usernames and hashtags' />

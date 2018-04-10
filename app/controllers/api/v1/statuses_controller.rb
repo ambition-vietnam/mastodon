@@ -6,7 +6,7 @@ class Api::V1::StatusesController < Api::BaseController
   before_action :authorize_if_got_token, except:            [:create, :destroy]
   before_action -> { doorkeeper_authorize! :write }, only:  [:create, :destroy]
   before_action :require_user!, except:  [:show, :context, :card]
-  before_action :set_status, only:       [:show, :context, :card]
+  before_action :set_status, only:       [:show, :context, :card, :translate]
 
   respond_to :json
 
@@ -24,6 +24,7 @@ class Api::V1::StatusesController < Api::BaseController
 
     @context = Context.new(ancestors: loaded_ancestors, descendants: loaded_descendants)
     statuses = [@status] + @context.ancestors + @context.descendants
+    Rails.logger.info "Accessed to status: status=#{@status.id}, author=#{@status.account_id}, account=#{current_user ? current_user.id : 'Not authorized'}"
 
     render json: @context, serializer: REST::ContextSerializer, relationships: StatusRelationshipsPresenter.new(statuses, current_user&.account_id)
   end
@@ -38,6 +39,12 @@ class Api::V1::StatusesController < Api::BaseController
     end
   end
 
+  def translate
+    @status.text = TranslateService.new.call(@status.text, I18n.locale)
+
+    render json: @status, serializer: REST::StatusSerializer
+  end
+
   def create
     @status = PostStatusService.new.call(current_user.account,
                                          status_params[:status],
@@ -47,7 +54,9 @@ class Api::V1::StatusesController < Api::BaseController
                                          spoiler_text: status_params[:spoiler_text],
                                          visibility: status_params[:visibility],
                                          application: doorkeeper_token.application,
+                                         status_id: request.headers['Status-Id'],
                                          idempotency: request.headers['Idempotency-Key'])
+    OutgoingWebhookWorker.perform_async(@status.id)
 
     render json: @status, serializer: REST::StatusSerializer
   end

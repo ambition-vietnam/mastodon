@@ -3,6 +3,7 @@ import CharacterCounter from './character_counter';
 import Button from '../../../components/button';
 import ImmutablePropTypes from 'react-immutable-proptypes';
 import PropTypes from 'prop-types';
+import EditIndicatorContainer from '../containers/edit_indicator_container';
 import ReplyIndicatorContainer from '../containers/reply_indicator_container';
 import AutosuggestTextarea from '../../../components/autosuggest_textarea';
 import UploadButtonContainer from '../containers/upload_button_container';
@@ -20,7 +21,7 @@ import { length } from 'stringz';
 import { countableText } from '../util/counter';
 
 const messages = defineMessages({
-  placeholder: { id: 'compose_form.placeholder', defaultMessage: 'What is on your mind?' },
+  placeholder: { id: 'compose_form.placeholder', defaultMessage: '#nguyenhue #district1 #25usd\n#150sqm #200sqm...' },
   spoiler_placeholder: { id: 'compose_form.spoiler_placeholder', defaultMessage: 'Write your warning here' },
   publish: { id: 'compose_form.publish', defaultMessage: 'Toot' },
   publishLoud: { id: 'compose_form.publish_loud', defaultMessage: '{publish}!' },
@@ -168,6 +169,8 @@ export default class ComposeForm extends ImmutablePureComponent {
         </Collapsable>
 
         <ReplyIndicatorContainer />
+
+        <EditIndicatorContainer />
 
         <div className='compose-form__autosuggest-wrapper'>
           <AutosuggestTextarea

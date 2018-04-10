@@ -8,6 +8,7 @@ import { me } from '../../../initial_state';
 
 const messages = defineMessages({
   delete: { id: 'status.delete', defaultMessage: 'Delete' },
+  edit: { id: 'status.edit', defaultMessage: 'Edit' },
   mention: { id: 'status.mention', defaultMessage: 'Mention @{name}' },
   reply: { id: 'status.reply', defaultMessage: 'Reply' },
   reblog: { id: 'status.reblog', defaultMessage: 'Boost' },
@@ -18,6 +19,7 @@ const messages = defineMessages({
   pin: { id: 'status.pin', defaultMessage: 'Pin on profile' },
   unpin: { id: 'status.unpin', defaultMessage: 'Unpin from profile' },
   embed: { id: 'status.embed', defaultMessage: 'Embed' },
+  translate: { id: 'status.translate', defaultMessage: 'Translate' },
 });
 
 @injectIntl
@@ -32,11 +34,13 @@ export default class ActionBar extends React.PureComponent {
     onReply: PropTypes.func.isRequired,
     onReblog: PropTypes.func.isRequired,
     onFavourite: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
     onDelete: PropTypes.func.isRequired,
     onMention: PropTypes.func.isRequired,
     onReport: PropTypes.func,
     onPin: PropTypes.func,
     onEmbed: PropTypes.func,
+    onTranslate: PropTypes.func,
     intl: PropTypes.object.isRequired,
   };
 
@@ -50,6 +54,10 @@ export default class ActionBar extends React.PureComponent {
 
   handleFavouriteClick = () => {
     this.props.onFavourite(this.props.status);
+  }
+
+  handleEditClick = () => {
+    this.props.onEdit(this.props.status);
   }
 
   handleDeleteClick = () => {
@@ -79,12 +87,17 @@ export default class ActionBar extends React.PureComponent {
     this.props.onEmbed(this.props.status);
   }
 
+  handleTranslate = () => {
+    this.props.onTranslate(this.props.status);
+  }
+
   render () {
     const { status, intl } = this.props;
 
     const publicStatus = ['public', 'unlisted'].includes(status.get('visibility'));
 
     let menu = [];
+    menu.push({ text: intl.formatMessage(messages.translate), action: this.handleTranslate });
 
     if (publicStatus) {
       menu.push({ text: intl.formatMessage(messages.embed), action: this.handleEmbed });
@@ -95,6 +108,7 @@ export default class ActionBar extends React.PureComponent {
         menu.push({ text: intl.formatMessage(status.get('pinned') ? messages.unpin : messages.pin), action: this.handlePinClick });
       }
 
+      menu.push({ text: intl.formatMessage(messages.edit), action: this.handleEditClick });
       menu.push({ text: intl.formatMessage(messages.delete), action: this.handleDeleteClick });
     } else {
       menu.push({ text: intl.formatMessage(messages.mention, { name: status.getIn(['account', 'username']) }), action: this.handleMentionClick });

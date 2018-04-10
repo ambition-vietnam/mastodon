@@ -108,6 +108,12 @@ export default class ModalRoot extends React.PureComponent {
       );
     }
 
+    if (type === 'ONBOARDING') {
+      return (
+        <div className='modal-root' ref={this.setRef} style={{ opacity: 0 }} />
+      );
+    }
+
     return (
       <div className='modal-root' ref={this.setRef} style={{ opacity: revealed ? 1 : 0 }}>
         <div style={{ pointerEvents: visible ? 'auto' : 'none' }}>

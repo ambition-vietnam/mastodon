@@ -15,7 +15,7 @@
       .container.links
         .brand
           = link_to root_url do
-            = image_tag asset_pack_path('logo_full.svg'), alt: 'Mastodon'
+            = image_tag asset_pack_path('logo_full.png'), alt: 'Mastodon'
 
         %ul.nav
           %li
@@ -47,7 +47,7 @@
                 %p= t('about.closed_registrations')
               - else
                 = @instance_presenter.closed_registrations_message.html_safe
-            = link_to t('about.find_another_instance'), 'https://joinmastodon.org/', class: 'button button-alternative button--block'
+            = link_to t('about.contact_us'), 'https://info.offidon.com', class: 'button button-alternative button--block'
 
   .about-short
     .container

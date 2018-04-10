@@ -101,6 +101,9 @@ class Account < ApplicationRecord
   has_many :list_accounts, inverse_of: :account, dependent: :destroy
   has_many :lists, through: :list_accounts
 
+  # Outgoing Webhook
+  has_many :outgoing_webhooks, dependent: :destroy
+
   # Account migrations
   belongs_to :moved_to_account, class_name: 'Account'
 

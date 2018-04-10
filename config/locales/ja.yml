@@ -24,8 +24,8 @@ ja:
       within_reach_body: デベロッパーフレンドリーな API により実現された、iOS や Android、その他様々なプラットフォームのためのアプリでどこでも友人とやりとりできます。
       within_reach_title: いつでも身近に
     find_another_instance: 他のインスタンスを探す
-    generic_description: "%{domain} は、Mastodon インスタンスの一つです"
-    hosted_on: Mastodon hosted on %{domain}
+    generic_description: "%{domain} は、Mastodon インスタンスの一つです。"
+    hosted_on: あらゆる物事の価値を最大限に高めるコミュニティーを築く
     learn_more: もっと詳しく
     other_instances: 他のインスタンス
     source_code: ソースコード
@@ -324,6 +324,30 @@ ja:
       last_delivery: 最終配送
       title: WebSub
       topic: トピック
+    suggestion:
+      title: おすすめタグ
+      add: 追加
+      priority: 優先順位
+      type: タイプ
+      hashtag: ハッシュタグ
+      explanation: 説明文
+      create: 作成
+      save: 保存
+      edit: 編集
+      delete: 削除
+      placeholder:
+        hashtag: タグ名
+        explanation: 説明文
+        order: 表示順
+      hint:
+        hashtag: 先頭にシャープは付けないで下さい。
+        explanation: タグの下に出る説明文です
+        order: 数が小さい順に表示されます
+      add_successfully: タグを作成しました
+      add_failed: 保存に失敗しました
+      update_successfully: タグを更新しました
+      update_failed: タグの更新に失敗しました
+      delete_successfully: タグを削除しました
     title: 管理
   admin_mailer:
     new_report:
@@ -577,7 +601,7 @@ ja:
     title: セッション
   settings:
     authorized_apps: 認証済みアプリ
-    back: Mastodon に戻る
+    back: Offidon に戻る
     delete: アカウントの削除
     development: 開発
     edit_profile: プロフィールを編集
@@ -590,6 +614,33 @@ ja:
     settings: 設定
     two_factor_authentication: 二段階認証
     your_apps: アプリ
+    outgoing_webhooks:
+      title: 外部API連携
+      name: 名称
+      url: URL
+      trigger_word: キーワード
+      token: トークン
+      add: 追加
+      create: 作成
+      save: 保存
+      edit: 編集
+      delete: 削除
+      generate: 発行
+      placeholder:
+        name: 名称
+        url: URL
+        trigger_word: キーワード
+        token: トークン
+      hint:
+        name: 連携するAPIの名称
+        url: 連携するAPIのURL
+        trigger_word: 連携のトリガーとなるキーワード
+        token: 認証用トークン
+      add_successfully: Webhookを登録しました。
+      add_failed: Webhook登録に失敗しました。
+      update_successfully: Webhookを更新しました。
+      update_failed: Webhookの更新に失敗しました。
+      delete_successfully: Webhookを削除しました。
   statuses:
     open_in_web: Webで開く
     over_character_limit: 上限は %{max}文字までです
@@ -599,6 +650,7 @@ ja:
       private: 非公開のトゥートを固定することはできません
       reblog: ブーストされたトゥートを固定することはできません
     show_more: もっと見る
+    title: '%{name}: "%{quote}"'
     visibilities:
       private: 非公開
       private_long: フォロワーにのみ表示されます

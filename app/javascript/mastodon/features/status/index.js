@@ -18,9 +18,10 @@ import {
 } from '../../actions/interactions';
 import {
   replyCompose,
+  editCompose,
   mentionCompose,
 } from '../../actions/compose';
-import { deleteStatus } from '../../actions/statuses';
+import { deleteStatus, translateStatus } from '../../actions/statuses';
 import { initReport } from '../../actions/reports';
 import { makeGetStatus } from '../../selectors';
 import { ScrollContainer } from 'react-router-scroll-4';
@@ -122,6 +123,10 @@ export default class Status extends ImmutablePureComponent {
     }
   }
 
+  handleEditClick = (status) => {
+    this.props.dispatch(editCompose(status, this.context.router.history));
+  }
+
   handleDeleteClick = (status) => {
     const { dispatch, intl } = this.props;
 
@@ -154,6 +159,10 @@ export default class Status extends ImmutablePureComponent {
 
   handleEmbed = (status) => {
     this.props.dispatch(openModal('EMBED', { url: status.get('url') }));
+  }
+
+  handleTranslate = (status) => {
+    this.props.dispatch(translateStatus(status.get('id')));
   }
 
   handleHotkeyMoveUp = () => {
@@ -319,11 +328,13 @@ export default class Status extends ImmutablePureComponent {
                   onReply={this.handleReplyClick}
                   onFavourite={this.handleFavouriteClick}
                   onReblog={this.handleReblogClick}
+                  onEdit={this.handleEditClick}
                   onDelete={this.handleDeleteClick}
                   onMention={this.handleMentionClick}
                   onReport={this.handleReport}
                   onPin={this.handlePin}
                   onEmbed={this.handleEmbed}
+                  onTranslate={this.handleTranslate}
                 />
               </div>
             </HotKeys>

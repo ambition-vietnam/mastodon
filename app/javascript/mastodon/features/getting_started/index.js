@@ -25,8 +25,8 @@ const messages = defineMessages({
   mutes: { id: 'navigation_bar.mutes', defaultMessage: 'Muted users' },
   info: { id: 'navigation_bar.info', defaultMessage: 'Extended information' },
   pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
-  lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
-  keyboard_shortcuts: { id: 'navigation_bar.keyboard_shortcuts', defaultMessage: 'Keyboard shortcuts' },
+  //lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
+  //keyboard_shortcuts: { id: 'navigation_bar.keyboard_shortcuts', defaultMessage: 'Keyboard shortcuts' },
 });
 
 const mapStateToProps = state => ({
@@ -71,7 +71,7 @@ export default class GettingStarted extends ImmutablePureComponent {
     navItems = navItems.concat([
       <ColumnLink key='4' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
       <ColumnLink key='5' icon='thumb-tack' text={intl.formatMessage(messages.pins)} to='/pinned' />,
-      <ColumnLink key='9' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />,
+      //<ColumnLink key='9' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />,
     ]);
 
     if (myAccount.get('locked')) {
@@ -81,7 +81,7 @@ export default class GettingStarted extends ImmutablePureComponent {
     navItems = navItems.concat([
       <ColumnLink key='7' icon='volume-off' text={intl.formatMessage(messages.mutes)} to='/mutes' />,
       <ColumnLink key='8' icon='ban' text={intl.formatMessage(messages.blocks)} to='/blocks' />,
-      <ColumnLink key='10' icon='question' text={intl.formatMessage(messages.keyboard_shortcuts)} to='/keyboard-shortcuts' hideOnMobile />,
+      //<ColumnLink key='10' icon='question' text={intl.formatMessage(messages.keyboard_shortcuts)} to='/keyboard-shortcuts' hideOnMobile />,
     ]);
 
     return (
@@ -95,20 +95,6 @@ export default class GettingStarted extends ImmutablePureComponent {
           <ColumnLink icon='sign-out' text={intl.formatMessage(messages.sign_out)} href='/auth/sign_out' method='delete' />
         </div>
 
-        <div className='getting-started__footer scrollable optionally-scrollable'>
-          <div className='static-content getting-started'>
-            <p>
-              <a href='https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/FAQ.md' rel='noopener' target='_blank'><FormattedMessage id='getting_started.faq' defaultMessage='FAQ' /></a> • <a href='https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/User-guide.md' rel='noopener' target='_blank'><FormattedMessage id='getting_started.userguide' defaultMessage='User Guide' /></a> • <a href='https://github.com/tootsuite/documentation/blob/master/Using-Mastodon/Apps.md' rel='noopener' target='_blank'><FormattedMessage id='getting_started.appsshort' defaultMessage='Apps' /></a>
-            </p>
-            <p>
-              <FormattedMessage
-                id='getting_started.open_source_notice'
-                defaultMessage='Mastodon is open source software. You can contribute or report issues on GitHub at {github}.'
-                values={{ github: <a href='https://github.com/tootsuite/mastodon' rel='noopener' target='_blank'>tootsuite/mastodon</a> }}
-              />
-            </p>
-          </div>
-        </div>
       </Column>
     );
   }

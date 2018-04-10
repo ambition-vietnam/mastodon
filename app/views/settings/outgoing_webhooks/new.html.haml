@@ -1,0 +1,4 @@
+- content_for :page_title do
+  = I18n.t('settings.outgoing_webhooks.title')
+
+= render 'form', outgoing_webhook: @outgoing_webhook

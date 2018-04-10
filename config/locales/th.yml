@@ -150,6 +150,30 @@ th:
       last_delivery: จัดส่งครั้งล่าสุด
       title: WebSub
       topic: ชื่อเรื่อง
+    suggestion:
+      title: Suggestion Tags
+      add: Add
+      priority: Priority
+      type: Type
+      hashtag: Hashtag
+      explanation: Explanation
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      placeholder:
+        hashtag: Hashtag
+        explanation: Explanation
+        order: Order
+      hint:
+        hashtag: Do not add leading sharp
+        explanation: It is an explanation under the tag
+        order: It is displayed in ascending order of number
+      add_successfully: Tag successfully created
+      add_failed: Saving failed
+      update_successfully: Tag successfully updated
+      update_failed: Updating failed
+      delete_successfully: Tag successfully deleted
     title: แอดมิน
   application_mailer:
     settings: 'เปลี่ยนอีเมล์ preferences: %{link}'
@@ -287,6 +311,35 @@ th:
     preferences: Preferences
     settings: ตั้งค่า
     two_factor_authentication: Two-factor Authentication
+    outgoing_webhooks:
+      title: Outgoing Webhooks
+      name: Name
+      url: URL
+      trigger_word: Trigger Word
+      token: Token
+      add: Add
+      create: Create
+      save: Save
+      edit: Edit
+      delete: Delete
+      generate: Generate
+      placeholder:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      hint:
+        name: Name
+        url: Url
+        trigger_word: Trigger Word
+        token: Token
+      add_successfully: Webhook successfully created
+      add_failed: Saving failed
+      update_successfully: Webhook successfully updated
+      update_failed: Updating failed
+      delete_successfully: Webhook successfully deleted
+      generate_successfully: Token successfully generated
+      generate_failed: Token failed generated
   statuses:
     open_in_web: เปิดในเว็บ
     over_character_limit: character limit of %{max} exceeded

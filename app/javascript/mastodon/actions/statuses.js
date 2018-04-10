@@ -27,6 +27,9 @@ export const STATUS_TRANSLATE_REQUEST = 'STATUS_TRANSLATE_REQUEST';
 export const STATUS_TRANSLATE_SUCCESS = 'STATUS_TRANSLATE_SUCCESS';
 export const STATUS_TRANSLATE_FAIL    = 'STATUS_TRANSLATE_FAIL';
 
+export const STATUS_REVEAL = 'STATUS_REVEAL';
+export const STATUS_HIDE   = 'STATUS_HIDE';
+
 export function fetchStatusRequest(id, skipLoading) {
   return {
     type: STATUS_FETCH_REQUEST,
@@ -251,5 +254,27 @@ export function translateStatusFail(id, error) {
     type: STATUS_TRANSLATE_FAIL,
     id,
     error,
+  };
+};
+
+export function hideStatus(ids) {
+  if (!Array.isArray(ids)) {
+    ids = [ids];
+  }
+
+  return {
+    type: STATUS_HIDE,
+    ids,
+  };
+};
+
+export function revealStatus(ids) {
+  if (!Array.isArray(ids)) {
+    ids = [ids];
+  }
+
+  return {
+    type: STATUS_REVEAL,
+    ids,
   };
 };

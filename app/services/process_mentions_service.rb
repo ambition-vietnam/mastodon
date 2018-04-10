@@ -13,18 +13,20 @@ class ProcessMentionsService < BaseService
     new_mentioned_accounts = {}
     old_mentions = get_mentions(status)
     status.text = status.text.gsub(Account::MENTION_RE) do |match|
-      begin
-        mentioned_account = resolve_remote_account_service.call($1)
-      rescue Goldfinger::Error, HTTP::Error
-        mentioned_account = nil
+      username, domain  = $1.split('@')
+      mentioned_account = Account.find_remote(username, domain)
+
+      if mention_undeliverable?(status, mentioned_account)
+        begin
+          mentioned_account = resolve_account_service.call($1)
+        rescue Goldfinger::Error, HTTP::Error
+          mentioned_account = nil
+        end
       end
 
-      if mentioned_account.nil?
-        username, domain  = $1.split('@')
-        mentioned_account = Account.find_remote(username, domain)
-      end
+      mentioned_account ||= Account.find_remote(username, domain)
 
-      next match if mentioned_account.nil? || (!mentioned_account.local? && mentioned_account.ostatus? && status.stream_entry.hidden?)
+      next match if mention_undeliverable?(status, mentioned_account)
 
       new_mentioned_accounts[mentioned_account.id] = true
       mentioned_account.mentions.where(status: status).first_or_create(status: status)
@@ -41,6 +43,10 @@ class ProcessMentionsService < BaseService
   end
 
   private
+
+  def mention_undeliverable?(status, mentioned_account)
+    mentioned_account.nil? || (!mentioned_account.local? && mentioned_account.ostatus? && status.stream_entry.hidden?)
+  end
 
   def create_notification(status, mention)
     mentioned_account = mention.account
@@ -75,7 +81,7 @@ class ProcessMentionsService < BaseService
     ).as_json).sign!(status.account))
   end
 
-  def resolve_remote_account_service
-    ResolveRemoteAccountService.new
+  def resolve_account_service
+    ResolveAccountService.new
   end
 end

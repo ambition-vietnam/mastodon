@@ -27,8 +27,8 @@ const messages = defineMessages({
   mutes: { id: 'navigation_bar.mutes', defaultMessage: 'Muted users' },
   info: { id: 'navigation_bar.info', defaultMessage: 'Extended information' },
   pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
-  //lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
-  //keyboard_shortcuts: { id: 'navigation_bar.keyboard_shortcuts', defaultMessage: 'Keyboard shortcuts' },
+  lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
+  keyboard_shortcuts: { id: 'navigation_bar.keyboard_shortcuts', defaultMessage: 'Keyboard shortcuts' },
 });
 
 const mapStateToProps = state => ({

@@ -106,7 +106,8 @@ export function refreshTimeline(timelineId, path, params = {}) {
     dispatch(refreshTimelineRequest(timelineId, skipLoading));
 
     api(getState).get(path, { params }).then(response => {
-      if (response.status === 206) {
+      // if (response.status === 206) {
+      if (false) {
         dispatch(refreshTimelineSuccess(timelineId, [], skipLoading, null, true));
       } else {
         const next = getLinks(response).refs.find(link => link.rel === 'next');

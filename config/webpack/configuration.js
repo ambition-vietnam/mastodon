@@ -30,7 +30,7 @@ const output = {
   publicPath: formatPublicPath(env.CDN_HOST, settings.public_output_path),
 };
 
-const version = '1.0.2';
+const version = '1.0.3';
 
 module.exports = {
   settings,

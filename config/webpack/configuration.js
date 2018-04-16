@@ -27,10 +27,10 @@ function formatPublicPath(host = '', path = '') {
 
 const output = {
   path: resolve('public', settings.public_output_path),
-  publicPath: formatPublicPath(env.ASSET_HOST, settings.public_output_path),
+  publicPath: formatPublicPath(env.CDN_HOST, settings.public_output_path),
 };
 
-const version = '1.0.2';
+const version = '1.0.3';
 
 module.exports = {
   settings,

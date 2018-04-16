@@ -9,15 +9,15 @@ module Mastodon
     end
 
     def minor
-      1
+      3
     end
 
     def patch
-      0
+      3
     end
 
     def pre
-      ''
+      nil
     end
 
     def flags

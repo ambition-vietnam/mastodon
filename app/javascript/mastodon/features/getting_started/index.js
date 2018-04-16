@@ -27,8 +27,8 @@ const messages = defineMessages({
   mutes: { id: 'navigation_bar.mutes', defaultMessage: 'Muted users' },
   info: { id: 'navigation_bar.info', defaultMessage: 'Extended information' },
   pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
-  lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
-  keyboard_shortcuts: { id: 'navigation_bar.keyboard_shortcuts', defaultMessage: 'Keyboard shortcuts' },
+  //lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
+  //keyboard_shortcuts: { id: 'navigation_bar.keyboard_shortcuts', defaultMessage: 'Keyboard shortcuts' },
 });
 
 const mapStateToProps = state => ({
@@ -99,7 +99,7 @@ export default class GettingStarted extends ImmutablePureComponent {
 
     navItems.push(
       <ColumnLink key='4' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
-      <ColumnLink key='5' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />
+      //<ColumnLink key='5' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />
     );
 
     if (myAccount.get('locked')) {
@@ -107,7 +107,7 @@ export default class GettingStarted extends ImmutablePureComponent {
     }
 
     if (multiColumn) {
-      navItems.push(<ColumnLink key='7' icon='question' text={intl.formatMessage(messages.keyboard_shortcuts)} to='/keyboard-shortcuts' />);
+      //navItems.push(<ColumnLink key='7' icon='question' text={intl.formatMessage(messages.keyboard_shortcuts)} to='/keyboard-shortcuts' />);
     }
 
     navItems.push(<ColumnLink key='8' icon='book' text={intl.formatMessage(messages.info)} href='/about/more' />);

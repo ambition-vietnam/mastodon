@@ -12,6 +12,7 @@
 #  account_id                 :integer          not null
 #  action_taken_by_account_id :integer
 #  target_account_id          :integer          not null
+#  assigned_account_id        :integer
 #
 
 class Report < ApplicationRecord

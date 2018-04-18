@@ -59,7 +59,8 @@ const normalizeStatus = (state, status) => {
 
   // Only calculate these values when status first encountered
   // Otherwise keep the ones already in the reducer
-  if (!state.has(status.id)) {
+  // if (!state.has(status.id)) {
+  if (true) {
     const searchContent = [status.spoiler_text, status.content].join('\n\n').replace(/<br\s*\/?>/g, '\n').replace(/<\/p><p>/g, '\n\n');
 
     const emojiMap = normalStatus.emojis.reduce((obj, emoji) => {

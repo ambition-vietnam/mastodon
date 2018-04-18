@@ -1,7 +1,7 @@
 - content_for :page_title do
   = @account.acct
 
-= simple_form_for(@account, url: "/admin/accounts/#{@account.id}") do |f|
+= simple_form_for(@account, url: admin_account_path) do |f|
   .table-wrapper
     %table.table
       %tbody

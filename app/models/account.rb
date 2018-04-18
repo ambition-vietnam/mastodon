@@ -44,7 +44,6 @@
 #  memorial                :boolean          default(FALSE), not null
 #  moved_to_account_id     :integer
 #  featured_collection_url :string
-#  account_type            :integer          default(0), not null
 #
 
 class Account < ApplicationRecord
@@ -60,7 +59,6 @@ class Account < ApplicationRecord
   include Paginable
 
   enum protocol: [:ostatus, :activitypub]
-  enum account_type: { owner: 1, tenant: 2 }
 
   # Local users
   has_one :user, inverse_of: :account

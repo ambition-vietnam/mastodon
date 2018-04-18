@@ -1,85 +1,90 @@
 - content_for :page_title do
   = @account.acct
 
-.table-wrapper
-  %table.table
-    %tbody
-      %tr
-        %th= t('admin.accounts.username')
-        %td= @account.username
-      %tr
-        %th= t('admin.accounts.domain')
-        %td= @account.domain
-      %tr
-        %th= t('admin.accounts.display_name')
-        %td= @account.display_name
+= simple_form_for(@account, url: "/admin/accounts/#{@account.id}") do |f|
+  .table-wrapper
+    %table.table
+      %tbody
+        %tr
+          %th= t('admin.accounts.username')
+          %td= @account.username
+        %tr
+          %th= t('admin.accounts.domain')
+          %td= @account.domain
+        %tr
+          %th= t('admin.accounts.display_name')
+          %td= @account.display_name
 
-      - if @account.local?
-        %tr
-          %th= t('admin.accounts.role')
-          %td
-            - if @account.user.nil?
-              = t("admin.accounts.moderation.suspended")
-            - else
-              = t("admin.accounts.roles.#{@account.user&.role}")
-            = table_link_to 'angle-double-up', t('admin.accounts.promote'), promote_admin_account_role_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') } if can?(:promote, @account.user)
-            = table_link_to 'angle-double-down', t('admin.accounts.demote'), demote_admin_account_role_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') } if can?(:demote, @account.user)
-        %tr
-          %th= t('admin.accounts.email')
-          %td
-            = @account.user_email
+        - if @account.local?
+          %tr
+            %th= t('admin.accounts.role')
+            %td
+              - if @account.user.nil?
+                = t("admin.accounts.moderation.suspended")
+              - else
+                = t("admin.accounts.roles.#{@account.user&.role}")
+              = table_link_to 'angle-double-up', t('admin.accounts.promote'), promote_admin_account_role_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') } if can?(:promote, @account.user)
+              = table_link_to 'angle-double-down', t('admin.accounts.demote'), demote_admin_account_role_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') } if can?(:demote, @account.user)
+          %tr
+            %th= t('admin.accounts.type')
+            %td= f.input :account_type, collection: Account.account_types.keys.to_a, include_blank: false
+          %tr
+            %th= t('admin.accounts.email')
+            %td
+              = @account.user_email
 
-            - if @account.user_confirmed?
-              = fa_icon('check')
-        %tr
-          %th= t('admin.accounts.login_status')
-          %td
-            - if @account.user&.disabled?
-              = t('admin.accounts.disabled')
-              = table_link_to 'unlock', t('admin.accounts.enable'), enable_admin_account_path(@account.id), method: :post if can?(:enable, @account.user)
-            - else
-              = t('admin.accounts.enabled')
-              = table_link_to 'lock', t('admin.accounts.disable'), disable_admin_account_path(@account.id), method: :post if can?(:disable, @account.user)
-        %tr
-          %th= t('admin.accounts.most_recent_ip')
-          %td= @account.user_current_sign_in_ip
-        %tr
-          %th= t('admin.accounts.most_recent_activity')
-          %td
-            - if @account.user_current_sign_in_at
-              %time.formatted{ datetime: @account.user_current_sign_in_at.iso8601, title: l(@account.user_current_sign_in_at) }
-                = l @account.user_current_sign_in_at
-            - else
-              Never
-      - else
-        %tr
-          %th= t('admin.accounts.profile_url')
-          %td= link_to @account.url, @account.url
-        %tr
-          %th= t('admin.accounts.protocol')
-          %td= @account.protocol.humanize
+              - if @account.user_confirmed?
+                = fa_icon('check')
+          %tr
+            %th= t('admin.accounts.login_status')
+            %td
+              - if @account.user&.disabled?
+                = t('admin.accounts.disabled')
+                = table_link_to 'unlock', t('admin.accounts.enable'), enable_admin_account_path(@account.id), method: :post if can?(:enable, @account.user)
+              - else
+                = t('admin.accounts.enabled')
+                = table_link_to 'lock', t('admin.accounts.disable'), disable_admin_account_path(@account.id), method: :post if can?(:disable, @account.user)
+          %tr
+            %th= t('admin.accounts.most_recent_ip')
+            %td= @account.user_current_sign_in_ip
+          %tr
+            %th= t('admin.accounts.most_recent_activity')
+            %td
+              - if @account.user_current_sign_in_at
+                %time.formatted{ datetime: @account.user_current_sign_in_at.iso8601, title: l(@account.user_current_sign_in_at) }
+                  = l @account.user_current_sign_in_at
+              - else
+                Never
+        - else
+          %tr
+            %th= t('admin.accounts.profile_url')
+            %td= link_to @account.url, @account.url
+          %tr
+            %th= t('admin.accounts.protocol')
+            %td= @account.protocol.humanize
 
-      %tr
-        %th= t('admin.accounts.follows')
-        %td= @account.following_count
-      %tr
-        %th= t('admin.accounts.followers')
-        %td= @account.followers_count
-      %tr
-        %th= t('admin.accounts.statuses')
-        %td= link_to @account.statuses_count, admin_account_statuses_path(@account.id)
-      %tr
-        %th= t('admin.accounts.media_attachments')
-        %td
-          = link_to @account.media_attachments.count, admin_account_statuses_path(@account.id, { media: true })
-          = surround '(', ')' do
-            = number_to_human_size @account.media_attachments.sum('file_file_size')
-      %tr
-        %th= t('.created_reports')
-        %td= link_to pluralize(@account.reports.count, t('.report')), admin_reports_path(account_id: @account.id)
-      %tr
-        %th= t('.targeted_reports')
-        %td= link_to pluralize(@account.targeted_reports.count, t('.report')), admin_reports_path(target_account_id: @account.id)
+        %tr
+          %th= t('admin.accounts.follows')
+          %td= @account.following_count
+        %tr
+          %th= t('admin.accounts.followers')
+          %td= @account.followers_count
+        %tr
+          %th= t('admin.accounts.statuses')
+          %td= link_to @account.statuses_count, admin_account_statuses_path(@account.id)
+        %tr
+          %th= t('admin.accounts.media_attachments')
+          %td
+            = link_to @account.media_attachments.count, admin_account_statuses_path(@account.id, { media: true })
+            = surround '(', ')' do
+              = number_to_human_size @account.media_attachments.sum('file_file_size')
+        %tr
+          %th= t('.created_reports')
+          %td= link_to pluralize(@account.reports.count, t('.report')), admin_reports_path(account_id: @account.id)
+        %tr
+          %th= t('.targeted_reports')
+          %td= link_to pluralize(@account.targeted_reports.count, t('.report')), admin_reports_path(target_account_id: @account.id)
+  = f.button :button, I18n.t('admin.suggestion.save'), type: :submit
 
 %div{ style: 'overflow: hidden' }
   %div{ style: 'float: right' }

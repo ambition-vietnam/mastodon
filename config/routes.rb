@@ -144,7 +144,7 @@ Rails.application.routes.draw do
       resources :reported_statuses, only: [:create, :update, :destroy]
     end
 
-    resources :accounts, only: [:index, :show, :update] do
+    resources :accounts, only: [:index, :show] do
       member do
         post :subscribe
         post :unsubscribe
@@ -152,6 +152,8 @@ Rails.application.routes.draw do
         post :disable
         post :redownload
         post :memorialize
+        post :set_owner
+        post :set_tenant
       end
 
       resource :reset, only: [:create]

@@ -2,7 +2,7 @@
 
 module Admin
   class AccountsController < BaseController
-    before_action :set_account, only: [:show, :subscribe, :unsubscribe, :redownload, :enable, :disable, :memorialize, :update]
+    before_action :set_account, only: [:show, :subscribe, :unsubscribe, :redownload, :enable, :disable, :memorialize, :set_owner, :set_tenant]
     before_action :require_remote_account!, only: [:subscribe, :unsubscribe, :redownload]
     before_action :require_local_account!, only: [:enable, :disable, :memorialize]
 
@@ -17,12 +17,14 @@ module Admin
       @moderation_notes = @account.targeted_moderation_notes.latest
     end
 
-    def update
-      if @account.update(account_params)
-        redirect_to admin_accounts_url
-      else
-        redirect_to admin_account_url
-      end
+    def set_owner
+      @account.set_owner
+      redirect_to admin_accounts_url
+    end
+
+    def set_tenant
+      @account.set_tenant
+      redirect_to admin_accounts_url
     end
 
     def subscribe
@@ -100,10 +102,6 @@ module Admin
         :ip,
         :staff
       )
-    end
-
-    def account_params
-      params.require(:account).permit(:account_type)
     end
   end
 end

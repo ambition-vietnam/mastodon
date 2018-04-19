@@ -75,34 +75,4 @@ RSpec.describe Admin::AccountsController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe 'PATCH #update' do
-    let(:account) { Fabricate(:account, username: 'bob') }
-
-    context 'success' do
-      let(:opts) {
-        {
-          account_type: 'owner',
-        }
-      }
-
-      before do
-        patch :update, params: {
-          id: account.id,
-          account: opts,
-        }
-      end
-
-      it 'updates existing account' do
-        account.reload
-        opts.each do |name, value|
-          expect(value).to eq(account[name])
-        end
-      end
-
-      it 'redirects back to accounts page' do
-        expect(response).to redirect_to(admin_accounts_path)
-      end
-    end
-  end
 end

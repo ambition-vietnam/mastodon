@@ -241,6 +241,14 @@ class Account < ApplicationRecord
     shared_inbox_url.presence || inbox_url
   end
 
+  def set_owner
+    update!(account_type: :owner)
+  end
+
+  def set_tenant
+    update!(account_type: :tenant)
+  end
+
   class << self
     def readonly_attributes
       super - %w(statuses_count following_count followers_count)

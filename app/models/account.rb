@@ -44,7 +44,6 @@
 #  memorial                :boolean          default(FALSE), not null
 #  moved_to_account_id     :integer
 #  featured_collection_url :string
-#  account_type            :integer          default(0), not null
 #
 
 class Account < ApplicationRecord
@@ -239,14 +238,6 @@ class Account < ApplicationRecord
 
   def preferred_inbox_url
     shared_inbox_url.presence || inbox_url
-  end
-
-  def set_owner
-    update!(account_type: :owner)
-  end
-
-  def set_tenant
-    update!(account_type: :tenant)
   end
 
   class << self

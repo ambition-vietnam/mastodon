@@ -18,12 +18,12 @@ module Admin
     end
 
     def set_owner
-      @account.set_owner
+      @account.update(account_type: :owner)
       redirect_to admin_accounts_url
     end
 
     def set_tenant
-      @account.set_tenant
+      @account.update(account_type: :tenant)
       redirect_to admin_accounts_url
     end
 

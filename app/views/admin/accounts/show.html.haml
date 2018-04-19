@@ -25,6 +25,17 @@
             = table_link_to 'angle-double-up', t('admin.accounts.promote'), promote_admin_account_role_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') } if can?(:promote, @account.user)
             = table_link_to 'angle-double-down', t('admin.accounts.demote'), demote_admin_account_role_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') } if can?(:demote, @account.user)
         %tr
+          %th= t('admin.accounts.type')
+          %td
+            - if @account.account_type.nil? || @account.account_type == 0
+              Admin
+            - elsif @account.account_type == 'owner'
+              Owner
+              = table_link_to 'angle-double-down', 'Tenant', set_tenant_admin_account_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') }
+            - else
+              Tenant
+              = table_link_to 'angle-double-up', 'Owner', set_owner_admin_account_path(@account.id), method: :post, data: { confirm: t('admin.accounts.are_you_sure') }
+        %tr
           %th= t('admin.accounts.email')
           %td
             = @account.user_email

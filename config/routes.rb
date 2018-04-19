@@ -152,6 +152,8 @@ Rails.application.routes.draw do
         post :disable
         post :redownload
         post :memorialize
+        post :set_owner
+        post :set_tenant
       end
 
       resource :reset, only: [:create]

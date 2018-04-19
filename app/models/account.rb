@@ -59,6 +59,7 @@ class Account < ApplicationRecord
   include Paginable
 
   enum protocol: [:ostatus, :activitypub]
+  enum account_type: { owner: 1, tenant: 2 }
 
   # Local users
   has_one :user, inverse_of: :account

@@ -2,7 +2,7 @@
 
 module Admin
   class AccountsController < BaseController
-    before_action :set_account, only: [:show, :subscribe, :unsubscribe, :redownload, :enable, :disable, :memorialize]
+    before_action :set_account, only: [:show, :subscribe, :unsubscribe, :redownload, :enable, :disable, :memorialize, :set_owner, :set_tenant]
     before_action :require_remote_account!, only: [:subscribe, :unsubscribe, :redownload]
     before_action :require_local_account!, only: [:enable, :disable, :memorialize]
 
@@ -15,6 +15,16 @@ module Admin
       authorize @account, :show?
       @account_moderation_note = current_account.account_moderation_notes.new(target_account: @account)
       @moderation_notes = @account.targeted_moderation_notes.latest
+    end
+
+    def set_owner
+      @account.update(account_type: :owner)
+      redirect_to admin_accounts_url
+    end
+
+    def set_tenant
+      @account.update(account_type: :tenant)
+      redirect_to admin_accounts_url
     end
 
     def subscribe

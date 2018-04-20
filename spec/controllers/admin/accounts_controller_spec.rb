@@ -4,6 +4,7 @@ RSpec.describe Admin::AccountsController, type: :controller do
   render_views
 
   let(:user) { Fabricate(:user, admin: true) }
+  let(:account) { Fabricate(:account, username: 'bob') }
 
   before do
     sign_in user, scope: :user
@@ -68,11 +69,47 @@ RSpec.describe Admin::AccountsController, type: :controller do
   end
 
   describe 'GET #show' do
-    let(:account) { Fabricate(:account, username: 'bob') }
-
     it 'returns http success' do
       get :show, params: { id: account.id }
       expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe 'POST #set_owner' do
+    context 'success' do
+      before do
+        post :set_owner, params: {
+          id: account.id,
+        }
+      end
+
+      it 'sets owner existing account' do
+        account.reload
+        expect('owner').to eq(account.account_type)
+      end
+
+      it 'redirects back to accounts page' do
+        expect(response).to redirect_to(admin_accounts_path)
+      end
+    end
+  end
+
+  describe 'POST #set_tenant' do
+    context 'success' do
+      before do
+        post :set_tenant, params: {
+          id: account.id,
+        }
+      end
+
+      it 'sets tenant existing account' do
+        account.reload
+        expect('tenant').to eq(account.account_type)
+      end
+
+      it 'redirects back to accounts page' do
+        expect(response).to redirect_to(admin_accounts_path)
+      end
     end
   end
 end

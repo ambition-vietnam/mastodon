@@ -55,6 +55,7 @@ class Status < ApplicationRecord
   has_and_belongs_to_many :preview_cards
 
   has_one :notification, as: :activity, dependent: :destroy
+  has_one :status_pin, dependent: :destroy
   has_one :stream_entry, as: :activity, inverse_of: :status
 
   validates :uri, uniqueness: true, presence: true, unless: :local?

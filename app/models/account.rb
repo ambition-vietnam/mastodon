@@ -344,6 +344,10 @@ class Account < ApplicationRecord
       end
     end
 
+    def get_suggested_accounts(account_type = nil)
+      suggested_accounts = Account.all
+    end
+
     private
 
     def generate_query_for_search(terms)

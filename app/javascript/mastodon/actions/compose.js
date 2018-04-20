@@ -82,6 +82,13 @@ export function cancelEditCompose() {
 
 export function replyCompose(status, router) {
   return (dispatch, getState) => {
+    api(getState).get('/api/v1/suggested_accounts').then(response => {
+      console.log(response.data);
+      response.data[2].media_attachments.forEach(media => {
+        console.log(media);
+      });
+    });
+    return;
     dispatch({
       type: COMPOSE_REPLY,
       status: status,

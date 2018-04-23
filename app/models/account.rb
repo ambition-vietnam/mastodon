@@ -344,8 +344,8 @@ class Account < ApplicationRecord
       end
     end
 
-    def get_suggested_accounts(account_type = nil)
-      suggested_accounts = Account.all
+    def suggested_accounts_for(account_type)
+      Account.local.where(suspended: false, silenced: false).where.not(account_type: [0, account_type])
     end
 
     private

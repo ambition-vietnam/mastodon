@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Pawoo::LoadAccountMediaAttachmentsService < BaseService
+class LoadAccountMediaAttachmentsService < BaseService
   def call(accounts, limit = 3)
     cache_keys = accounts.map { |account| calc_cache_key(account.id) }
     cached_keys_with_value = Rails.cache.read_multi(*cache_keys)
@@ -14,7 +14,7 @@ class Pawoo::LoadAccountMediaAttachmentsService < BaseService
       media_attachments = tmp_media_attachments_of[account.id]
       next if cached_ids.present? && media_attachments.present? && media_attachments.size == cached_ids.size
 
-      media_attachment_ids = Pawoo::AccountMediaAttachmentIdsQuery.new(account).limit(limit).call
+      media_attachment_ids = AccountMediaAttachmentIdsQuery.new(account).limit(limit).call
       Rails.cache.write(cache_key, media_attachment_ids, expires_in: 1.hour)
       cached_keys_with_value[cache_key] = media_attachment_ids
       fetching_media_attachment_ids += media_attachment_ids
@@ -32,6 +32,6 @@ class Pawoo::LoadAccountMediaAttachmentsService < BaseService
   end
 
   def calc_cache_key(account_id)
-    "pawoo:account_media_attachments:#{account_id}"
+    "account_media_attachments:#{account_id}"
   end
 end

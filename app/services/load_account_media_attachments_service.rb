@@ -6,7 +6,6 @@ class LoadAccountMediaAttachmentsService < BaseService
     cached_keys_with_value = Rails.cache.read_multi(*cache_keys)
     tmp_media_attachments_of = MediaAttachment.where(id: cached_keys_with_value.values.flatten).group_by(&:account_id)
 
-    # キャッシュがない、メディアが消えている場合は取得
     fetching_media_attachment_ids = []
     accounts.each do |account|
       cache_key = calc_cache_key(account.id)

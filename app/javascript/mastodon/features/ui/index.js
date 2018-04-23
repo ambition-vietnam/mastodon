@@ -40,6 +40,7 @@ import {
   Mutes,
   PinnedStatuses,
   Lists,
+  SuggestedAccountsColumn,
 } from './util/async-components';
 import { HotKeys } from 'react-hotkeys';
 import { me } from '../../initial_state';
@@ -160,6 +161,7 @@ class SwitchingColumnsArea extends React.PureComponent {
           <WrappedRoute path='/blocks' component={Blocks} content={children} />
           <WrappedRoute path='/mutes' component={Mutes} content={children} />
           <WrappedRoute path='/lists' component={Lists} content={children} />
+          <WrappedRoute path='/suggested_accounts' component={SuggestedAccountsColumn} content={children} />
 
           <WrappedRoute component={GenericNotFound} content={children} />
         </WrappedSwitch>

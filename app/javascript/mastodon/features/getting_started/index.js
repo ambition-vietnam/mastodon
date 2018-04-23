@@ -29,6 +29,7 @@ const messages = defineMessages({
   pins: { id: 'navigation_bar.pins', defaultMessage: 'Pinned toots' },
   //lists: { id: 'navigation_bar.lists', defaultMessage: 'Lists' },
   //keyboard_shortcuts: { id: 'navigation_bar.keyboard_shortcuts', defaultMessage: 'Keyboard shortcuts' },
+  suggested_accounts: { id: 'navigation_bar.suggested_accounts', defaultMessage: 'Active Accounts' },
 });
 
 const mapStateToProps = state => ({
@@ -100,6 +101,7 @@ export default class GettingStarted extends ImmutablePureComponent {
     navItems.push(
       <ColumnLink key='4' icon='star' text={intl.formatMessage(messages.favourites)} to='/favourites' />,
       //<ColumnLink key='5' icon='bars' text={intl.formatMessage(messages.lists)} to='/lists' />
+      <ColumnLink key='suggested_accounts' icon='user-plus' text={intl.formatMessage(messages.suggested_accounts)} to='/suggested_accounts' />,
     );
 
     if (myAccount.get('locked')) {

@@ -121,3 +121,11 @@ export function EmbedModal () {
 export function ListEditor () {
   return import(/* webpackChunkName: "features/list_editor" */'../../list_editor');
 }
+
+export function SuggestedAccountsColumn () {
+  return import(/* webpackChunkName: "components/suggested_accounts_column" */'../../../components/suggested_accounts_column');
+}
+
+export function SuggestedAccountsPage () {
+  return import(/* webpackChunkName: "components/suggested_accounts_page" */'../../../components/suggested_accounts_page');
+}

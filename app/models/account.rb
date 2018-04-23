@@ -345,7 +345,8 @@ class Account < ApplicationRecord
     end
 
     def suggested_accounts_for(account_type)
-      Account.local.where(suspended: false, silenced: false).where.not(account_type: [0, account_type])
+      Account.local.where(suspended: false, silenced: false)
+                  .where.not(account_type: [0, account_type])
     end
 
     private

@@ -82,7 +82,6 @@ export function cancelEditCompose() {
 
 export function replyCompose(status, router) {
   return (dispatch, getState) => {
-    return;
     dispatch({
       type: COMPOSE_REPLY,
       status: status,

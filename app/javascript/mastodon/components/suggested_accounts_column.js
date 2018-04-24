@@ -49,7 +49,7 @@ export default class SuggestedAccountsColumn extends React.PureComponent {
   }
 
   render () {
-    return !this.props.multiColumn ? (
+    return this.props.multiColumn ? (
       <div className='pawoo-suggested-accounts-column--page'>
         <div className='column'><ColumnBackButton /></div>
         <img alt='' src={PawooUI} />

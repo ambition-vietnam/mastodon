@@ -89,3 +89,13 @@ export const getAccountGallery = createSelector([
 
   return medias;
 });
+
+export const makeGetSuggestedAccount = () => {
+  return createSelector([getAccountBase, getAccountRelationship], (base, relationship) => {
+    if (base === null) {
+      return null;
+    }
+
+    return base.set('relationship', relationship);
+  });
+};

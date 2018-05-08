@@ -68,7 +68,6 @@ export default class SuggestedAccount extends React.PureComponent {
       const blocking  = account.getIn(['relationship', 'blocking']);
       const muting  = account.getIn(['relationship', 'muting']);
 
-      // NOTE: blocking/mutingはそもそもロードされないはず
       if (requested) {
         buttons = onFollow && <IconButton active icon='hourglass' title={intl.formatMessage(messages.requested)} onClick={this.handleFollow} />;
       } else if (blocking) {

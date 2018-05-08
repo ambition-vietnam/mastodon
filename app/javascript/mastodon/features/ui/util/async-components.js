@@ -125,7 +125,3 @@ export function ListEditor () {
 export function SuggestedAccountsColumn () {
   return import(/* webpackChunkName: "components/suggested_accounts_column" */'../../../components/suggested_accounts_column');
 }
-
-export function SuggestedAccountsPage () {
-  return import(/* webpackChunkName: "components/suggested_accounts_page" */'../../../components/suggested_accounts_page');
-}

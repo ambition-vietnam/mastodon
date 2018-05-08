@@ -59,7 +59,7 @@ class Account < ApplicationRecord
   include Paginable
 
   enum protocol: [:ostatus, :activitypub]
-  enum account_type: { owner: 1, tenant: 2 }
+  enum account_type: { nil: 0, admin: 0, owner: 1, tenant: 2 }
 
   # Local users
   has_one :user, inverse_of: :account
@@ -345,8 +345,16 @@ class Account < ApplicationRecord
     end
 
     def suggested_accounts_for(account_type)
-      Account.local.where(suspended: false, silenced: false)
-                  .where.not(account_type: [0, account_type])
+      sql = <<-SQL
+        SELECT accounts.*, MAX(statuses.created_at) AS the_latest_post
+        FROM accounts
+        INNER JOIN statuses ON statuses.account_id = accounts.id
+        GROUP BY accounts.id, username, account_type
+        HAVING account_type NOT IN (0, ?)
+        ORDER BY the_latest_post DESC;
+      SQL
+
+      find_by_sql([sql, account_types[account_type]])
     end
 
     private

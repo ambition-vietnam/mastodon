@@ -63,6 +63,11 @@ const normalizeAccount = (state, account) => {
   delete account.following_count;
   delete account.statuses_count;
 
+  const mediaAttachments = state.getIn([account.id, 'media_attachments']);
+  if (!account.media_attachments && mediaAttachments) {
+    account.media_attachments = mediaAttachments.toJS();
+  }
+
   const displayName = account.display_name.length === 0 ? account.username : account.display_name;
   account.display_name_html = emojify(escapeTextContentForBrowser(displayName));
   account.note_emojified = emojify(account.note);
@@ -146,7 +151,7 @@ export default function accounts(state = initialState, action) {
     return normalizeAccountFromStatus(state, action.status);
   case SUGGESTED_ACCOUNTS_FETCH_SUCCESS:
   case SUGGESTED_ACCOUNTS_EXPAND_SUCCESS:
-      return normalizeAccounts(state, action.accounts);
+    return normalizeAccounts(state, action.accounts);
   default:
     return state;
   }

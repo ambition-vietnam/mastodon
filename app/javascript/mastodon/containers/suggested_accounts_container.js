@@ -12,9 +12,9 @@ import ScrollableList from '../../mastodon/components/scrollable_list';
 import SuggestedAccountContainer from './suggested_account_container';
 
 const mapStateToProps = (state) => ({
-  accountIds: state.getIn(['pawoo', 'suggested_accounts', 'items'], ImmutableList()),
-  hasMore: !!state.getIn(['pawoo', 'suggested_accounts', 'next']),
-  isLoading: state.getIn(['pawoo', 'suggested_accounts', 'isLoading'], true),
+  accountIds: state.getIn(['suggested_accounts', 'items'], ImmutableList()),
+  hasMore: !!state.getIn(['suggested_accounts', 'next']),
+  isLoading: state.getIn(['suggested_accounts', 'isLoading'], true),
 });
 
 @connect(mapStateToProps)

@@ -59,7 +59,7 @@ class Account < ApplicationRecord
   include Paginable
 
   enum protocol: [:ostatus, :activitypub]
-  enum account_type: { nil: 0, admin: 0, owner: 1, tenant: 2 }
+  enum account_type: { owner: 1, tenant: 2 }
 
   # Local users
   has_one :user, inverse_of: :account
@@ -350,11 +350,16 @@ class Account < ApplicationRecord
         FROM accounts
         INNER JOIN statuses ON statuses.account_id = accounts.id
         GROUP BY accounts.id, username, account_type
-        HAVING account_type NOT IN (0, ?)
+        HAVING account_type NOT IN (?)
         ORDER BY the_latest_post DESC;
       SQL
 
-      find_by_sql([sql, account_types[account_type]])
+      exclued_account_types = [0]
+      if account_type != nil
+        exclued_account_types.push(account_types[account_type])
+      end
+
+      find_by_sql([sql, exclued_account_types])
     end
 
     private

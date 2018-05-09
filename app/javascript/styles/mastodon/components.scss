@@ -4954,7 +4954,7 @@ noscript {
       }
 
       .account {
-        border: 0 solid lighten($ui-base-color, 8%);
+        border: 0 solid lighten($custom-header-background-color, 8%);
         border-left-width: 1px;
         border-top-width: 1px;
       }
@@ -5060,6 +5060,38 @@ noscript {
       &:hover {
         background: $ui-primary-color;
       }
+    }
+  }
+}
+
+.suggested_account_media {
+  padding-left: 13px;
+  margin-top: 5px;
+  $media-height: 90px;
+  height: $media-height;
+
+  .media-gallery__item {
+    max-height: $media-height;
+  }
+
+  .pawoo-video-thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > img {
+      position: absolute;
+    }
+
+    > .fa {
+      position: absolute;
+      font-size: 50px;
+      color: lighten($ui-base-color, 13%);
+      background-color: $white;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      opacity: 0.8;
     }
   }
 }

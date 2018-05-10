@@ -447,6 +447,31 @@ RSpec.describe Account, type: :model do
     end
   end
 
+  describe '.suggested_accounts_for' do
+    let(:admin) { Fabricate(:user) }
+    let(:owner) { Fabricate(:user, account: Fabricate(:account, account_type: 1)) }
+    let(:tenant) { Fabricate(:user, account: Fabricate(:account, account_type: 2)) }
+
+    let!(:admin_status) { Fabricate(:status, account: admin.account) }
+    let!(:owner_status) { Fabricate(:status, account: owner.account) }
+    let!(:tenant_status) { Fabricate(:status, account: tenant.account) }
+
+    it 'admin' do
+      results = Account.suggested_accounts_for(admin.account.account_type)
+      expect(results).to eq [tenant.account, owner.account]
+    end
+
+    it 'owner' do
+      results = Account.suggested_accounts_for(owner.account.account_type)
+      expect(results).to eq [tenant.account]
+    end
+
+    it 'tenant' do
+      results = Account.suggested_accounts_for(tenant.account.account_type)
+      expect(results).to eq [owner.account]
+    end
+  end
+
   describe '.domains' do
     it 'returns domains' do
       Fabricate(:account, domain: 'domain')

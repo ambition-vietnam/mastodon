@@ -253,6 +253,7 @@ Rails.application.routes.draw do
       resources :favourites, only: [:index]
       resources :reports,    only: [:index, :create]
       resources :trend_tags, only: [:index]
+      resources :suggested_accounts, only: [:index]
 
       namespace :apps do
         get :verify_credentials, to: 'credentials#show'

@@ -344,6 +344,24 @@ class Account < ApplicationRecord
       end
     end
 
+    def suggested_accounts_for(account_type)
+      sql = <<-SQL
+        SELECT accounts.*, MAX(statuses.created_at) AS the_latest_post
+        FROM accounts
+        INNER JOIN statuses ON statuses.account_id = accounts.id
+        GROUP BY accounts.id, username, account_type
+        HAVING account_type NOT IN (?)
+        ORDER BY the_latest_post DESC;
+      SQL
+
+      exclued_account_types = [0]
+      if account_type != nil
+        exclued_account_types.push(account_types[account_type])
+      end
+
+      find_by_sql([sql, exclued_account_types])
+    end
+
     private
 
     def generate_query_for_search(terms)

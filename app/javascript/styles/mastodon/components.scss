@@ -4885,3 +4885,214 @@ noscript {
     background: darken($custom-input-background-color, 4%);
   }
 }
+
+.offidon-onboarding-page {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  .offidon-onboarding-page__suggested-accounts {
+    background: $classic-base-color;
+    flex: 1;
+    margin-bottom: 12px;
+
+    // The below is required by:
+    // Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0
+    min-height: 0;
+  }
+}
+
+.offidon-single-column-onboarding {
+  display: flex;
+  flex-direction: column;
+
+  .offidon-single-column-onboarding__text {
+    margin: 12px;
+  }
+
+  .offidon-single-column-onboarding__ui {
+    flex: 1;
+  }
+}
+
+.offidon-subcolumn__header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background: lighten($ui-base-color, 4%);
+  font-size: 16px;
+}
+
+.offidon-subcolumn__header__icon {
+  width: 20px;
+  margin-right: 7px;
+}
+
+.offidon-subcolumn__header__name {
+  flex: 1;
+}
+
+.offidon-subcolumn__header__description {
+  color: rgba(#FFF, 0.6);
+  font-size: 12px;
+}
+
+.offidon-suggested-accounts {
+  height: 100%;
+
+  > .scrollable {
+    height: 100%;
+    background: $simple-background-color;
+
+    .item-list {
+      display: flex;
+      flex-wrap: wrap;
+      margin: -1px 0 0 -1px;
+      overflow: hidden;
+
+      > * {
+        flex: 1 330px;
+      }
+
+      .account {
+        border: 0 solid lighten($custom-header-background-color, 8%);
+        border-left-width: 1px;
+        border-top-width: 1px;
+      }
+    }
+  }
+}
+
+.offidon-suggested-accounts-column {
+  display: flex;
+  flex: 1;
+
+  // The below is required by:
+  // Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0
+  min-height: 0;
+
+  > * {
+    flex: 1;
+  }
+}
+
+.offidon-suggested-accounts-column--page {
+  display: flex;
+  flex-direction: column;
+
+  * {
+    background: transparent;
+    text-align: right;
+  }
+
+  img {
+    flex: 1;
+  }
+}
+
+.offidon-suggested-accounts-page {
+  flex: 1;
+
+  .column-header,
+  .column-header * {
+    background: transparent;
+  }
+
+  .offidon-suggested-accounts-page__suggested-accounts {
+    flex: 1;
+
+    // The below is required by:
+    // Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0
+    min-height: 0;
+  }
+}
+
+.offidon-getting-started-on-onboarding-page,
+.offidon-single-column-onboarding__ui,
+.offidon-suggested-accounts-column--page > img {
+  object-fit: scale-down;
+  object-position: bottom left;
+  transform: scale(-1, 1);
+}
+
+.card .controls.offidon-follow {
+  z-index: 3;
+
+  .offidon-follow__button {
+    display: flex;
+
+    .offidon-follow__button__link,
+    .offidon-follow__button__dropdown {
+      display: block;
+      margin: 0;
+    }
+
+    .offidon-follow__button__link {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      padding-right: 8px;
+    }
+
+    .offidon-follow__button__dropdown {
+      border-left: 2px solid lighten($ui-highlight-color, 13%);
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+  }
+
+  .offidon-follow__dropdown {
+    display: none;
+    margin-top: 8px;
+    right: 0;
+    white-space: nowrap;
+  }
+
+  &.offidon-follow--inactive > .offidon-follow__button {
+    .offidon-follow__button__dropdown {
+      border-left: 2px solid $ui-base-color;
+    }
+
+    > * {
+      background: $ui-secondary-color;
+      color: $ui-base-color;
+
+      &:hover {
+        background: $ui-primary-color;
+      }
+    }
+  }
+}
+
+.suggested_account_media {
+  padding-left: 13px;
+  margin-top: 5px;
+  $media-height: 90px;
+  height: $media-height;
+
+  .media-gallery__item {
+    max-height: $media-height;
+  }
+
+  .offidon-video-thumbnail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > img {
+      position: absolute;
+    }
+
+    > .fa {
+      position: absolute;
+      font-size: 50px;
+      color: lighten($ui-base-color, 13%);
+      background-color: $white;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+      opacity: 0.8;
+    }
+  }
+}

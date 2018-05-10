@@ -125,7 +125,7 @@ class Item extends React.PureComponent {
 
       thumbnail = (
         <a
-          className={'media-gallery__item-thumbnail pawoo-video-thumbnail'}
+          className={'media-gallery__item-thumbnail offidon-video-thumbnail'}
           href={attachment.get('url')}
           onClick={this.handleOpenMedia}
           target='_blank'

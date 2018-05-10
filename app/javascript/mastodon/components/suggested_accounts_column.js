@@ -52,15 +52,12 @@ export default class SuggestedAccountsColumn extends React.PureComponent {
       <Column icon='user' active={false} heading={this.props.intl.formatMessage(messages.title)}>
         <ColumnBackButtonSlim />
 
-        <div className='pawoo-suggested-accounts-column'>
+        <div className='offidon-suggested-accounts-column'>
           <div>
-            <SuggestedAccountsContainer scrollKey='pawoo_suggested_accounts_column' trackScroll />
+            <SuggestedAccountsContainer scrollKey='offidon_suggested_accounts_column' trackScroll />
           </div>
         </div>
 
-        <Link className='button' style={buttonStyle} to='/timelines/public/local'>
-          {this.props.intl.formatMessage(messages.goToLocalTimeline)}
-        </Link>
       </Column>
     );
   }

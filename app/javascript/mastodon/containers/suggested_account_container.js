@@ -4,14 +4,14 @@ import { List as ImmutableList } from 'immutable';
 import { makeGetSuggestedAccount } from '../selectors';
 import { openModal } from '../../mastodon/actions/modal';
 import SuggestedAccount from '../components/suggested_account';
-import PawooGA from '../actions/ga';
+import OffidonGA from '../actions/ga';
 import {
   followAccount,
   unfollowAccount,
 } from '../../mastodon/actions/accounts';
 import { unfollowModal } from '../../mastodon/initial_state';
 
-const pawooGaCategory = 'SuggestedAccount';
+const offidonGaCategory = 'SuggestedAccount';
 
 const messages = defineMessages({
   unfollowConfirm: { id: 'confirmations.unfollow.confirm', defaultMessage: 'Unfollow' },
@@ -35,16 +35,16 @@ const mapDispatchToProps = (dispatch, { intl }) => ({
           message: <FormattedMessage id='confirmations.unfollow.message' defaultMessage='Are you sure you want to unfollow {name}?' values={{ name: <strong>@{account.get('acct')}</strong> }} />,
           confirm: intl.formatMessage(messages.unfollowConfirm),
           onConfirm: () => {
-            PawooGA.event({ eventCategory: pawooGaCategory, eventAction: 'Unollow', eventLabel: account.get('id') });
+            OffidonGA.event({ eventCategory: offidonGaCategory, eventAction: 'Unollow', eventLabel: account.get('id') });
             dispatch(unfollowAccount(account.get('id')));
           },
         }));
       } else {
-        PawooGA.event({ eventCategory: pawooGaCategory, eventAction: 'Unollow', eventLabel: account.get('id') });
+        OffidonGA.event({ eventCategory: offidonGaCategory, eventAction: 'Unollow', eventLabel: account.get('id') });
         dispatch(unfollowAccount(account.get('id')));
       }
     } else {
-      PawooGA.event({ eventCategory: pawooGaCategory, eventAction: 'Follow', eventLabel: account.get('id') });
+      OffidonGA.event({ eventCategory: offidonGaCategory, eventAction: 'Follow', eventLabel: account.get('id') });
       dispatch(followAccount(account.get('id')));
     }
   },

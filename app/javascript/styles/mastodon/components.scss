@@ -4886,12 +4886,12 @@ noscript {
   }
 }
 
-.pawoo-onboarding-page {
+.offidon-onboarding-page {
   display: flex;
   flex: 1;
   flex-direction: column;
 
-  .pawoo-onboarding-page__suggested-accounts {
+  .offidon-onboarding-page__suggested-accounts {
     background: $classic-base-color;
     flex: 1;
     margin-bottom: 12px;
@@ -4902,20 +4902,20 @@ noscript {
   }
 }
 
-.pawoo-single-column-onboarding {
+.offidon-single-column-onboarding {
   display: flex;
   flex-direction: column;
 
-  .pawoo-single-column-onboarding__text {
+  .offidon-single-column-onboarding__text {
     margin: 12px;
   }
 
-  .pawoo-single-column-onboarding__ui {
+  .offidon-single-column-onboarding__ui {
     flex: 1;
   }
 }
 
-.pawoo-subcolumn__header {
+.offidon-subcolumn__header {
   display: flex;
   align-items: center;
   padding: 15px;
@@ -4923,25 +4923,26 @@ noscript {
   font-size: 16px;
 }
 
-.pawoo-subcolumn__header__icon {
+.offidon-subcolumn__header__icon {
   width: 20px;
   margin-right: 7px;
 }
 
-.pawoo-subcolumn__header__name {
+.offidon-subcolumn__header__name {
   flex: 1;
 }
 
-.pawoo-subcolumn__header__description {
+.offidon-subcolumn__header__description {
   color: rgba(#FFF, 0.6);
   font-size: 12px;
 }
 
-.pawoo-suggested-accounts {
+.offidon-suggested-accounts {
   height: 100%;
 
   > .scrollable {
     height: 100%;
+    background: $simple-background-color;
 
     .item-list {
       display: flex;
@@ -4962,7 +4963,7 @@ noscript {
   }
 }
 
-.pawoo-suggested-accounts-column {
+.offidon-suggested-accounts-column {
   display: flex;
   flex: 1;
 
@@ -4975,7 +4976,7 @@ noscript {
   }
 }
 
-.pawoo-suggested-accounts-column--page {
+.offidon-suggested-accounts-column--page {
   display: flex;
   flex-direction: column;
 
@@ -4989,7 +4990,7 @@ noscript {
   }
 }
 
-.pawoo-suggested-accounts-page {
+.offidon-suggested-accounts-page {
   flex: 1;
 
   .column-header,
@@ -4997,7 +4998,7 @@ noscript {
     background: transparent;
   }
 
-  .pawoo-suggested-accounts-page__suggested-accounts {
+  .offidon-suggested-accounts-page__suggested-accounts {
     flex: 1;
 
     // The below is required by:
@@ -5006,33 +5007,33 @@ noscript {
   }
 }
 
-.pawoo-getting-started-on-onboarding-page,
-.pawoo-single-column-onboarding__ui,
-.pawoo-suggested-accounts-column--page > img {
+.offidon-getting-started-on-onboarding-page,
+.offidon-single-column-onboarding__ui,
+.offidon-suggested-accounts-column--page > img {
   object-fit: scale-down;
   object-position: bottom left;
   transform: scale(-1, 1);
 }
 
-.card .controls.pawoo-follow {
+.card .controls.offidon-follow {
   z-index: 3;
 
-  .pawoo-follow__button {
+  .offidon-follow__button {
     display: flex;
 
-    .pawoo-follow__button__link,
-    .pawoo-follow__button__dropdown {
+    .offidon-follow__button__link,
+    .offidon-follow__button__dropdown {
       display: block;
       margin: 0;
     }
 
-    .pawoo-follow__button__link {
+    .offidon-follow__button__link {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       padding-right: 8px;
     }
 
-    .pawoo-follow__button__dropdown {
+    .offidon-follow__button__dropdown {
       border-left: 2px solid lighten($ui-highlight-color, 13%);
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
@@ -5041,15 +5042,15 @@ noscript {
     }
   }
 
-  .pawoo-follow__dropdown {
+  .offidon-follow__dropdown {
     display: none;
     margin-top: 8px;
     right: 0;
     white-space: nowrap;
   }
 
-  &.pawoo-follow--inactive > .pawoo-follow__button {
-    .pawoo-follow__button__dropdown {
+  &.offidon-follow--inactive > .offidon-follow__button {
+    .offidon-follow__button__dropdown {
       border-left: 2px solid $ui-base-color;
     }
 
@@ -5074,7 +5075,7 @@ noscript {
     max-height: $media-height;
   }
 
-  .pawoo-video-thumbnail {
+  .offidon-video-thumbnail {
     display: flex;
     justify-content: center;
     align-items: center;

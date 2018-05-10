@@ -13,7 +13,7 @@ const enableDebug = (!isProduction && debug);
 /* eslint-enable */
 
 const option = (() => {
-  const userIdElement = document.querySelector('meta[name=pawoo-ga-uid]');
+  const userIdElement = document.querySelector('meta[name=offidon-ga-uid]');
   if (userIdElement) {
     const userId = userIdElement.getAttribute('content');
     if (userId) {

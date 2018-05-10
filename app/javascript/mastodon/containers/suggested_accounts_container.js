@@ -55,7 +55,7 @@ export default class SuggestedAccounts extends React.PureComponent {
     }
 
     return (
-      <div className='pawoo-suggested-accounts'>
+      <div className='offidon-suggested-accounts'>
         <ScrollableList
           {...props}
           isLoading={isLoading}

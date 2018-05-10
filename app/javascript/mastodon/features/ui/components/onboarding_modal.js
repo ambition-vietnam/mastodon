@@ -60,12 +60,10 @@ const PageTwo = ({ myAccount }) => (
           text='Awoo! #introductions'
           suggestions={ImmutableList()}
           mentionedDomains={[]}
-          spoiler={false}
           onChange={noop}
           onSubmit={noop}
           onPaste={noop}
           onPickEmoji={noop}
-          onChangeSpoilerText={noop}
           onClearSuggestions={noop}
           onFetchSuggestions={noop}
           onSuggestionSelected={noop}

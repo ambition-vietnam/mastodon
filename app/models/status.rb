@@ -55,6 +55,7 @@ class Status < ApplicationRecord
   has_and_belongs_to_many :preview_cards
 
   has_one :notification, as: :activity, dependent: :destroy
+  has_one :status_pin, dependent: :destroy
   has_one :stream_entry, as: :activity, inverse_of: :status
 
   validates :uri, uniqueness: true, presence: true, unless: :local?
@@ -78,6 +79,7 @@ class Status < ApplicationRecord
   scope :including_silenced_accounts, -> { left_outer_joins(:account).where(accounts: { silenced: true }) }
   scope :not_excluded_by_account, ->(account) { where.not(account_id: account.excluded_from_timeline_account_ids) }
   scope :not_domain_blocked_by_account, ->(account) { account.excluded_from_timeline_domains.blank? ? left_outer_joins(:account) : left_outer_joins(:account).where('accounts.domain IS NULL OR accounts.domain NOT IN (?)', account.excluded_from_timeline_domains) }
+  scope :exclude_other_tenants, -> (account) { left_outer_joins(:account).where('account_id = ? OR accounts.account_type <> ?', account.id, 2) if account.account_type == 'tenant' }
 
   cache_associated :account, :application, :media_attachments, :conversation, :tags, :stream_entry, mentions: :account, reblog: [:account, :application, :stream_entry, :tags, :media_attachments, :conversation, mentions: :account], thread: :account
 
@@ -300,6 +302,7 @@ class Status < ApplicationRecord
       query = query.not_excluded_by_account(account)
       query = query.not_domain_blocked_by_account(account) unless local_only
       query = query.not_in_filtered_languages(account) if account.filtered_languages.present?
+      query = query.exclude_other_tenants(account)
       query.merge(account_silencing_filter(account))
     end
 

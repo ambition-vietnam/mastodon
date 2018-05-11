@@ -26,6 +26,7 @@ import height_cache from './height_cache';
 import custom_emojis from './custom_emojis';
 import lists from './lists';
 import listEditor from './list_editor';
+import suggested_accounts from './suggested_accounts';
 
 const reducers = {
   dropdown_menu,
@@ -55,6 +56,7 @@ const reducers = {
   lists,
   listEditor,
   trend_tags,
+  suggested_accounts,
 };
 
 export default combineReducers(reducers);

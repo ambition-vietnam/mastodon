@@ -31,7 +31,7 @@ class Api::V1::Timelines::HomeController < Api::BaseController
       limit_param(DEFAULT_STATUSES_LIMIT),
       params[:max_id],
       params[:since_id]
-    )
+    ).exclude_other_tenants(current_account)
   end
 
   def account_home_feed

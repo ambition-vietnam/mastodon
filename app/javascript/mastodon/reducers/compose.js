@@ -21,8 +21,6 @@ import {
   COMPOSE_SUGGESTION_TAGS_UPDATE,
   COMPOSE_TAG_HISTORY_UPDATE,
   COMPOSE_SENSITIVITY_CHANGE,
-  COMPOSE_SPOILERNESS_CHANGE,
-  COMPOSE_SPOILER_TEXT_CHANGE,
   COMPOSE_VISIBILITY_CHANGE,
   COMPOSE_COMPOSING_CHANGE,
   COMPOSE_EMOJI_INSERT,
@@ -43,8 +41,6 @@ const allowedAroundShortCode = '><\u0085\u0020\u00a0\u1680\u2000\u2001\u2002\u20
 const initialState = ImmutableMap({
   mounted: 0,
   sensitive: false,
-  spoiler: false,
-  spoiler_text: '',
   privacy: null,
   text: '',
   focusDate: null,
@@ -89,8 +85,6 @@ function statusToTextMentions(state, status) {
 function clearAll(state) {
   return state.withMutations(map => {
     map.set('text', '');
-    map.set('spoiler', false);
-    map.set('spoiler_text', '');
     map.set('is_submitting', false);
     map.set('in_reply_to', null);
     map.set('privacy', state.get('default_privacy'));
@@ -111,7 +105,7 @@ function appendMedia(state, media) {
     map.set('focusDate', new Date());
     map.set('idempotencyKey', uuid());
 
-    if (prevSize === 0 && (state.get('default_sensitive') || state.get('spoiler'))) {
+    if (prevSize === 0 && (state.get('default_sensitive'))) {
       map.set('sensitive', true);
     }
   });
@@ -209,26 +203,9 @@ export default function compose(state = initialState, action) {
       .set('is_composing', false);
   case COMPOSE_SENSITIVITY_CHANGE:
     return state.withMutations(map => {
-      if (!state.get('spoiler')) {
-        map.set('sensitive', !state.get('sensitive'));
-      }
-
+      map.set('sensitive', !state.get('sensitive'));
       map.set('idempotencyKey', uuid());
     });
-  case COMPOSE_SPOILERNESS_CHANGE:
-    return state.withMutations(map => {
-      map.set('spoiler_text', '');
-      map.set('spoiler', !state.get('spoiler'));
-      map.set('idempotencyKey', uuid());
-
-      if (!state.get('sensitive') && state.get('media_attachments').size >= 1) {
-        map.set('sensitive', true);
-      }
-    });
-  case COMPOSE_SPOILER_TEXT_CHANGE:
-    return state
-      .set('spoiler_text', action.text)
-      .set('idempotencyKey', uuid());
   case COMPOSE_VISIBILITY_CHANGE:
     return state
       .set('privacy', action.value)
@@ -251,13 +228,6 @@ export default function compose(state = initialState, action) {
       map.set('privacy', action.status.get('visibility'));
       map.set('focusDate', new Date());
       map.set('preselectDate', new Date());
-      if (action.status.get('spoiler_text').length > 0) {
-        map.set('spoiler', true);
-        map.set('spoiler_text', action.status.get('spoiler_text'));
-      } else {
-        map.set('spoiler', false);
-        map.set('spoiler_text', '');
-      }
     });
   case COMPOSE_REPLY:
     return state.withMutations(map => {
@@ -267,14 +237,6 @@ export default function compose(state = initialState, action) {
       map.set('focusDate', new Date());
       map.set('preselectDate', new Date());
       map.set('idempotencyKey', uuid());
-
-      if (action.status.get('spoiler_text').length > 0) {
-        map.set('spoiler', true);
-        map.set('spoiler_text', action.status.get('spoiler_text'));
-      } else {
-        map.set('spoiler', false);
-        map.set('spoiler_text', '');
-      }
     });
   case COMPOSE_EDIT_CANCEL:
   case COMPOSE_REPLY_CANCEL:
@@ -282,8 +244,6 @@ export default function compose(state = initialState, action) {
     return state.withMutations(map => {
       map.set('in_reply_to', null);
       map.set('text', '');
-      map.set('spoiler', false);
-      map.set('spoiler_text', '');
       map.set('privacy', state.get('default_privacy'));
       map.set('idempotencyKey', uuid());
       map.set('statusId', '');

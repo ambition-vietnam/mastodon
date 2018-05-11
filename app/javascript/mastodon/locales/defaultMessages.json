@@ -546,10 +546,6 @@
         "id": "compose_form.placeholder"
       },
       {
-        "defaultMessage": "Write your warning here",
-        "id": "compose_form.spoiler_placeholder"
-      },
-      {
         "defaultMessage": "Toot",
         "id": "compose_form.publish"
       },
@@ -781,19 +777,6 @@
       }
     ],
     "path": "app/javascript/mastodon/features/compose/containers/sensitive_button_container.json"
-  },
-  {
-    "descriptors": [
-      {
-        "defaultMessage": "Text is hidden behind warning",
-        "id": "compose_form.spoiler.marked"
-      },
-      {
-        "defaultMessage": "Text is not hidden",
-        "id": "compose_form.spoiler.unmarked"
-      }
-    ],
-    "path": "app/javascript/mastodon/features/compose/containers/spoiler_button_container.json"
   },
   {
     "descriptors": [

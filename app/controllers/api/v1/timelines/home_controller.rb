@@ -27,11 +27,13 @@ class Api::V1::Timelines::HomeController < Api::BaseController
   end
 
   def home_statuses
-    account_home_feed.get(
+    statuses = account_home_feed.get(
       limit_param(DEFAULT_STATUSES_LIMIT),
       params[:max_id],
       params[:since_id]
-    ).exclude_other_tenants(current_account)
+    )
+    statuses = statuses.exclude_other_tenants(current_account) if current_account.account_type != nil
+    statuses
   end
 
   def account_home_feed

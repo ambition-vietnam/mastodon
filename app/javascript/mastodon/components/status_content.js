@@ -102,17 +102,6 @@ export default class StatusContent extends React.PureComponent {
     this.startXY = null;
   }
 
-  handleSpoilerClick = (e) => {
-    e.preventDefault();
-
-    if (this.props.onExpandedToggle) {
-      // The parent manages the state
-      this.props.onExpandedToggle();
-    } else {
-      this.setState({ hidden: !this.state.hidden });
-    }
-  }
-
   setRef = (c) => {
     this.node = c;
   }
@@ -127,46 +116,16 @@ export default class StatusContent extends React.PureComponent {
     const hidden = this.props.onExpandedToggle ? !this.props.expanded : this.state.hidden;
 
     const content = { __html: status.get('contentHtml') };
-    const spoilerContent = { __html: status.get('spoilerHtml') };
     const directionStyle = { direction: 'ltr' };
     const classNames = classnames('status__content', {
       'status__content--with-action': this.props.onClick && this.context.router,
-      'status__content--with-spoiler': status.get('spoiler_text').length > 0,
     });
 
     if (isRtl(status.get('search_index'))) {
       directionStyle.direction = 'rtl';
     }
 
-    if (status.get('spoiler_text').length > 0) {
-      let mentionsPlaceholder = '';
-
-      const mentionLinks = status.get('mentions').map(item => (
-        <Permalink to={`/accounts/${item.get('id')}`} href={item.get('url')} key={item.get('id')} className='mention'>
-          @<span>{item.get('username')}</span>
-        </Permalink>
-      )).reduce((aggregate, item) => [...aggregate, item, ' '], []);
-
-      const toggleText = hidden ? <FormattedMessage id='status.show_more' defaultMessage='Show more' /> : <FormattedMessage id='status.show_less' defaultMessage='Show less' />;
-
-      if (hidden) {
-        mentionsPlaceholder = <div>{mentionLinks}</div>;
-      }
-
-      return (
-        <div className={classNames} ref={this.setRef} tabIndex='0' style={directionStyle} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp}>
-          <p style={{ marginBottom: hidden && status.get('mentions').isEmpty() ? '0px' : null }}>
-            <span dangerouslySetInnerHTML={spoilerContent} />
-            {' '}
-            <button tabIndex='0' className='status__content__spoiler-link' onClick={this.handleSpoilerClick}>{toggleText}</button>
-          </p>
-
-          {mentionsPlaceholder}
-
-          <div tabIndex={!hidden ? 0 : null} className={`status__content__text ${!hidden ? 'status__content__text--visible' : ''}`} style={directionStyle} dangerouslySetInnerHTML={content} />
-        </div>
-      );
-    } else if (this.props.onClick) {
+    if (this.props.onClick) {
       return (
         <div
           ref={this.setRef}

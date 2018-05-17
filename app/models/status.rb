@@ -281,33 +281,6 @@ class Status < ApplicationRecord
       Status.find_by_sql([sql, {id: status_id}])
     end
 
-    def recommend(account_type, fee, type, area)
-      args = { account_type: account_type == 'owner' ? 2 : 1 }
-      sql = "SELECT statuses.id FROM statuses"
-      sql += " INNER JOIN accounts ON statuses.account_id = accounts.id AND account_type = :account_type"
-
-      if fee
-        range = fee < 1000 ? 100 : 200
-        fee_tags = Tag.find_by_fee_range(fee, range).map(&:id)
-        sql += " INNER JOIN statuses_tags as fee_tags ON statuses.id = fee_tags.status_id AND fee_tags.tag_id in (:fee_tags)"
-        args[:fee_tags] = fee_tags
-      end
-
-      if type
-        type_tags = Tag.where("name like '#{type}%'").map(&:id)
-        sql += " INNER JOIN statuses_tags as type_tags ON statuses.id = type_tags.status_id AND type_tags.tag_id in (:type_tags)"
-        args[:type_tags] = type_tags
-      end
-
-      if area
-        area_tags = Tag.where("name like '#{area}%'").map(&:id)
-        sql += " INNER JOIN statuses_tags as area_tags ON statuses.id = area_tags.status_id AND area_tags.tag_id in (:area_tags)"
-        args[:area_tags] = area_tags
-      end
-
-      Status.find_by_sql([sql, args])
-    end
-
     private
 
     def timeline_scope(local_only = false)

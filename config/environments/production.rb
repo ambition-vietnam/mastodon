@@ -98,4 +98,10 @@ Rails.application.configure do
   }
 
   config.x.otp_secret = ENV.fetch('OTP_SECRET')
+
+  # For recommendation
+  config.x.recommend_token = ENV.fetch('RECOMMEND_TOKEN', '')
+  config.x.districts = ENV.fetch('DISTRICTS', '')
+  config.x.bedtypes = ENV.fetch('BEDTYPES', '')
+  config.x.admin_account = ENV.fetch('ADMIN_ACCOUNT', '')
 end

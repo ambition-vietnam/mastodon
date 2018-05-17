@@ -88,7 +88,8 @@ Rails.application.configure do
   # For recommendation
   config.x.recommend_token = ENV.fetch('RECOMMEND_TOKEN', 'f707b010067d1e714ac6f497a864fc28e8731a1b619a4bd84dc157e89579449b')
   config.x.districts = ENV.fetch('DISTRICTS', 'district1,district2,district3,binhthanh')
-  config.x.bedtypes = ENV.fetch("BEDTYPES", 'studio,1bed,2bed,3bed')
+  config.x.bedtypes = ENV.fetch('BEDTYPES', 'studio,1bed,2bed,3bed')
+  config.x.admin_account = ENV.fetch('ADMIN_ACCOUNT', 'admin')
 end
 
 ActiveRecordQueryTrace.enabled = ENV.fetch('QUERY_TRACE_ENABLED') { false }

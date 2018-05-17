@@ -24,9 +24,9 @@ class ProcessHashtagsService < BaseService
       'Authorization' => "Bearer #{Rails.configuration.x.recommend_token}",
       'Content-Type' => 'application/json'
     }
-    statuses = Status.recommend(target_status.account.account_type, @fee, @type, @area)
-    statuses.each do |status|
-      text = "@tkera Recommend for #{target_status.uri}\n\n"
+
+    get_recommend_statuses(target_status.account.account_type).each do |status|
+      text = "@#{Rails.configuration.x.admin_account} Recommend for #{target_status.uri}\n\n"
       text += "Fee " if @fee
       text += "Bedtype " if @type
       text += "Area " if @area
@@ -41,10 +41,47 @@ class ProcessHashtagsService < BaseService
     end
   end
 
+  def get_recommend_statuses(account_type)
+    args = { account_type: account_type == 'owner' ? 2 : 1 }
+
+    if @fee
+      range = @fee < 1000 ? 100 : 200
+      fee_tags = Tag.find_by_fee_range(@fee, range).map(&:id)
+      join_fee_tags = "INNER JOIN statuses_tags as fee_tags ON statuses.id = fee_tags.status_id AND fee_tags.tag_id in (:fee_tags)"
+      args[:fee_tags] = fee_tags
+    end
+
+    if @type
+      type_tags = Tag.where("name like '#{@type}%'").map(&:id)
+      join_type_tags = "INNER JOIN statuses_tags as type_tags ON statuses.id = type_tags.status_id AND type_tags.tag_id in (:type_tags)"
+      args[:type_tags] = type_tags
+    end
+
+    if @area
+      area_tags = Tag.where("name like '#{@area}%'").map(&:id)
+      join_area_tags = "INNER JOIN statuses_tags as area_tags ON statuses.id = area_tags.status_id AND area_tags.tag_id in (:area_tags)"
+      args[:area_tags] = area_tags
+    end
+
+    sql = <<-SQL
+      SELECT statuses.id FROM statuses 
+        INNER JOIN accounts ON statuses.account_id = accounts.id AND account_type = :account_type
+        #{join_fee_tags}
+        #{join_type_tags}
+        #{join_area_tags}
+    SQL
+
+    Status.find_by_sql([sql, args])
+  end
+
   def get_recommend_parameters(tag)
-    @fee = tag.slice(/\d+/).to_i if tag.end_with?('usd')
+    get_fee_tag(tag)
     get_type_tag(tag)
     get_area_tag(tag)
+  end
+
+  def get_fee_tag(tag)
+    @fee = tag.slice(/\d+/).to_i if tag.end_with?('usd')
   end
 
   def get_type_tag(tag)

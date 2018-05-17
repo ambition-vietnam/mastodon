@@ -84,6 +84,12 @@ Rails.application.configure do
   end
 
   config.x.otp_secret = ENV.fetch('OTP_SECRET', '1fc2b87989afa6351912abeebe31ffc5c476ead9bf8b3d74cbc4a302c7b69a45b40b1bbef3506ddad73e942e15ed5ca4b402bf9a66423626051104f4b5f05109')
+
+  # For recommendation
+  config.x.recommend_token = ENV.fetch('RECOMMEND_TOKEN', 'f707b010067d1e714ac6f497a864fc28e8731a1b619a4bd84dc157e89579449b')
+  config.x.districts = ENV.fetch('DISTRICTS', 'district1,district2,district3,binhthanh')
+  config.x.bedtypes = ENV.fetch('BEDTYPES', 'studio,1bed,2bed,3bed')
+  config.x.admin_account = ENV.fetch('ADMIN_ACCOUNT', 'admin')
 end
 
 ActiveRecordQueryTrace.enabled = ENV.fetch('QUERY_TRACE_ENABLED') { false }

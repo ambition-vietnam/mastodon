@@ -3,6 +3,9 @@
 class ProcessHashtagsService < BaseService
   def call(status, tags = [])
     tags = Extractor.extract_hashtags(status.text) if status.local?
+    @fee = nil
+    @type = nil
+    @area = nil
 
     tags.map { |str| str.mb_chars.downcase }.uniq(&:to_s).each do |tag|
       get_recommend_parameters(tag)
@@ -85,14 +88,12 @@ class ProcessHashtagsService < BaseService
   end
 
   def get_type_tag(tag)
-    @type = nil
     Rails.configuration.x.bedtypes.split(',').each do |type|
       @type = type if tag.start_with?(type)
     end
   end
 
   def get_area_tag(tag)
-    @area = nil
     Rails.configuration.x.districts.split(',').each do |area|
       @area = area if tag.start_with?(area)
     end

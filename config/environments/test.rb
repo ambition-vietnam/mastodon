@@ -46,6 +46,11 @@ Rails.application.configure do
 
   config.x.otp_secret = '100c7faeef00caa29242f6b04156742bf76065771fd4117990c4282b8748ff3d99f8fdae97c982ab5bd2e6756a159121377cce4421f4a8ecd2d67bd7749a3fb4'
 
+  config.x.recommend_token = ENV.fetch('RECOMMEND_TOKEN', 'f707b010067d1e714ac6f497a864fc28e8731a1b619a4bd84dc157e89579449b')
+  config.x.districts = ENV.fetch('DISTRICTS', 'district1,district2,district3,binhthanh')
+  config.x.bedtypes = ENV.fetch('BEDTYPES', 'studio,1bed,2bed,3bed')
+  config.x.admin_account = ENV.fetch('ADMIN_ACCOUNT', 'admin')
+
   # Generate random VAPID keys
   vapid_key = Webpush.generate_key
   config.x.vapid_private_key = vapid_key.private_key

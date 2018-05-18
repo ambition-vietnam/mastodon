@@ -17,6 +17,8 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true, format: { with: /\A#{HASHTAG_NAME_RE}\z/i }
 
+  scope :find_by_fee_range, ->(fee, range) { where("name like '%usd' and to_number(translate(name, 'usd', ''), '00000000') between ? and ?", fee - range, fee + range) }
+
   def to_param
     name
   end

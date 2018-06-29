@@ -10,6 +10,9 @@ import UploadButtonContainer from '../containers/upload_button_container';
 import { defineMessages, injectIntl } from 'react-intl';
 import Collapsable from '../../../components/collapsable';
 import PrivacyDropdownContainer from '../containers/privacy_dropdown_container';
+import AreaTagDropdownContainer from '../containers/area_tag_dropdown_container';
+import SizeTagDropdownContainer from '../containers/size_tag_dropdown_container';
+import PriceTagDropdownContainer from '../containers/price_tag_dropdown_container';
 import SensitiveButtonContainer from '../containers/sensitive_button_container';
 import EmojiPickerDropdown from '../containers/emoji_picker_dropdown_container';
 import UploadFormContainer from '../containers/upload_form_container';
@@ -34,6 +37,9 @@ export default class ComposeForm extends ImmutablePureComponent {
     suggestion_token: PropTypes.string,
     suggestions: ImmutablePropTypes.list,
     privacy: PropTypes.string,
+    area: PropTypes.string,
+    size: PropTypes.string,
+    price: PropTypes.string,
     focusDate: PropTypes.instanceOf(Date),
     preselectDate: PropTypes.instanceOf(Date),
     is_submitting: PropTypes.bool,
@@ -182,6 +188,9 @@ export default class ComposeForm extends ImmutablePureComponent {
           <div className='compose-form__buttons'>
             <UploadButtonContainer />
             <PrivacyDropdownContainer />
+            <AreaTagDropdownContainer />
+            <SizeTagDropdownContainer />
+            <PriceTagDropdownContainer />
             <SensitiveButtonContainer />
           </div>
           <div className='character-counter__wrapper'><CharacterCounter max={500} text={text} /></div>

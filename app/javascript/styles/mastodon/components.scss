@@ -3014,7 +3014,10 @@ button.icon-button.active i.fa-retweet {
   filter: none;
 }
 
-.privacy-dropdown__dropdown {
+.privacy-dropdown__dropdown,
+.area-tag-dropdown__dropdown,
+.size-tag-dropdown__dropdown,
+.price-tag-dropdown__dropdown {
   position: absolute;
   background: $simple-background-color;
   box-shadow: 2px 4px 15px rgba($base-shadow-color, 0.4);
@@ -3023,7 +3026,10 @@ button.icon-button.active i.fa-retweet {
   overflow: hidden;
 }
 
-.privacy-dropdown__option {
+.privacy-dropdown__option,
+.area-tag-dropdown__option,
+.size-tag-dropdown__option,
+.price-tag-dropdown__option {
   color: $ui-base-color;
   padding: 10px;
   cursor: pointer;
@@ -3034,7 +3040,10 @@ button.icon-button.active i.fa-retweet {
     background: $ui-highlight-color;
     color: $primary-text-color;
 
-    .privacy-dropdown__option__content {
+    .privacy-dropdown__option__content,
+    .area-tag-dropdown__option__content,
+    .size-tag-dropdown__option__content,
+    .price-tag-dropdown__option__content {
       color: $primary-text-color;
 
       strong {
@@ -3048,14 +3057,20 @@ button.icon-button.active i.fa-retweet {
   }
 }
 
-.privacy-dropdown__option__icon {
+.privacy-dropdown__option__icon,
+.area-tag-dropdown__option__icon,
+.size-tag-dropdown__option__icon,
+.price-tag-dropdown__option__icon {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 10px;
 }
 
-.privacy-dropdown__option__content {
+.privacy-dropdown__option__content,
+.area-tag-dropdown__option__content,
+.size-tag-dropdown__option__content,
+.price-tag-dropdown__option__content {
   flex: 1 1 auto;
   color: darken($ui-primary-color, 24%);
 
@@ -3072,8 +3087,14 @@ button.icon-button.active i.fa-retweet {
   }
 }
 
-.privacy-dropdown.active {
-  .privacy-dropdown__value {
+.privacy-dropdown.active,
+.area-tag-dropdown.active,
+.size-tag-dropdown.active,
+.price-tag-dropdown.active {
+  .privacy-dropdown__value,
+  .area-tag-dropdown__value,
+  .size-tag-dropdown__value,
+  .price-tag-dropdown__value {
     background: $simple-background-color;
     border-radius: 4px 4px 0 0;
     box-shadow: 0 -4px 4px rgba($base-shadow-color, 0.1);
@@ -3091,7 +3112,10 @@ button.icon-button.active i.fa-retweet {
     }
   }
 
-  .privacy-dropdown__dropdown {
+  .privacy-dropdown__dropdown,
+  .area-tag-dropdown__dropdown,
+  .size-tag-dropdown__dropdown,
+  .price-tag-dropdown__dropdown {
     display: block;
     box-shadow: 2px 4px 6px rgba($base-shadow-color, 0.1);
   }
